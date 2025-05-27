@@ -3,63 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Selamat Datang di dalonet.com</title>
+  <title>Dalonet ISP - Internet Rumah Cepat & Stabil</title>
   <style>
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-      color: #fff;
+      color: #333;
+      background: #f4f7fa;
+    }
+    a {
+      color: #2575fc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background-color: #2575fc;
+      color: white;
+      padding: 15px 30px;
       display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    nav a {
+      margin-left: 20px;
+      font-weight: 600;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+      color: white;
       text-align: center;
-      padding: 20px;
+      padding: 80px 20px;
     }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
     }
-    p {
+    .hero p {
       font-size: 1.25rem;
       max-width: 600px;
-      margin-bottom: 2rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      margin: 0 auto 30px auto;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
     }
-    a.button {
+    .btn-primary {
       background-color: #fff;
       color: #2575fc;
-      padding: 12px 30px;
+      padding: 14px 40px;
+      font-weight: 700;
       border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 15px rgba(37,117,252,0.5);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255,255,255,0.7);
+      transition: all 0.3s ease;
+      display: inline-block;
     }
-    a.button:hover {
+    .btn-primary:hover {
+      background-color: #1a52d1;
+      color: white;
+      box-shadow: 0 6px 20px rgba(26,82,209,0.8);
+    }
+
+    /* Features */
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 60px 20px;
+    }
+    .feature-item {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 280px;
+      margin: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .feature-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .feature-item h3 {
+      margin-bottom: 15px;
+      color: #2575fc;
+    }
+    .feature-item p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Pricing */
+    .pricing {
+      background: #e6eaff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .pricing h2 {
+      margin-bottom: 40px;
+      color: #2575fc;
+    }
+    .pricing-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      width: 250px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #2575fc;
+    }
+    .card .price {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 20px 0;
+      color: #333;
+    }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-bottom: 25px;
+      color: #555;
+    }
+    .card ul li {
+      margin-bottom: 10px;
+    }
+    .btn-secondary {
+      display: inline-block;
       background-color: #2575fc;
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(37,117,252,0.8);
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
+    .btn-secondary:hover {
+      background-color: #1a52d1;
+    }
+
+    /* Testimoni */
+    .testimonials {
+      padding: 60px 20px;
+      background: white;
+      text-align: center;
+    }
+    .testimonials h2 {
+      color: #2575fc;
+      margin-bottom: 40px;
+    }
+    .testimonial-item {
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      font-style: italic;
+      color: #555;
+      position: relative;
+      padding: 20px 30px;
+      border-left: 6px solid #2575fc;
+      background: #f9faff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(37,117,252,0.1);
+    }
+    .testimonial-item::before {
+      content: "“";
+      font-size: 4rem;
+      position: absolute;
+      left: 10px;
+      top: 5px;
+      color: #2575fc;
+      opacity: 0.2;
+    }
+    .testimonial-author {
+      margin-top: 12px;
+      font-weight: 700;
+      color: #2575fc;
+    }
+
+    /* Contact */
+    .contact {
+      background: #2575fc;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .contact h2 {
+      margin-bottom: 20px;
+    }
+    .contact p {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* Footer */
     footer {
-      margin-top: auto;
+      background: #1a52d1;
+      color: white;
+      text-align: center;
+      padding: 15px 20px;
       font-size: 0.9rem;
-      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .features, .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-item, .card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Halo, Selamat Datang di dalonet.com!</h1>
-  <p>
-    Ini adalah website sederhana yang dipublikasikan menggunakan GitHub Pages.  
-    Kamu bisa memodifikasi halaman ini sesuai keinginanmu untuk memperkenalkan dirimu, produk, atau proyek yang kamu miliki.
-  </p>
-  <a href="https://github.com/dalonet" target="_blank" rel="noopener" class="button">Lihat GitHub Saya</a>
+
+  <header>
+    <h1>Dalonet ISP</h1>
+    <nav>
+      <a href="#features">Fitur</a>
+      <a href="#pricing">Paket</a>
+      <a href="#testimonials">Testimoni</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Internet Cepat & Stabil untuk Rumah Anda</h2>
+    <p>Nikmati koneksi internet terbaik dengan harga terjangkau dan layanan pelanggan yang ramah.</p>
+    <a href="#pricing" class="btn-primary">Lihat Paket</a>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature-item">
+      <h3>Kecepatan Tinggi</h3>
+      <p>Koneksi hingga 100 Mbps tanpa buffering, ideal untuk streaming dan gaming.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Stabil & Handal</h3>
+      <p>Jaringan yang selalu siap dan minim gangguan untuk aktivitas online nonstop.</p>
+    </div>
+    <div class="feature-item">
+      <h3>Layanan Pelanggan 24/7</h3>
+      <p>Tim support kami siap membantu kapan saja via telepon, chat, dan email.</p>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <h2>Paket Internet Kami</h2>
+    <div class="pricing-cards">
+      <div class="card">
+        <h3>Paket Basic</h3>
+        <div class="price">Rp250.000<span style="font-size:1rem;">/bulan</span></div>
+        <ul>
+          <li>Kecepatan sampai 20 Mbps</li>
+          <li>Kuota Unlimited</li>
+          <li>Free Instalasi</li>
+          <li>Support 24/7</li>
+        </ul>
+        <a href="#contact" class="btn-secondary">Daftar Sekarang</a>
+      </div>
+      <div class="card">
+        <h3>Paket Pro</h3>
+        <div class="price">Rp400.000<span style="font-size:1rem;">/bulan</span></div>
+        <ul>
+          <li>Kecepatan sampai 50 Mbps</li>
+          <li>Kuota Unlimited</li>
+          <li>Free Instalasi & Router</li>
+          <li>Support 24/7</li>
+        </ul>
+        <a href="#contact" class="btn-secondary">Daftar Sekarang</a>
+      </div>
+      <div class="card">
+        <h3>Paket Premium</h3>
+        <div class="price">Rp650.000<span style="font-size:1rem;">/bulan</span></div>
+        <ul>
+          <li>Kecepatan sampai 100 Mbps</li>
+          <li>Kuota Unlimited</li>
+          <li>Free Instalasi, Router & Maintenance</li>
+          <li>Support 24/7</li>
+        </ul>
+        <a href="#contact" class="btn-secondary">Daftar Sekarang</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>Apa Kata Pelanggan Kami</h2>
+    <div class="testimonial-item">
+      <p>Layanan Dalonet sangat cepat dan stabil, cocok untuk keluarga saya yang sering streaming dan bekerja dari rumah.</p>
+      <div class="testimonial-author">— Andi, Surabaya</div>
+    </div>
+    <div class="testimonial-item">
+      <p>Tim support selalu sigap membantu, instalasi juga cepat tanpa ribet. Recommended banget!</p>
+      <div class="testimonial-author">— Sari, Jakarta</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Hubungi Kami</h2>
+    <p>Telepon: <a href="tel:+628123456789">+62 812-3456-789</a></p>
+    <p>Email: <a href="mailto:info@dalonetisp.com">info@dalonetisp.com</a></p>
+    <p>Alamat: Jl. Merpati No. 10, Kota Anda</p>
+  </section>
+
   <footer>
-    &copy; 2025 dalonet. All rights reserved.
+    &copy; 2025 PT. Dalahas Local Network. Semua hak cipta dilindungi.
   </footer>
+
 </body>
 </html>

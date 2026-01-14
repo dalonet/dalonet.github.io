@@ -4,7 +4,7 @@ title: Daftar Port Game Populer
 date: 2026-01-10
 category: Network
 author: Dalonet
-thumbnail: assets/imgs/blog/standard_blog_thumb01.jpg
+thumbnail: "{{ site.baseurl }}/assets/imgs/blog/standard_blog_thumb01.jpg"
 excerpt: Daftar Port Game Populer Terupdate.
 ---
 

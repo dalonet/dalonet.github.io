@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<section class="breadcrumb-area breadcrumb-bg">
+  <div class="container">
+    <h3 class="title">{{ page.title }}</h3>
+  </div>
+</section>
+
+<section class="blog-details-area section-space-top section-meadium-bottom">
+  <div class="container">
+
+    <ul class="blog-post-meta">
+      <li>{{ page.category }}</li>
+      <li>{{ page.author }}</li>
+      <li>{{ page.date | date: "%d %B %Y" }}</li>
+    </ul>
+
+    <div class="standard-blog-content blog-details-content">
+      {{ content }}
+    </div>
+
+  </div>
+</section>

@@ -77,4 +77,3 @@ Port jaringan sangat penting untuk pengalaman bermain game yang optimal. Berikut
 ```powershell
 # Contoh membuka port di Windows Firewall
 New-NetFirewallRule -DisplayName "Mobile Legends Ports" -Direction Inbound -Protocol TCP -LocalPort 30071,30021,30102 -Action Allow
-

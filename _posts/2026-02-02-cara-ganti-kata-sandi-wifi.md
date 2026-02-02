@@ -17,27 +17,31 @@ Mengganti kata sandi WiFi secara berkala adalah langkah penting untuk menjaga ke
 2. **Masukkan alamat IP router** di URL browser: `http://192.168.1.1`
    *Catatan: Alamat IP bisa berbeda tergantung merek router (192.168.0.1 atau 10.0.0.1)*
 
-![Akses Halaman Admin]({{ site.baseurl }}/assets/imgs/blog/ganti-sandi-wifi1.jpg)
-
 ### Langkah 2: Login ke Router
 1. **Masukkan username dan password** default router:
    - Username: `user`
    - Password: `user`
 2. **Klik tombol Login**
 
-![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/ganti-sandi-wifi2.jpg)
+![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.JPG)
 
-*Catatan: Jika username/password default tidak bekerja, cek manual router atau reset router ke pengaturan pabrik.*
+*Catatan: Jika username/password default tidak bekerja, silahkan hubungi admin.*
 
 ### Langkah 3: Navigasi ke Menu Network
 Setelah login berhasil, **klik menu "Network"** di sidebar atau dashboard.
+
+![Sidebar Network]({{ site.baseurl }}/assets/imgs/blog/Capture2.JPG)
 
 ### Langkah 4: Pilih WiFi 2.4GHz
 1. **Klik "Wlan Radio 2.4G"** untuk mengatur jaringan WiFi 2.4GHz
    *Catatan: Beberapa router juga memiliki opsi untuk WiFi 5GHz*
 
+![Wlan Radio 2.4G]({{ site.baseurl }}/assets/imgs/blog/Capture3.JPG)
+
 ### Langkah 5: Buka Pengaturan Keamanan
 1. Di menu Wlan Radio 2.4G, **klik tab "Security"**
+
+![Tab Security]({{ site.baseurl }}/assets/imgs/blog/Capture4.JPG)
 
 ### Langkah 6: Pilih Jaringan WiFi
 1. **Pada pilihan "Choose SSID"**, klik dan **pilih "SSID2"**
@@ -49,26 +53,17 @@ Setelah login berhasil, **klik menu "Network"** di sidebar atau dashboard.
    - Minimal 8 karakter, lebih panjang lebih baik
 2. **Klik tombol "Submit"** atau "Save"
 
-![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/ganti-sandi-wifi3.jpg)
+![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/Capture5.JPG)
 
 ## Setelah Mengganti Password
 - **Anda akan terputus dari WiFi** secara otomatis
 - **Hubungkan kembali perangkat** Anda menggunakan kata sandi baru
 - **Perbarui kata sandi** di semua perangkat yang terhubung (smartphone, laptop, TV, dll)
 
-## Tips Keamanan WiFi
-1. **Ganti kata sandi** setiap 3-6 bulan
-2. **Gunakan WPA2/WPA3** encryption (jangan WEP)
-3. **Nonaktifkan WPS** jika tidak diperlukan
-4. **Buat kata sandi yang kuat** (minimal 12 karakter)
-5. **Perbarui firmware router** secara berkala
-
 ## Troubleshooting
 Jika mengalami masalah:
 1. **Router tidak bisa diakses**: Pastikan perangkat terhubung ke WiFi router tersebut
-2. **Lupa password admin**: Reset router menggunakan tombol reset fisik
+2. **Password default tidak bisa digunakan**: Silahkan hubungi admin
 3. **Tidak bisa konek setelah ganti password**: Restart router dan perangkat Anda
 
 ---
-
-*Artikel ini ditulis oleh Dalonet. Terakhir diperbarui: 2 Februari 2026.*

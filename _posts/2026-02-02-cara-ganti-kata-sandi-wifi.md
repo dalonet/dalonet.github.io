@@ -4,7 +4,7 @@ title: Cara Ganti Kata Sandi WiFi
 date: 2026-02-02
 category: Network
 author: Dalonet
-thumbnail: "{{ site.baseurl }}/assets/imgs/blog/ganti-sandi-wifi1.jpg"
+thumbnail: "assets/imgs/blog/ganti-sandi-wifi1.jpg"
 excerpt: "Panduan lengkap cara mengganti kata sandi WiFi untuk keamanan jaringan yang lebih baik."
 ---
 

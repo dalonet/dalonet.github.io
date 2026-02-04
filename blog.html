@@ -2,196 +2,277 @@
 layout: default
 title: Dalonet - Blog
 ---
-        <!-- breadcrumb-area -->
-        <section class="breadcrumb-area breadcrumb-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-8">
-                        <div class="breadcrumb-content">
-                            <h3 class="title">Blog Page</h3>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
+
+<!-- breadcrumb-area -->
+<section class="breadcrumb-area breadcrumb-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8">
+        <div class="breadcrumb-content">
+          <h3 class="title">Blog Page</h3>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- breadcrumb-area-end -->
+
+<!-- blog-area -->
+<section class="standard-blog-area section-space-top section-meadium-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-8 col-lg-7">
+        {% for post in site.posts limit:5 %}
+        <div class="standard-blog-item mb-40">
+          <div class="standard-post-thumb">
+            <a href="{{ post.url }}">
+              <img
+                src="{{ site.baseurl }}/{{ post.thumbnail }}"
+                alt=""
+                style="
+                  width: 100%;
+                  height: 250px;
+                  object-fit: cover;
+                  border-radius: 8px;
+                "
+              />
+            </a>
+          </div>
+
+          <ul class="blog-post-meta">
+            <li><i class="far fa-folder-open"></i> {{ post.category }}</li>
+            <li><i class="flaticon-user"></i> {{ post.author }}</li>
+            <li>
+              <i class="flaticon-calendar"></i>
+              {{ post.date | date: "%d %B %Y" }}
+            </li>
+          </ul>
+
+          <div class="standard-blog-content">
+            <h2 class="title">
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+
+            <p>{{ post.excerpt }}</p>
+
+            <a href="{{ post.url }}" class="btn transparent-btn"
+              >Selengkapnya</a
+            >
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="pagination-wrap">
+          <ul class="pagination">
+            <li>
+              <a href="#"><i class="far fa-chevron-left"></i></a>
+            </li>
+            <li class="active"><a href="#">01</a></li>
+            <li><a href="#">02</a></li>
+            <li><a href="#">03</a></li>
+            <li>
+              <a href="#"><i class="far fa-chevron-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-5">
+        <aside class="blog-sidebar">
+          <div class="widget">
+            <form action="#" class="sidebar-form">
+              <input type="text" placeholder="Search Keywords" />
+              <button>Cari</button>
+            </form>
+          </div>
+          <div class="widget">
+            <h4 class="sidebar-widget-title">Ikuti Kami</h4>
+            <ul class="sidebar-social">
+              <li>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="widget">
+            <h4 class="sidebar-widget-title">Browse Category</h4>
+            <ul class="sidebar-cat-list">
+              <li>
+                <a href="blog.html">All Categories <span>(252)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Mouse <span>(58)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Gear Box <span>(10)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Hard Disk <span>(96)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Looking Glass <span>(82)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Monitor <span>(30)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">SSD <span>(10)</span></a>
+              </li>
+              <li>
+                <a href="blog.html">Processor <span>(42)</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="widget">
+            <h4 class="sidebar-widget-title">Postingan Terbaru</h4>
+            <ul class="rc-post-list">
+              <li>
+                <div class="rc-post-thumb">
+                  <a href="blog-details.html"
+                    ><img
+                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb01.jpg"
+                      alt=""
+                  /></a>
                 </div>
-            </div>
-        </section>
-        <!-- breadcrumb-area-end -->
-
-        <!-- blog-area -->
-        <section class="standard-blog-area section-space-top section-meadium-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-8 col-lg-7">
-
-                        {% for post in site.posts limit:5 %}
-<div class="standard-blog-item mb-40">
-
-  <div class="standard-post-thumb">
-    <a href="{{ post.url }}">
-<img src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="" style="width:100%;height:250px;object-fit:cover;border-radius:8px;">
-    </a>
+                <div class="rc-post-content">
+                  <h6 class="title">
+                    <a href="blog-details.html"
+                      >Broadband Connection Needs To Everyone Life</a
+                    >
+                  </h6>
+                  <span class="date">28 April 2024</span>
+                </div>
+              </li>
+              <li>
+                <div class="rc-post-thumb">
+                  <a href="blog-details.html"
+                    ><img
+                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb02.jpg"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="rc-post-content">
+                  <h6 class="title">
+                    <a href="blog-details.html"
+                      >Why Businesses are Hybrid Network Approach</a
+                    >
+                  </h6>
+                  <span class="date">28 April 2024</span>
+                </div>
+              </li>
+              <li>
+                <div class="rc-post-thumb">
+                  <a href="blog-details.html"
+                    ><img
+                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb03.jpg"
+                      alt=""
+                  /></a>
+                </div>
+                <div class="rc-post-content">
+                  <h6 class="title">
+                    <a href="blog-details.html"
+                      >Here to Put a Spring In Step This September</a
+                    >
+                  </h6>
+                  <span class="date">28 April 2024</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="widget">
+            <h4 class="sidebar-widget-title">Tag Populer</h4>
+            <ul class="sidebar-tag-list">
+              <li><a href="blog.html">Internet</a></li>
+              <li><a href="blog.html">Murah</a></li>
+              <li><a href="blog.html">Jaringan</a></li>
+              <li><a href="blog.html">Keuangan</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
   </div>
+</section>
+<!-- blog-area-end -->
 
-  <ul class="blog-post-meta">
-    <li><i class="far fa-folder-open"></i> {{ post.category }}</li>
-    <li><i class="flaticon-user"></i> {{ post.author }}</li>
-    <li>
-      <i class="flaticon-calendar"></i>
-      {{ post.date | date: "%d %B %Y" }}
-    </li>
-  </ul>
-
-  <div class="standard-blog-content">
-    <h2 class="title">
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </h2>
-
-    <p>{{ post.excerpt }}</p>
-
-    <a href="{{ post.url }}" class="btn transparent-btn">Selengkapnya</a>
+<!-- brand-area -->
+<div class="brand-area section-meadium-bottom">
+  <div class="container">
+    <div class="row brand-active">
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item01.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item02.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item03.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item04.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item05.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="col">
+        <div class="brand-item">
+          <a href="#"
+            ><img
+              src="{{ site.baseurl }}/assets/imgs/brand/brand_item05.png"
+              alt=""
+          /></a>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
-{% endfor %}
-
-
-                        
-                        <div class="pagination-wrap">
-                            <ul class="pagination">
-                                <li><a href="#"><i class="far fa-chevron-left"></i></a></li>
-                                <li class="active"><a href="#">01</a></li>
-                                <li><a href="#">02</a></li>
-                                <li><a href="#">03</a></li>
-                                <li><a href="#"><i class="far fa-chevron-right"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-5">
-                        <aside class="blog-sidebar">
-                            <div class="widget">
-                                <form action="#" class="sidebar-form">
-                                    <input type="text" placeholder="Search Keywords">
-                                    <button>Cari</button>
-                                </form>
-                            </div>
-                            <div class="widget">
-                                <h4 class="sidebar-widget-title">Ikuti Kami</h4>
-                                <ul class="sidebar-social">
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="widget">
-                                <h4 class="sidebar-widget-title">Browse Category</h4>
-                                <ul class="sidebar-cat-list">
-                                    <li><a href="blog.html">All Categories <span>(252)</span></a></li>
-                                    <li><a href="blog.html">Mouse <span>(58)</span></a></li>
-                                    <li><a href="blog.html">Gear Box <span>(10)</span></a></li>
-                                    <li><a href="blog.html">Hard Disk <span>(96)</span></a></li>
-                                    <li><a href="blog.html">Looking Glass <span>(82)</span></a></li>
-                                    <li><a href="blog.html">Monitor <span>(30)</span></a></li>
-                                    <li><a href="blog.html">SSD <span>(10)</span></a></li>
-                                    <li><a href="blog.html">Processor <span>(42)</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="widget">
-                                <h4 class="sidebar-widget-title">Postingan Terbaru</h4>
-                                <ul class="rc-post-list">
-                                    <li>
-                                        <div class="rc-post-thumb">
-                                            <a href="blog-details.html"><img src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb01.jpg"
-                                                    alt=""></a>
-                                        </div>
-                                        <div class="rc-post-content">
-                                            <h6 class="title"><a href="blog-details.html">Broadband Connection Needs To
-                                                    Everyone Life</a></h6>
-                                            <span class="date">28 April 2024</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="rc-post-thumb">
-                                            <a href="blog-details.html"><img src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb02.jpg"
-                                                    alt=""></a>
-                                        </div>
-                                        <div class="rc-post-content">
-                                            <h6 class="title"><a href="blog-details.html">Why Businesses are Hybrid
-                                                    Network Approach</a></h6>
-                                            <span class="date">28 April 2024</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="rc-post-thumb">
-                                            <a href="blog-details.html"><img src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb03.jpg"
-                                                    alt=""></a>
-                                        </div>
-                                        <div class="rc-post-content">
-                                            <h6 class="title"><a href="blog-details.html">Here to Put a Spring In Step
-                                                    This September</a></h6>
-                                            <span class="date">28 April 2024</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="widget">
-                                <h4 class="sidebar-widget-title">Tag Populer</h4>
-                                <ul class="sidebar-tag-list">
-                                    <li><a href="blog.html">Internet</a></li>
-                                    <li><a href="blog.html">Murah</a></li>
-                                    <li><a href="blog.html">Jaringan</a></li>
-                                    <li><a href="blog.html">Keuangan</a></li>
-                                </ul>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- blog-area-end -->
-
-        <!-- brand-area -->
-        <div class="brand-area  section-meadium-bottom">
-            <div class="container">
-                <div class="row brand-active">
-                    <div class="col">
-                        <div class="brand-item">
-                            <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item01.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="brand-item">
-                            <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item02.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="brand-item">
-                            <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item03.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="brand-item">
-                            <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item04.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="brand-item">
-                            <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item05.png" alt=""></a>
-                        </div>
-                </div>
-                <div class="col">
-                    <div class="brand-item">
-                        <a href="#"><img src="{{ site.baseurl }}/assets/imgs/brand/brand_item05.png" alt=""></a>
-                    </div>
-                </div>
-            </div>
-           </div>
-         </div>
-        <!-- brand-area-end -->
+<!-- brand-area-end -->

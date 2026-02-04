@@ -15,7 +15,8 @@ Mengganti kata sandi WiFi secara berkala adalah langkah penting untuk menjaga ke
 ### Langkah 1: Akses Halaman Admin Router
 1. **Buka browser** di perangkat yang terhubung ke WiFi
 2. **Masukkan alamat IP router** di URL browser: `http://192.168.1.1`
-   *Catatan: Alamat IP bisa berbeda tergantung merek router (192.168.0.1 atau 10.0.0.1)*
+
+*Catatan: Alamat IP bisa berbeda tergantung merek router (192.168.0.1 atau 10.0.0.1)*
 
 ### Langkah 2: Login ke Router
 1. **Masukkan username dan password** default router:

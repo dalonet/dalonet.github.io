@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Internet Saya Kok Lemot? Ini Penjelasan Jujur yang Perlu Anda Ketahui"
-date: 2026-02-06
+date: 2026-02-05
 category: Network
 author: Dalonet
 thumbnail: "assets/imgs/blog/internet-upto-lemot.jpg"

@@ -1,70 +1,236 @@
 ---
 layout: post
-title: Cara Ganti Kata Sandi WiFi
+title: "Cara Ganti Kata Sandi WiFi dengan Aman (Panduan Mudah)"
 date: 2026-02-02
 category: Network
 author: Dalonet
 thumbnail: "assets/imgs/blog/ganti-sandi-wifi1.jpg"
-excerpt: "Panduan lengkap cara mengganti kata sandi WiFi untuk keamanan jaringan yang lebih baik."
+excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaringan tidak digunakan orang lain."
 ---
 
-## Bagaimana Cara Mengganti Kata Sandi WiFi Saya?
+<style>
+.hero {
+  background: linear-gradient(135deg, #020617, #1e3a8a);
+  color: #ffffff;
+  padding: 46px 34px;
+  border-radius: 22px;
+  margin-bottom: 46px;
+}
 
-Mengganti kata sandi WiFi secara berkala adalah langkah penting untuk menjaga keamanan jaringan rumah atau kantor Anda. Berikut adalah panduan langkah demi langkah:
+.hero h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.2rem;
+  color: #ffffff !important;
+}
 
-### Langkah 1: Akses Halaman Admin Router
-1. **Buka browser** di perangkat yang terhubung ke WiFi
-2. **Masukkan alamat IP router** di URL browser: `http://192.168.1.1`
+.hero p {
+  color: #e5e7eb !important;
+  max-width: 720px;
+  font-size: 1.05rem;
+}
 
-*Catatan: Alamat IP bisa berbeda tergantung merek router (192.168.0.1 atau 10.0.0.1)*
+.step {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  margin: 36px 0;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
 
-### Langkah 2: Login ke Router
-1. **Masukkan username dan password** default router:
-   - Username: `user`
-   - Password: `user`
-2. **Klik tombol Login**
+.step h3 {
+  margin-top: 0;
+}
 
-![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.JPG)
+.badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
 
-*Catatan: Jika username/password default tidak bekerja, silahkan hubungi admin.*
+.note {
+  background: #f1f5f9;
+  border-left: 5px solid #2563eb;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin: 24px 0;
+}
 
-### Langkah 3: Navigasi ke Menu Network
-Setelah login berhasil, **klik menu "Network"** di sidebar atau dashboard.
+.warning {
+  background: #fff7ed;
+  border-left: 5px solid #f97316;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin: 24px 0;
+}
 
-![Sidebar Network]({{ site.baseurl }}/assets/imgs/blog/Capture2.JPG)
+.step img {
+  margin-top: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-### Langkah 4: Pilih WiFi 2.4GHz
-1. **Klik "Wlan Radio 2.4G"** untuk mengatur jaringan WiFi 2.4GHz
-   *Catatan: Beberapa router juga memiliki opsi untuk WiFi 5GHz*
+.checklist li {
+  margin-bottom: 8px;
+}
+</style>
 
-![Wlan Radio 2.4G]({{ site.baseurl }}/assets/imgs/blog/Capture3.JPG)
-
-### Langkah 5: Buka Pengaturan Keamanan
-1. Di menu Wlan Radio 2.4G, **klik tab "Security"**
-
-![Tab Security]({{ site.baseurl }}/assets/imgs/blog/Capture4.JPG)
-
-### Langkah 6: Pilih Jaringan WiFi
-1. **Pada pilihan "Choose SSID"**, klik dan **pilih "SSID2"**
-   *Catatan: SSID adalah nama jaringan WiFi Anda*
-
-### Langkah 7: Ganti Kata Sandi
-1. **Masukkan kata sandi baru** di kolom "WPA Passphrase"
-   - Gunakan kombinasi huruf, angka, dan simbol untuk keamanan maksimal
-   - Minimal 8 karakter, lebih panjang lebih baik
-2. **Klik tombol "Submit"** atau "Save"
-
-![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/Capture5.JPG)
-
-## Setelah Mengganti Password
-- **Anda akan terputus dari WiFi** secara otomatis
-- **Hubungkan kembali perangkat** Anda menggunakan kata sandi baru
-- **Perbarui kata sandi** di semua perangkat yang terhubung (smartphone, laptop, TV, dll)
-
-## Troubleshooting
-Jika mengalami masalah:
-1. **Router tidak bisa diakses**: Pastikan perangkat terhubung ke WiFi router tersebut
-2. **Password default tidak bisa digunakan**: Silahkan hubungi admin
-3. **Tidak bisa konek setelah ganti password**: Restart router dan perangkat Anda
+<div class="hero">
+<h1>Cara Mengganti Kata Sandi WiFi</h1>
+<p>
+Jika WiFi terasa lambat atau banyak perangkat tidak dikenal terhubung,
+mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
+</p>
+</div>
 
 ---
+
+## Kenapa Password WiFi Perlu Diganti?
+
+<div class="note">
+<b>Alasan paling umum:</b>
+<ul class="checklist">
+<li>WiFi dibagikan ke banyak orang</li>
+<li>Perangkat tidak dikenal ikut terhubung</li>
+<li>Kecepatan internet terasa menurun</li>
+<li>Keamanan jaringan ingin ditingkatkan</li>
+</ul>
+</div>
+
+---
+
+## Langkah-Langkah Mengganti Kata Sandi WiFi
+
+<div class="step">
+<span class="badge">Langkah 1</span>
+<h3>Akses Halaman Admin Router</h3>
+
+1. Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>
+2. Buka browser (Chrome, Firefox, Safari)
+3. Ketik alamat berikut di kolom URL: http://192.168.1.1
+
+
+<b>Catatan:</b>  
+Beberapa router menggunakan alamat lain seperti:
+- `192.168.0.1`
+- `10.0.0.1`
+</div>
+
+---
+
+<div class="step">
+<span class="badge">Langkah 2</span>
+<h3>Login ke Router</h3>
+
+Masukkan username dan password router.
+
+Contoh default:
+- Username: `user`
+- Password: `user`
+
+![Halaman Login](/assets/imgs/blog/Capture1.JPG)
+
+<div class="warning">
+Jika username atau password tidak diketahui atau sudah diganti,
+silakan hubungi admin atau teknisi.
+</div>
+</div>
+
+---
+
+<div class="step">
+<span class="badge">Langkah 3</span>
+<h3>Masuk ke Menu Network</h3>
+
+Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
+
+![Menu Network](/assets/imgs/blog/Capture2.JPG)
+</div>
+
+---
+
+<div class="step">
+<span class="badge">Langkah 4</span>
+<h3>Pilih WiFi 2.4GHz</h3>
+
+Klik menu <b>Wlan Radio 2.4G</b>  
+(Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
+
+![Wlan Radio](/assets/imgs/blog/Capture3.JPG)
+</div>
+
+---
+
+<div class="step">
+<span class="badge">Langkah 5</span>
+<h3>Buka Pengaturan Keamanan</h3>
+
+Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
+
+![Security Tab](/assets/imgs/blog/Capture4.JPG)
+</div>
+
+---
+
+<div class="step">
+<span class="badge">Langkah 6</span>
+<h3>Ganti Kata Sandi WiFi</h3>
+
+1. Pilih SSID (nama WiFi Anda)
+2. Masukkan password baru di kolom <b>WPA Passphrase</b>
+
+Tips password aman:
+- Minimal 8 karakter
+- Kombinasi huruf & angka
+- Hindari nama atau tanggal lahir
+
+Klik <b>Submit / Save</b>
+
+![Ganti Password](/assets/imgs/blog/Capture5.JPG)
+</div>
+
+---
+
+## Setelah Password Diganti
+
+<div class="note">
+Hal yang akan terjadi:
+<ul class="checklist">
+<li>Semua perangkat akan terputus otomatis</li>
+<li>Hubungkan ulang dengan password baru</li>
+<li>Perbarui password di HP, laptop, TV, dll</li>
+</ul>
+</div>
+
+---
+
+## Jika Terjadi Kendala
+
+<div class="warning">
+<b>Solusi cepat:</b>
+<ul class="checklist">
+<li>Tidak bisa login → pastikan terhubung ke WiFi</li>
+<li>Password salah → hubungi admin</li>
+<li>WiFi tidak muncul → restart router</li>
+</ul>
+</div>
+
+---
+
+## Kesimpulan
+
+Mengganti kata sandi WiFi adalah langkah sederhana namun sangat penting
+untuk menjaga keamanan dan kestabilan jaringan.
+
+Jika Anda ragu atau tidak ingin mengubah sendiri,
+tim Dalonet siap membantu.
+
+---
+
+**Ditulis oleh:** Dalonet  
+**Kategori:** Network – Edukasi  
+**Tag:** #wifi #keamanan #passwordwifi #jaringan
+

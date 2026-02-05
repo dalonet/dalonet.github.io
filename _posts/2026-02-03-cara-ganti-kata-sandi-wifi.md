@@ -110,7 +110,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 
 1. Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>
 2. Buka browser (Chrome, Firefox, Safari)
-3. Ketik alamat berikut di kolom URL: `http://192.168.1.1`
+3. Ketik alamat berikut di kolom URL: http://192.168.1.1
 
 
 <b>Catatan:</b>  
@@ -131,7 +131,7 @@ Contoh default:
 - Username: `user`
 - Password: `user`
 
-![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.jpg)
+<img src="/assets/imgs/blog/Capture1.jpg" alt="Halaman Login">
 
 <div class="warning">
 Jika username atau password tidak diketahui atau sudah diganti,
@@ -146,9 +146,9 @@ silakan hubungi admin atau teknisi.
 <h3>Masuk ke Menu Network</h3>
 
 Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
-</div>
-![Menu Network](/assets/imgs/blog/Capture2.jpg)
 
+<img src="/assets/imgs/blog/Capture2.jpg" alt="Menu Network">
+</div>
 
 ---
 
@@ -159,7 +159,7 @@ Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashbo
 Klik menu <b>Wlan Radio 2.4G</b>  
 (Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
 
-![Wlan Radio](/assets/imgs/blog/Capture3.jpg)
+<img src="/assets/imgs/blog/Capture3.jpg" alt="WLAN Radio">
 </div>
 
 ---
@@ -170,7 +170,7 @@ Klik menu <b>Wlan Radio 2.4G</b>
 
 Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 
-![Security Tab](/assets/imgs/blog/Capture4.jpg)
+<img src="/assets/imgs/blog/Capture4.jpg" alt="Security Tab">
 </div>
 
 ---
@@ -189,7 +189,7 @@ Tips password aman:
 
 Klik <b>Submit / Save</b>
 
-![Ganti Password](/assets/imgs/blog/Capture5.jpg)
+<img src="/assets/imgs/blog/Capture5.JPG" alt="Ganti Password">
 </div>
 
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Perbedaan Internet Up To, Prioritas, dan Dedicated (Biar Nggak Salah Paham)"
-date: 2026-02-05
+date: 2026-02-02
 category: Network
 author: Dalonet
 thumbnail: "assets/imgs/blog/jenis-internet.jpg"

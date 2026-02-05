@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cara Ganti Kata Sandi WiFi dengan Aman (Panduan Mudah)"
-date: 2026-02-02
+date: 2026-02-03
 category: Network
 author: Dalonet
 thumbnail: "assets/imgs/blog/ganti-sandi-wifi1.jpg"
@@ -131,7 +131,7 @@ Contoh default:
 - Username: `user`
 - Password: `user`
 
-![Halaman Login](/assets/imgs/blog/Capture1.JPG)
+![Halaman Login](/assets/imgs/blog/Capture1.jpg)
 
 <div class="warning">
 Jika username atau password tidak diketahui atau sudah diganti,
@@ -147,7 +147,7 @@ silakan hubungi admin atau teknisi.
 
 Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
 
-![Menu Network](/assets/imgs/blog/Capture2.JPG)
+![Menu Network](/assets/imgs/blog/Capture2.jpg)
 </div>
 
 ---
@@ -159,7 +159,7 @@ Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashbo
 Klik menu <b>Wlan Radio 2.4G</b>  
 (Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
 
-![Wlan Radio](/assets/imgs/blog/Capture3.JPG)
+![Wlan Radio](/assets/imgs/blog/Capture3.jpg)
 </div>
 
 ---
@@ -170,7 +170,7 @@ Klik menu <b>Wlan Radio 2.4G</b>
 
 Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 
-![Security Tab](/assets/imgs/blog/Capture4.JPG)
+![Security Tab](/assets/imgs/blog/Capture4.jpg)
 </div>
 
 ---
@@ -189,7 +189,7 @@ Tips password aman:
 
 Klik <b>Submit / Save</b>
 
-![Ganti Password](/assets/imgs/blog/Capture5.JPG)
+![Ganti Password](/assets/imgs/blog/Capture5.jpg)
 </div>
 
 ---

@@ -8,91 +8,163 @@ thumbnail: "assets/imgs/blog/jenis-internet.jpg"
 excerpt: "Memahami perbedaan jenis layanan internet agar dapat memilih koneksi yang paling sesuai dengan kebutuhan penggunaan."
 ---
 
+<style>
+.post-content h2 {
+  margin-top: 48px;
+}
+
+.info-box {
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 16px 18px;
+  margin: 24px 0;
+  border-radius: 6px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin: 32px 0;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.compare-table th {
+  background: #1e293b;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+}
+
+.compare-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.compare-table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.compare-table td:first-child {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  margin-right: 6px;
+}
+</style>
+
 ## Pengenalan Jenis Layanan Internet
 
-Dalam dunia jaringan, terdapat beberapa jenis layanan internet yang dibedakan berdasarkan metode pembagian bandwidth, tingkat stabilitas, dan peruntukannya. Tiga jenis yang paling umum digunakan adalah **Internet Up To**, **Internet Up To Prioritas**, dan **Internet 1:1 Dedicated**.
+Dalam dunia jaringan, layanan internet dibedakan berdasarkan metode pembagian bandwidth, tingkat stabilitas, serta peruntukan penggunaannya. Tiga jenis layanan yang paling umum digunakan adalah **Internet Up To**, **Internet Up To Prioritas**, dan **Internet 1:1 Dedicated**.
 
-Memahami perbedaannya akan membantu menentukan layanan yang paling tepat sesuai kebutuhan penggunaan, baik untuk rumah, usaha, maupun lingkungan bisnis.
+Memahami perbedaannya akan membantu Anda menentukan layanan internet yang paling sesuai, baik untuk kebutuhan rumah, usaha, maupun operasional bisnis.
 
 ---
 
 ## 1. Internet "Up To" (Best Effort)
 
 ### Apa itu Internet Up To?
-Internet Up To adalah layanan internet dengan sistem *best effort*, di mana kecepatan yang didapat bersifat hingga (maksimal) dan tidak dijamin setiap saat.
+Internet Up To adalah layanan internet dengan sistem *best effort*, di mana kecepatan yang diperoleh bersifat hingga (maksimal) dan tidak dijamin setiap saat.
 
-### Karakteristik Utama
-- Kecepatan bersifat **hingga (up to)**
-- Bandwidth digunakan **bersama (sharing)**
+<div class="info-box">
+<b>Karakteristik Utama</b><br>
+<span class="badge">Sharing</span>
+<span class="badge">Up To Speed</span>
+<span class="badge">Non-Kritis</span>
+</div>
+
+- Kecepatan bersifat hingga (up to)
+- Bandwidth digunakan bersama
 - Tidak ada jaminan kecepatan minimum
-- Performa dapat berubah tergantung kepadatan jaringan
+- Performa dapat berubah saat jaringan padat
 
 ### Cara Kerja
 ![Diagram Internet Up To]({{ site.baseurl }}/assets/imgs/blog/diagram-up-to.jpg)
 
-Internet jenis ini bekerja dengan membagi satu kapasitas bandwidth ke banyak pengguna. Saat trafik rendah, kecepatan bisa mendekati maksimal. Saat jam sibuk, kecepatan dapat menurun karena digunakan bersama.
+Bandwidth dibagi ke banyak pengguna. Saat trafik rendah, kecepatan bisa optimal. Saat jam sibuk, performa dapat menurun.
 
 ### Cocok Untuk
 - Rumah tangga
-- Penggunaan harian
-- Browsing, streaming, media sosial
-- Aktivitas non-kritis
+- Browsing dan streaming
+- Aktivitas harian non-kritis
 
 ---
 
 ## 2. Internet "Up To Prioritas"
 
 ### Apa itu Internet Up To Prioritas?
-Internet Prioritas adalah layanan dengan jaminan kecepatan minimum tertentu, namun masih menggunakan sistem sharing pada bagian inti jaringan.
+Internet Prioritas adalah layanan dengan jaminan kecepatan minimum tertentu, namun masih berbagi bandwidth di bagian core network.
 
-### Karakteristik Utama
-- Kecepatan minimum **lebih terjaga**
-- Prioritas trafik dibanding pengguna reguler
-- SLA lebih baik dibanding Up To biasa
-- Performa lebih stabil
+<div class="info-box">
+<b>Karakteristik Utama</b><br>
+<span class="badge">Prioritas Trafik</span>
+<span class="badge">Stabil</span>
+<span class="badge">Produktif</span>
+</div>
+
+- Kecepatan minimum lebih terjaga
+- Trafik diprioritaskan
+- SLA lebih baik dari Up To biasa
+- Lebih stabil saat jam sibuk
 
 ### Cara Kerja
 ![Diagram Internet Prioritas]({{ site.baseurl }}/assets/imgs/blog/diagram-prioritas.jpg)
 
-Layanan ini memberikan prioritas bandwidth pada sisi akses pelanggan. Walaupun masih berbagi jaringan di core, trafik pelanggan diprioritaskan sehingga lebih stabil saat jaringan padat.
+Pelanggan mendapatkan prioritas trafik sehingga koneksi tetap stabil walau jaringan padat.
 
 ### Cocok Untuk
 - UMKM
-- Kantor kecil dan menengah
+- Kantor kecil & menengah
 - Video conference
 - Aktivitas kerja online
-- Gaming kompetitif
 
 ---
 
 ## 3. Internet "1:1 Dedicated"
 
 ### Apa itu Internet 1:1 Dedicated?
-Internet Dedicated adalah layanan premium dengan bandwidth khusus yang tidak dibagi dengan pelanggan lain, dari sisi akses hingga core network.
+Internet Dedicated adalah layanan dengan bandwidth khusus yang sepenuhnya dialokasikan untuk satu pelanggan tanpa sharing.
 
-### Karakteristik Utama
-- Bandwidth **100% dedicated**
-- Tidak ada sharing
-- SLA tinggi dan konsisten
-- Koneksi sangat stabil
+<div class="info-box">
+<b>Karakteristik Utama</b><br>
+<span class="badge">Dedicated 100%</span>
+<span class="badge">Enterprise</span>
+<span class="badge">Mission Critical</span>
+</div>
+
+- Bandwidth 100% dedicated
+- Tidak berbagi dengan pengguna lain
+- Stabil dan konsisten
+- SLA tinggi
 
 ### Cara Kerja
 ![Diagram Internet Dedicated]({{ site.baseurl }}/assets/imgs/blog/diagram-dedicated.jpg)
 
-Pelanggan mendapatkan jalur khusus yang tidak dipakai bersama pengguna lain. Kecepatan dan kualitas koneksi tetap konsisten sepanjang waktu.
+Pelanggan mendapatkan jalur eksklusif dari sisi akses hingga core network.
 
 ### Cocok Untuk
 - Perusahaan
-- Server dan data center
+- Server & data center
 - VPN korporat
-- Sistem bisnis kritikal
-- Layanan 24/7
+- Layanan bisnis 24/7
 
 ---
 
 ## Tabel Perbandingan Layanan Internet
 
-<table style="border:1px solid #ddd; border-collapse: collapse; width:100%;">
+<div class="table-wrapper">
+<table class="compare-table">
   <thead>
     <tr>
       <th>Aspek</th>
@@ -105,7 +177,7 @@ Pelanggan mendapatkan jalur khusus yang tidak dipakai bersama pengguna lain. Kec
     <tr>
       <td>Model Bandwidth</td>
       <td>Sharing</td>
-      <td>Sharing dengan prioritas</td>
+      <td>Sharing + prioritas</td>
       <td>Dedicated 100%</td>
     </tr>
     <tr>
@@ -118,7 +190,7 @@ Pelanggan mendapatkan jalur khusus yang tidak dipakai bersama pengguna lain. Kec
       <td>Latency</td>
       <td>Variatif</td>
       <td>Lebih terjaga</td>
-      <td>Rendah dan konsisten</td>
+      <td>Rendah & konsisten</td>
     </tr>
     <tr>
       <td>SLA</td>
@@ -134,52 +206,35 @@ Pelanggan mendapatkan jalur khusus yang tidak dipakai bersama pengguna lain. Kec
     </tr>
   </tbody>
 </table>
+</div>
 
 ---
 
 ## Mengenal Sharing Ratio
 
-Sharing ratio menunjukkan jumlah pengguna yang berbagi bandwidth yang sama.
+Sharing ratio menunjukkan jumlah pengguna yang berbagi satu kapasitas bandwidth.
 
-- **1:50** → satu bandwidth digunakan hingga 50 pengguna
-- **1:20** → satu bandwidth digunakan hingga 20 pengguna
+- **1:50** → satu bandwidth untuk hingga 50 pengguna
+- **1:20** → satu bandwidth untuk hingga 20 pengguna
 - **1:1** → satu bandwidth untuk satu pelanggan
 
-### Perbandingan Umum
-- **Up To:** 1:50 hingga 1:100
-- **Up To Prioritas:** 1:10 hingga 1:20
-- **Dedicated:** 1:1
-
-Semakin kecil rasio, semakin stabil koneksi yang diperoleh.
+Semakin kecil sharing ratio, semakin stabil koneksi yang diperoleh.
 
 ---
 
 ## Cara Memilih Layanan yang Tepat
 
-### Pilih Internet Up To jika
-- Digunakan untuk kebutuhan rumah
-- Tidak bergantung pada koneksi setiap saat
-- Aktivitas bersifat non-kritis
-
-### Pilih Internet Prioritas jika
-- Digunakan untuk kerja atau usaha
-- Membutuhkan koneksi stabil
-- Banyak perangkat aktif bersamaan
-
-### Pilih Internet Dedicated jika
-- Koneksi sangat krusial
-- Digunakan untuk server atau sistem bisnis
-- Membutuhkan performa konsisten 24/7
+- **Internet Up To** cocok untuk penggunaan rumah dan aktivitas non-kritis  
+- **Internet Prioritas** ideal untuk produktivitas dan usaha  
+- **Internet Dedicated** direkomendasikan untuk kebutuhan bisnis dan sistem kritikal  
 
 ---
 
 ## Kesimpulan
 
-Setiap jenis layanan internet memiliki karakteristik dan peruntukan yang berbeda. Tidak semua kebutuhan memerlukan koneksi dedicated, dan tidak semua penggunaan cocok dengan layanan reguler.
+Setiap jenis layanan internet memiliki karakteristik dan peruntukan yang berbeda. Pemilihan layanan sebaiknya disesuaikan dengan kebutuhan penggunaan, tingkat stabilitas yang diharapkan, dan skala operasional.
 
-Memahami kebutuhan penggunaan, tingkat stabilitas yang diharapkan, dan skala aktivitas akan membantu menentukan layanan internet yang paling sesuai.
-
-Jika Anda membutuhkan konsultasi lebih lanjut terkait pemilihan layanan internet, tim kami siap membantu memberikan rekomendasi terbaik sesuai kebutuhan Anda.
+Untuk konsultasi dan rekomendasi layanan internet yang paling sesuai dengan kebutuhan Anda, tim Dalonet siap membantu.
 
 ---
 

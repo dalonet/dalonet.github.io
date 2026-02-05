@@ -4,7 +4,7 @@ title: "Cara Ganti Kata Sandi WiFi dengan Aman (Panduan Mudah)"
 date: 2026-02-03
 category: Network
 author: Dalonet
-thumbnail: "/assets/imgs/blog/ganti-sandi-wifi1.jpg"
+thumbnail: "assets/imgs/blog/ganti-sandi-wifi1.jpg"
 excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaringan tidak digunakan orang lain."
 ---
 
@@ -71,41 +71,11 @@ excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaring
   margin-top: 18px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 .checklist li {
   margin-bottom: 8px;
 }
-
-/* Tambahkan ini di bagian <style> */
-.inline-numbers {
-  margin: 15px 0;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #007bff;
-}
-
-.inline-numbers br {
-  display: none;
-}
-
-/* Tambahkan ini di bagian <style> */
-.inline-numbers {
-  margin: 15px 0;
-  padding: 10px;
-  background: #f8f9fa;
-  border-radius: 8px;
-  border-left: 4px solid #007bff;
-}
-
-.inline-numbers br {
-  display: none;
-}
-
 </style>
 
 <div class="hero">
@@ -138,10 +108,15 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 1</span>
 <h3>Akses Halaman Admin Router</h3>
 
-<div class="inline-numbers">
-1. <b>Pastikan perangkat Anda sudah terhubung ke WiFi</b> 2. <b>Buka browser (Chrome, Firefox, Safari)</b> 3. <b>Ketik alamat berikut di kolom URL:</b> <code>http://192.168.1.1</code>
-</div>
+1. Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>
+2. Buka browser (Chrome, Firefox, Safari)
+3. Ketik alamat berikut di kolom URL: `http://192.168.1.1`
 
+
+<b>Catatan:</b>  
+Beberapa router menggunakan alamat lain seperti:
+- `192.168.0.1`
+- `10.0.0.1`
 </div>
 
 ---
@@ -150,17 +125,17 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 2</span>
 <h3>Login ke Router</h3>
 
-<p>Masukkan username dan password router.</p>
+Masukkan username dan password router.
 
-<p><b>Contoh default:</b></p>
-<div class="inline-numbers">
-1. <b>Username:</b> <code>user</code> 2. <b>Password:</b> <code>user</code>
-</div>
+Contoh default:
+- Username: `user`
+- Password: `user`
 
 ![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.jpg)
 
 <div class="warning">
-<p><b>Catatan:</b> Jika username atau password tidak diketahui atau sudah diganti, silakan hubungi admin atau teknisi.</p>
+Jika username atau password tidak diketahui atau sudah diganti,
+silakan hubungi admin atau teknisi.
 </div>
 </div>
 
@@ -170,10 +145,10 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 3</span>
 <h3>Masuk ke Menu Network</h3>
 
-<p>Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.</p>
-
-![Menu Network]({{ site.baseurl }}/assets/imgs/blog/Capture2.jpg)
+Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
 </div>
+![Menu Network](/assets/imgs/blog/Capture2.jpg)
+
 
 ---
 
@@ -181,10 +156,10 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 4</span>
 <h3>Pilih WiFi 2.4GHz</h3>
 
-<p>Klik menu <b>Wlan Radio 2.4G</b><br>
-(Jika router Anda mendukung 5GHz, pengaturannya hampir sama)</p>
+Klik menu <b>Wlan Radio 2.4G</b>  
+(Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
 
-![Wlan Radio]({{ site.baseurl }}/assets/imgs/blog/Capture3.jpg)
+![Wlan Radio](/assets/imgs/blog/Capture3.jpg)
 </div>
 
 ---
@@ -193,9 +168,9 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 5</span>
 <h3>Buka Pengaturan Keamanan</h3>
 
-<p>Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.</p>
+Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 
-![Security Tab]({{ site.baseurl }}/assets/imgs/blog/Capture4.jpg)
+![Security Tab](/assets/imgs/blog/Capture4.jpg)
 </div>
 
 ---
@@ -204,20 +179,17 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 6</span>
 <h3>Ganti Kata Sandi WiFi</h3>
 
-<div class="inline-numbers">
-1. <b>Pilih SSID</b> (nama WiFi Anda) 2. <b>Masukkan password baru</b> di kolom <b>WPA Passphrase</b>
-</div>
+1. Pilih SSID (nama WiFi Anda)
+2. Masukkan password baru di kolom <b>WPA Passphrase</b>
 
-<p><b>Tips password aman:</b></p>
-<ul>
-<li><b>Minimal 8 karakter</b></li>
-<li><b>Kombinasi huruf & angka</b></li>
-<li><b>Hindari nama atau tanggal lahir</b></li>
-</ul>
+Tips password aman:
+- Minimal 8 karakter
+- Kombinasi huruf & angka
+- Hindari nama atau tanggal lahir
 
-<p>Klik <b>Submit / Save</b></p>
+Klik <b>Submit / Save</b>
 
-![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/Capture5.jpg)
+![Ganti Password](/assets/imgs/blog/Capture5.jpg)
 </div>
 
 ---
@@ -225,7 +197,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 ## Setelah Password Diganti
 
 <div class="note">
-<p><b>Hal yang akan terjadi:</b></p>
+Hal yang akan terjadi:
 <ul class="checklist">
 <li>Semua perangkat akan terputus otomatis</li>
 <li>Hubungkan ulang dengan password baru</li>
@@ -238,7 +210,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 ## Jika Terjadi Kendala
 
 <div class="warning">
-<p><b>Solusi cepat:</b></p>
+<b>Solusi cepat:</b>
 <ul class="checklist">
 <li>Tidak bisa login → pastikan terhubung ke WiFi</li>
 <li>Password salah → hubungi admin</li>
@@ -250,12 +222,15 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 
 ## Kesimpulan
 
-<p>Mengganti kata sandi WiFi adalah langkah sederhana namun sangat penting untuk menjaga keamanan dan kestabilan jaringan.</p>
+Mengganti kata sandi WiFi adalah langkah sederhana namun sangat penting
+untuk menjaga keamanan dan kestabilan jaringan.
 
-<p>Jika Anda ragu atau tidak ingin mengubah sendiri, tim Dalonet siap membantu.</p>
+Jika Anda ragu atau tidak ingin mengubah sendiri,
+tim Dalonet siap membantu.
 
 ---
 
 **Ditulis oleh:** Dalonet  
 **Kategori:** Network – Edukasi  
 **Tag:** #wifi #keamanan #passwordwifi #jaringan
+

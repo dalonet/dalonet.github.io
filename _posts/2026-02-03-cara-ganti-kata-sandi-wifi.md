@@ -108,15 +108,10 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 1</span>
 <h3>Akses Halaman Admin Router</h3>
 
-1. Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>
-2. Buka browser (Chrome, Firefox, Safari)
-3. Ketik alamat berikut di kolom URL: http://192.168.1.1
+1. **Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>**
+2. **Buka browser (Chrome, Firefox, Safari)**
+3. **Ketik alamat berikut** di kolom URL: `http://192.168.1.1`
 
-
-<b>Catatan:</b>  
-Beberapa router menggunakan alamat lain seperti:
-- `192.168.0.1`
-- `10.0.0.1`
 </div>
 
 ---
@@ -127,11 +122,11 @@ Beberapa router menggunakan alamat lain seperti:
 
 Masukkan username dan password router.
 
-Contoh default:
-- Username: `user`
-- Password: `user`
+**Contoh default:**
+- **Username:** `user`
+- **Password:** `user`
 
-![Halaman Login](/assets/imgs/blog/Capture1.jpg)
+![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.jpg)
 
 <div class="warning">
 Jika username atau password tidak diketahui atau sudah diganti,
@@ -147,7 +142,7 @@ silakan hubungi admin atau teknisi.
 
 Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
 
-![Menu Network](/assets/imgs/blog/Capture2.jpg)
+![Menu Network]({{ site.baseurl }}/assets/imgs/blog/Capture2.jpg)
 </div>
 
 ---
@@ -159,7 +154,7 @@ Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashbo
 Klik menu <b>Wlan Radio 2.4G</b>  
 (Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
 
-![Wlan Radio](/assets/imgs/blog/Capture3.jpg)
+![Wlan Radio]({{ site.baseurl }}/assets/imgs/blog/Capture3.jpg)
 </div>
 
 ---
@@ -170,7 +165,7 @@ Klik menu <b>Wlan Radio 2.4G</b>
 
 Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 
-![Security Tab](/assets/imgs/blog/Capture4.jpg)
+![Security Tab]({{ site.baseurl }}/assets/imgs/blog/Capture4.jpg)
 </div>
 
 ---
@@ -179,17 +174,17 @@ Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 <span class="badge">Langkah 6</span>
 <h3>Ganti Kata Sandi WiFi</h3>
 
-1. Pilih SSID (nama WiFi Anda)
-2. Masukkan password baru di kolom <b>WPA Passphrase</b>
+1. **Pilih SSID** (nama WiFi Anda)
+2. **Masukkan password** baru di kolom <b>WPA Passphrase</b>
 
 Tips password aman:
-- Minimal 8 karakter
-- Kombinasi huruf & angka
-- Hindari nama atau tanggal lahir
+- **Minimal 8 karakter**
+- **Kombinasi huruf & angka**
+- **Hindari nama atau tanggal lahir**
 
 Klik <b>Submit / Save</b>
 
-![Ganti Password](/assets/imgs/blog/Capture5.jpg)
+![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/Capture5.jpg)
 </div>
 
 ---

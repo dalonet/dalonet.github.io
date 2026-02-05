@@ -92,7 +92,7 @@ Pelanggan mendapatkan jalur khusus yang tidak dipakai bersama pengguna lain. Kec
 
 ## Tabel Perbandingan Layanan Internet
 
-<table>
+<table style="border:1px solid #ddd; border-collapse: collapse; width:100%;">
   <thead>
     <tr>
       <th>Aspek</th>

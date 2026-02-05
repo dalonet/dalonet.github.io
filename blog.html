@@ -114,97 +114,62 @@ title: Dalonet - Blog
             </ul>
           </div>
           <div class="widget">
-            <h4 class="sidebar-widget-title">Browse Category</h4>
+            <h4 class="sidebar-widget-title">Kategori</h4>
             <ul class="sidebar-cat-list">
               <li>
-                <a href="blog.html">All Categories <span>(252)</span></a>
+                <a href="{{ '/blog/' | relative_url }}">
+                  All Categories <span>({{ site.posts | size }})</span>
+                </a>
               </li>
+
+              {% assign categories = site.categories %} {% for category in
+              categories %}
               <li>
-                <a href="blog.html">Mouse <span>(58)</span></a>
+                <a
+                  href="{{ '/category/' | append: category[0] | relative_url }}"
+                >
+                  {{ category[0] | capitalize }}
+                  <span>({{ category[1].size }})</span>
+                </a>
               </li>
-              <li>
-                <a href="blog.html">Gear Box <span>(10)</span></a>
-              </li>
-              <li>
-                <a href="blog.html">Hard Disk <span>(96)</span></a>
-              </li>
-              <li>
-                <a href="blog.html">Looking Glass <span>(82)</span></a>
-              </li>
-              <li>
-                <a href="blog.html">Monitor <span>(30)</span></a>
-              </li>
-              <li>
-                <a href="blog.html">SSD <span>(10)</span></a>
-              </li>
-              <li>
-                <a href="blog.html">Processor <span>(42)</span></a>
-              </li>
+              {% endfor %}
             </ul>
           </div>
+
           <div class="widget">
             <h4 class="sidebar-widget-title">Postingan Terbaru</h4>
             <ul class="rc-post-list">
+              {% for post in site.posts limit:3 %}
               <li>
                 <div class="rc-post-thumb">
-                  <a href="blog-details.html"
-                    ><img
-                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb01.jpg"
-                      alt=""
-                  /></a>
+                  <a href="{{ post.url }}">
+                    <img
+                      src="{{ site.baseurl }}/{{ post.thumbnail }}"
+                      alt="{{ post.title }}"
+                    />
+                  </a>
                 </div>
                 <div class="rc-post-content">
                   <h6 class="title">
-                    <a href="blog-details.html"
-                      >Broadband Connection Needs To Everyone Life</a
-                    >
+                    <a href="{{ post.url }}">{{ post.title }}</a>
                   </h6>
-                  <span class="date">28 April 2024</span>
+                  <span class="date">{{ post.date | date: "%d %B %Y" }}</span>
                 </div>
               </li>
-              <li>
-                <div class="rc-post-thumb">
-                  <a href="blog-details.html"
-                    ><img
-                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb02.jpg"
-                      alt=""
-                  /></a>
-                </div>
-                <div class="rc-post-content">
-                  <h6 class="title">
-                    <a href="blog-details.html"
-                      >Why Businesses are Hybrid Network Approach</a
-                    >
-                  </h6>
-                  <span class="date">28 April 2024</span>
-                </div>
-              </li>
-              <li>
-                <div class="rc-post-thumb">
-                  <a href="blog-details.html"
-                    ><img
-                      src="{{ site.baseurl }}/assets/imgs/blog/rc_post_thumb03.jpg"
-                      alt=""
-                  /></a>
-                </div>
-                <div class="rc-post-content">
-                  <h6 class="title">
-                    <a href="blog-details.html"
-                      >Here to Put a Spring In Step This September</a
-                    >
-                  </h6>
-                  <span class="date">28 April 2024</span>
-                </div>
-              </li>
+              {% endfor %}
             </ul>
           </div>
+
           <div class="widget">
             <h4 class="sidebar-widget-title">Tag Populer</h4>
             <ul class="sidebar-tag-list">
-              <li><a href="blog.html">Internet</a></li>
-              <li><a href="blog.html">Murah</a></li>
-              <li><a href="blog.html">Jaringan</a></li>
-              <li><a href="blog.html">Keuangan</a></li>
+              {% assign tags = site.tags %} {% for tag in tags %}
+              <li>
+                <a href="{{ '/tag/' | append: tag[0] | relative_url }}">
+                  {{ tag[0] }}
+                </a>
+              </li>
+              {% endfor %}
             </ul>
           </div>
         </aside>

@@ -10,9 +10,9 @@ excerpt: "Penjelasan sederhana tentang perbedaan internet Up To, Prioritas, dan 
 
 <style>
 .hero {
-  background: linear-gradient(135deg, #0f172a, #1e40af);
-  color: #fff;
-  padding: 46px 34px;
+  background: linear-gradient(135deg, #020617, #1e3a8a);
+  color: #ffffff;
+  padding: 52px 36px;
   border-radius: 22px;
   margin-bottom: 50px;
 }
@@ -20,23 +20,25 @@ excerpt: "Penjelasan sederhana tentang perbedaan internet Up To, Prioritas, dan 
 .hero h1 {
   margin-top: 0;
   font-size: 2.3rem;
+  color: #ffffff !important;
 }
 
 .hero p {
   font-size: 1.05rem;
-  opacity: 0.95;
+  color: #e5e7eb !important;
+  max-width: 720px;
 }
 
 .youtube-cta {
-  margin-top: 22px;
+  margin-top: 26px;
 }
 
 .youtube-cta a {
   display: inline-block;
-  background: #ff0000;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 10px;
+  background: #dc2626;
+  color: #ffffff !important;
+  padding: 14px 20px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
 }
@@ -151,7 +153,7 @@ Kecepatannya <b>maksimal</b>, bukan tetap.
 <li>Paling terasa saat jam malam</li>
 </ul>
 
-![Diagram Internet Up To]({{ site.baseurl }}/assets/imgs/blog/diagram-up-to.jpg)
+![Diagram Internet Up To](/assets/imgs/blog/diagram-up-to.jpg)
 
 <b>Cocok untuk:</b> rumah, streaming, browsing, penggunaan santai
 </div>
@@ -171,7 +173,7 @@ Jenis ini masih sharing, tetapi trafik pelanggan <b>diprioritaskan</b>.
 Lebih stabil dibanding Up To biasa, terutama di jam sibuk.
 </p>
 
-![Diagram Internet Prioritas]({{ site.baseurl }}/assets/imgs/blog/diagram-prioritas.jpg)
+![Diagram Internet Prioritas](/assets/imgs/blog/diagram-prioritas.jpg)
 
 <b>Cocok untuk:</b> kerja online, UMKM, meeting, kantor kecil
 </div>
@@ -191,7 +193,7 @@ Bandwidth tidak dibagi dengan siapa pun.
 Kecepatan dan kualitas koneksi <b>konsisten sepanjang waktu</b>.
 </p>
 
-![Diagram Internet Dedicated]({{ site.baseurl }}/assets/imgs/blog/diagram-dedicated.jpg)
+![Diagram Internet Dedicated](/assets/imgs/blog/diagram-dedicated.jpg)
 
 <b>Cocok untuk:</b> perusahaan, server, VPN, sistem bisnis
 </div>

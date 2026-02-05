@@ -39,6 +39,7 @@ excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaring
 
 .step h3 {
   margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .badge {
@@ -67,14 +68,50 @@ excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaring
   margin: 24px 0;
 }
 
+/* Style untuk gambar */
 .step img {
   margin-top: 18px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .checklist li {
   margin-bottom: 8px;
+}
+
+/* Style untuk list normal */
+.step ol, .step ul {
+  margin: 15px 0 15px 20px;
+  padding-left: 0;
+}
+
+.step li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Style untuk konten dalam step */
+.step-content {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Style untuk list inline */
+.step-inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+.step-inline-item {
+  background: #f8fafc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
 }
 </style>
 
@@ -108,15 +145,22 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <span class="badge">Langkah 1</span>
 <h3>Akses Halaman Admin Router</h3>
 
-1. Pastikan perangkat Anda <b>sudah terhubung ke WiFi</b>
-2. Buka browser (Chrome, Firefox, Safari)
-3. Ketik alamat berikut di kolom URL: http://192.168.1.1
+<div class="step-content">
+<ol>
+  <li><strong>Pastikan perangkat Anda sudah terhubung ke WiFi</strong></li>
+  <li><strong>Buka browser (Chrome, Firefox, Safari)</strong></li>
+  <li><strong>Ketik alamat berikut di kolom URL:</strong> <code>http://192.168.1.1</code></li>
+</ol>
+</div>
 
-
-<b>Catatan:</b>  
+<div class="step-content">
+<b>Catatan:</b><br>
 Beberapa router menggunakan alamat lain seperti:
-- `192.168.0.1`
-- `10.0.0.1`
+<ul>
+  <li><code>192.168.0.1</code></li>
+  <li><code>10.0.0.1</code></li>
+</ul>
+</div>
 </div>
 
 ---
@@ -125,17 +169,22 @@ Beberapa router menggunakan alamat lain seperti:
 <span class="badge">Langkah 2</span>
 <h3>Login ke Router</h3>
 
+<div class="step-content">
 Masukkan username dan password router.
+</div>
 
-Contoh default:
-- Username: `user`
-- Password: `user`
+<div class="step-content">
+<strong>Contoh default:</strong>
+<ul>
+  <li>Username: <code>user</code></li>
+  <li>Password: <code>user</code></li>
+</ul>
+</div>
 
-<img src="/assets/imgs/blog/Capture1.jpg" alt="Halaman Login">
+<img src="/assets/imgs/blog/Capture1.jpg" alt="Halaman Login Router">
 
 <div class="warning">
-Jika username atau password tidak diketahui atau sudah diganti,
-silakan hubungi admin atau teknisi.
+<p><strong>Jika username atau password tidak diketahui atau sudah diganti, silakan hubungi admin atau teknisi.</strong></p>
 </div>
 </div>
 
@@ -145,9 +194,11 @@ silakan hubungi admin atau teknisi.
 <span class="badge">Langkah 3</span>
 <h3>Masuk ke Menu Network</h3>
 
-Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.
+<div class="step-content">
+Setelah berhasil login, cari dan klik menu <strong>Network</strong> di sidebar atau dashboard.
+</div>
 
-<img src="/assets/imgs/blog/Capture2.jpg" alt="Menu Network">
+<img src="/assets/imgs/blog/Capture2.jpg" alt="Menu Network Router">
 </div>
 
 ---
@@ -156,10 +207,12 @@ Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashbo
 <span class="badge">Langkah 4</span>
 <h3>Pilih WiFi 2.4GHz</h3>
 
-Klik menu <b>Wlan Radio 2.4G</b>  
-(Jika router Anda mendukung 5GHz, pengaturannya hampir sama)
+<div class="step-content">
+Klik menu <strong>Wlan Radio 2.4G</strong><br>
+<em>(Jika router Anda mendukung 5GHz, pengaturannya hampir sama)</em>
+</div>
 
-<img src="/assets/imgs/blog/Capture3.jpg" alt="WLAN Radio">
+<img src="/assets/imgs/blog/Capture3.jpg" alt="Menu WLAN Radio">
 </div>
 
 ---
@@ -168,9 +221,11 @@ Klik menu <b>Wlan Radio 2.4G</b>
 <span class="badge">Langkah 5</span>
 <h3>Buka Pengaturan Keamanan</h3>
 
-Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
+<div class="step-content">
+Klik tab <strong>Security</strong> untuk mengatur kata sandi WiFi.
+</div>
 
-<img src="/assets/imgs/blog/Capture4.jpg" alt="Security Tab">
+<img src="/assets/imgs/blog/Capture4.jpg" alt="Tab Security">
 </div>
 
 ---
@@ -179,17 +234,27 @@ Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.
 <span class="badge">Langkah 6</span>
 <h3>Ganti Kata Sandi WiFi</h3>
 
-1. Pilih SSID (nama WiFi Anda)
-2. Masukkan password baru di kolom <b>WPA Passphrase</b>
+<div class="step-content">
+<ol>
+  <li>Pilih SSID (nama WiFi Anda)</li>
+  <li>Masukkan password baru di kolom <strong>WPA Passphrase</strong></li>
+</ol>
+</div>
 
-Tips password aman:
-- Minimal 8 karakter
-- Kombinasi huruf & angka
-- Hindari nama atau tanggal lahir
+<div class="step-content">
+<strong>Tips password aman:</strong>
+<ul>
+  <li>Minimal 8 karakter</li>
+  <li>Kombinasi huruf & angka</li>
+  <li>Hindari nama atau tanggal lahir</li>
+</ul>
+</div>
 
-Klik <b>Submit / Save</b>
+<div class="step-content">
+Klik <strong>Submit / Save</strong>
+</div>
 
-<img src="/assets/imgs/blog/Capture5.JPG" alt="Ganti Password">
+<img src="/assets/imgs/blog/Capture5.JPG" alt="Form Ganti Password">
 </div>
 
 ---
@@ -197,7 +262,7 @@ Klik <b>Submit / Save</b>
 ## Setelah Password Diganti
 
 <div class="note">
-Hal yang akan terjadi:
+<strong>Hal yang akan terjadi:</strong>
 <ul class="checklist">
 <li>Semua perangkat akan terputus otomatis</li>
 <li>Hubungkan ulang dengan password baru</li>
@@ -210,7 +275,7 @@ Hal yang akan terjadi:
 ## Jika Terjadi Kendala
 
 <div class="warning">
-<b>Solusi cepat:</b>
+<strong>Solusi cepat:</strong>
 <ul class="checklist">
 <li>Tidak bisa login → pastikan terhubung ke WiFi</li>
 <li>Password salah → hubungi admin</li>
@@ -222,15 +287,16 @@ Hal yang akan terjadi:
 
 ## Kesimpulan
 
-Mengganti kata sandi WiFi adalah langkah sederhana namun sangat penting
-untuk menjaga keamanan dan kestabilan jaringan.
+<div class="step-content">
+Mengganti kata sandi WiFi adalah langkah sederhana namun sangat penting untuk menjaga keamanan dan kestabilan jaringan.
+</div>
 
-Jika Anda ragu atau tidak ingin mengubah sendiri,
-tim Dalonet siap membantu.
+<div class="step-content">
+Jika Anda ragu atau tidak ingin mengubah sendiri, tim Dalonet siap membantu.
+</div>
 
 ---
 
 **Ditulis oleh:** Dalonet  
 **Kategori:** Network – Edukasi  
 **Tag:** #wifi #keamanan #passwordwifi #jaringan
-

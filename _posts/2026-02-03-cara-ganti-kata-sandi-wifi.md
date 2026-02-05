@@ -80,14 +80,32 @@ excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaring
   margin-bottom: 8px;
 }
 
-/* Style untuk penomoran inline */
+/* Tambahkan ini di bagian <style> */
 .inline-numbers {
   margin: 15px 0;
-  line-height: 1.6;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
 }
+
 .inline-numbers br {
   display: none;
 }
+
+/* Tambahkan ini di bagian <style> */
+.inline-numbers {
+  margin: 15px 0;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #007bff;
+}
+
+.inline-numbers br {
+  display: none;
+}
+
 </style>
 
 <div class="hero">
@@ -139,7 +157,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 1. <b>Username:</b> <code>user</code> 2. <b>Password:</b> <code>user</code>
 </div>
 
-![Halaman Login](/assets/imgs/blog/Capture1.jpg)
+![Halaman Login]({{ site.baseurl }}/assets/imgs/blog/Capture1.jpg)
 
 <div class="warning">
 <p><b>Catatan:</b> Jika username atau password tidak diketahui atau sudah diganti, silakan hubungi admin atau teknisi.</p>
@@ -154,7 +172,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 
 <p>Setelah berhasil login, cari dan klik menu <b>Network</b> di sidebar atau dashboard.</p>
 
-![Menu Network](/assets/imgs/blog/Capture2.jpg)
+![Menu Network]({{ site.baseurl }}/assets/imgs/blog/Capture2.jpg)
 </div>
 
 ---
@@ -166,7 +184,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 <p>Klik menu <b>Wlan Radio 2.4G</b><br>
 (Jika router Anda mendukung 5GHz, pengaturannya hampir sama)</p>
 
-![Wlan Radio](/assets/imgs/blog/Capture3.jpg)
+![Wlan Radio]({{ site.baseurl }}/assets/imgs/blog/Capture3.jpg)
 </div>
 
 ---
@@ -177,7 +195,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 
 <p>Klik tab <b>Security</b> untuk mengatur kata sandi WiFi.</p>
 
-![Security Tab](/assets/imgs/blog/Capture4.jpg)
+![Security Tab]({{ site.baseurl }}/assets/imgs/blog/Capture4.jpg)
 </div>
 
 ---
@@ -199,7 +217,7 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
 
 <p>Klik <b>Submit / Save</b></p>
 
-![Ganti Password](/assets/imgs/blog/Capture5.jpg)
+![Ganti Password]({{ site.baseurl }}/assets/imgs/blog/Capture5.jpg)
 </div>
 
 ---

@@ -8,27 +8,28 @@ thumbnail: "assets/imgs/blog/ganti-nama-wifi.jpg"
 excerpt: "Panduan lengkap mengubah nama WiFi (SSID) untuk personalisasi jaringan Anda tanpa mengubah password."
 ---
 
-## 📡 Bagaimana Cara Mengganti Nama WiFi Saya?
+## Bagaimana Cara Mengganti Nama WiFi Saya?
 
-Mengganti nama WiFi (SSID) adalah cara sederhana untuk mempersonalisasi jaringan Anda. Berbeda dengan mengganti password, mengubah SSID tidak akan memutus koneksi perangkat yang sudah tersambung, selama password tetap sama.
+Mengganti nama WiFi (SSID) adalah cara sederhana untuk mempersonalisasi jaringan Anda. Berbeda dengan mengganti password, mengubah SSID **tidak akan memutus koneksi perangkat** yang sudah tersambung, selama password tetap sama.
 
-### 🎯 Perbedaan Ganti Nama vs Ganti Password WiFi:
+### Perbedaan Ganti Nama vs Ganti Password WiFi:
 - **Ganti Nama (SSID):** Hanya mengubah nama tampilan jaringan, password tetap sama
 - **Ganti Password:** Mengubah kunci akses, semua perangkat akan terputus
 
-## 🚀 Langkah-Langkah Mengganti Nama WiFi
+## Langkah-Langkah Mengganti Nama WiFi
 
 ### Langkah 1: Akses Halaman Admin Router
 1. **Buka browser** di komputer/laptop yang terhubung ke WiFi
 2. **Ketik alamat IP router** di address bar: `http://192.168.1.1`
+
    *Catatan: Alamat IP bisa berbeda (192.168.0.1, atau cek di label router)*
 
 ![Halaman Login Router]({{ site.baseurl }}/assets/imgs/blog/Capture1.JPG)
 
 ### Langkah 2: Login ke Router
 1. **Masukkan username dan password** default:
-   - Username: `user`
-   - Password: `user`
+   - **Username:** `user`
+   - **Password:** `user`
 2. **Klik tombol Login**
 
 ![Dashboard Router]({{ site.baseurl }}/assets/imgs/blog/Capture2.JPG)
@@ -40,27 +41,30 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 
 ### Langkah 4: Pilih WiFi 2.4GHz
 1. **Klik opsi "Wlan Radio 2.4G"** untuk mengatur jaringan WiFi 2.4GHz
+
    *Catatan: Untuk WiFi 5GHz, pilih "Wlan Radio 5G" jika tersedia*
 
 ### Langkah 5: Buka Pengaturan SSID
 1. Di menu Wlan Radio 2.4G, **klik tab "SSID Setting"**
+
    *(Berbeda dengan tutorial ganti password yang menggunakan tab "Security")*
 
 ![Tab SSID Setting]({{ site.baseurl }}/assets/imgs/blog/Capture4.JPG)
 
 ### Langkah 6: Pilih SSID yang Akan Diubah
 1. **Pada dropdown "Choose SSID"**, klik dan **pilih "SSID2"**
+
    *Catatan: Beberapa router memiliki multiple SSID (SSID1, SSID2, dll.)*
 
 ### Langkah 7: Ganti Nama WiFi
 1. **Pastikan Anda berada di SSID2** (terlihat di bagian atas form)
 2. **Temukan kolom "SSID Name"** atau "Network Name"
 3. **Hapus nama lama** dan **masukkan nama WiFi baru** yang diinginkan
-4. **Klik tombol "Submit"** atau "Save" untuk menyimpan perubahan
+4. **Klik tombol "Submit"** atau "Save** untuk menyimpan perubahan
 
 ![Form Ganti Nama WiFi]({{ site.baseurl }}/assets/imgs/blog/Capture6.JPG)
 
-## ✅ Setelah Mengganti Nama WiFi
+## Setelah Mengganti Nama WiFi
 
 ### Apa yang Terjadi:
 1. **Nama WiFi akan berubah** secara instan
@@ -74,15 +78,15 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
    - Mereka mungkin tetap terkoneksi otomatis
    - Jika tidak, hubungkan manual ke nama baru
 
-## 💡 Tips Memilih Nama WiFi yang Baik
+## Tips Memilih Nama WiFi yang Baik
 
-### ✅ **DO (Yang Disarankan):**
+### Yang Disarankan:
 1. **Gunakan nama unik:** `Keluarga-Bahagia`, `Rumah-Kita`, `Wifi-Kantor`
 2. **Tambahkan nomor rumah:** `RT-05-Wifi`, `Wifi-No-15`
 3. **Singkat dan jelas:** Maximal 32 karakter
 4. **Tanpa karakter spesial:** Hindari `@, #, $, %, &, *`
 
-### ❌ **DON'T (Yang Dihindari):**
+### Yang Dihindari:
 1. **Jangan gunakan data pribadi:** `NamaLengkap`, `TanggalLahir`
 2. **Hindari nama default:** `TP-Link_XXXX`, `D-Link_XXX`
 3. **Jangan provokatif:** `Hacker-zone`, `Free-Wifi-Trap`
@@ -95,7 +99,7 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 - `Silent-Wifi-Zone`
 - `Wifi-Super-Cepat`
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Masalah: Nama WiFi tidak berubah
 **Solusi:**
@@ -104,17 +108,17 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 3. Clear cache browser dan coba lagi
 4. Pastikan klik "Submit"/"Save" sebelum keluar
 
-## 📊 Perbandingan: Ganti Nama vs Ganti Password
+## Perbandingan: Ganti Nama vs Ganti Password
 
 | Fitur | Ganti Nama WiFi | Ganti Password WiFi |
-|-------|----------------|-------------------|
+|-------|----------------|---------------------|
 | **Koneksi Perangkat** | Tetap tersambung | Terputus semua |
 | **Login Ulang** | Tidak perlu | Perlu di semua perangkat |
 | **Tujuan** | Personalisasi, keamanan | Keamanan utama |
 | **Frekuensi** | Sesuai kebutuhan | Rutin 3-6 bulan |
 | **Tingkat Kesulitan** | Mudah | Sedang |
 
-## 🛡️ Keamanan Setelah Ganti Nama WiFi
+## Keamanan Setelah Ganti Nama WiFi
 
 ### Keuntungan Keamanan:
 1. **Hider dari attacker biasa** (tidak muncul dengan nama default)
@@ -127,7 +131,7 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 3. **Nonaktifkan WPS** jika tidak digunakan
 4. **Update firmware router** berkala
 
-## 🔄 Multiple SSID Configuration
+## Multiple SSID Configuration
 
 Jika router Anda mendukung multiple SSID:
 - **SSID1:** Untuk keluarga (nama: `Keluarga-Kita`)
@@ -136,7 +140,7 @@ Jika router Anda mendukung multiple SSID:
 
 **Keuntungan:** Isolasi jaringan, bandwidth terpisah, keamanan lebih baik.
 
-## ❓ FAQ (Pertanyaan Umum)
+## FAQ (Pertanyaan Umum)
 
 **Q: Apakah perangkat IoT (smart TV, CCTV) tetap terkoneksi?**  
 A: Ya, selama password tidak diubah. Mereka akan otomatis reconnect.
@@ -155,16 +159,13 @@ A: Tergangkat router. Sebagian mendukung, tapi tidak direkomendasikan untuk komp
 
 ---
 
-## 📝 Update & Informasi
+## Update & Informasi
 
 - **3 Februari 2026:** Artikel pertama kali diterbitkan
 - **Berdasarkan:** Pengalaman konfigurasi router ZTE
 - **Tested on:** Router GM220-S
 
 > **Catatan:** Interface router bisa berbeda tergantung merk dan firmware. Panduan ini berdasarkan router ZTE GM220-S dengan firmware versi terbaru.
-
-## 🏷️ Tag Artikel
-#wifi #ssid #network #router #configuration #tutorial #teknologi
 
 **Ditulis oleh:** Dalonet  
 **Kategori:** Network  

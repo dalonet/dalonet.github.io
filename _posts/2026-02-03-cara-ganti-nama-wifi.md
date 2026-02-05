@@ -23,7 +23,7 @@ Mengganti nama WiFi (SSID) adalah cara sederhana untuk mempersonalisasi jaringan
 2. **Ketik alamat IP router** di address bar: `http://192.168.1.1`
    *Catatan: Alamat IP bisa berbeda (192.168.0.1, atau cek di label router)*
 
-![Halaman Login Router]({{ site.baseurl }}/assets/imgs/blog/Capture1.jpg)
+![Halaman Login Router]({{ site.baseurl }}/assets/imgs/blog/Capture1.JPG)
 
 ### Langkah 2: Login ke Router
 1. **Masukkan username dan password** default:
@@ -31,12 +31,12 @@ Mengganti nama WiFi (SSID) adalah cara sederhana untuk mempersonalisasi jaringan
    - Password: `user`
 2. **Klik tombol Login**
 
-![Dashboard Router]({{ site.baseurl }}/assets/imgs/blog/Capture2.jpg)
+![Dashboard Router]({{ site.baseurl }}/assets/imgs/blog/Capture2.JPG)
 
 ### Langkah 3: Buka Menu Network
 Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboard utama.
 
-![Menu Network]({{ site.baseurl }}/assets/imgs/blog/Capture3.jpg)
+![Menu Network]({{ site.baseurl }}/assets/imgs/blog/Capture3.JPG)
 
 ### Langkah 4: Pilih WiFi 2.4GHz
 1. **Klik opsi "Wlan Radio 2.4G"** untuk mengatur jaringan WiFi 2.4GHz
@@ -46,7 +46,7 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 1. Di menu Wlan Radio 2.4G, **klik tab "SSID Setting"**
    *(Berbeda dengan tutorial ganti password yang menggunakan tab "Security")*
 
-![Tab SSID Setting]({{ site.baseurl }}/assets/imgs/blog/Capture4.jpg)
+![Tab SSID Setting]({{ site.baseurl }}/assets/imgs/blog/Capture4.JPG)
 
 ### Langkah 6: Pilih SSID yang Akan Diubah
 1. **Pada dropdown "Choose SSID"**, klik dan **pilih "SSID2"**
@@ -58,7 +58,7 @@ Setelah login berhasil, **cari dan klik menu "Network"** di sidebar atau dashboa
 3. **Hapus nama lama** dan **masukkan nama WiFi baru** yang diinginkan
 4. **Klik tombol "Submit"** atau "Save" untuk menyimpan perubahan
 
-![Form Ganti Nama WiFi]({{ site.baseurl }}/assets/imgs/blog/Capture6.jpg)
+![Form Ganti Nama WiFi]({{ site.baseurl }}/assets/imgs/blog/Capture6.JPG)
 
 ## ✅ Setelah Mengganti Nama WiFi
 

@@ -254,7 +254,7 @@ Klik tab <strong>Security</strong> untuk mengatur kata sandi WiFi.
 Klik <strong>Submit / Save</strong>
 </div>
 
-<img src="/assets/imgs/blog/Capture5.JPG" alt="Form Ganti Password">
+<img src="/assets/imgs/blog/Capture5.jpg" alt="Form Ganti Password">
 </div>
 
 ---

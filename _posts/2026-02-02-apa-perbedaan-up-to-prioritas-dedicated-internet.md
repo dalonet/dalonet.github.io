@@ -47,6 +47,16 @@ excerpt: "Penjelasan sederhana tentang perbedaan internet Up To, Prioritas, dan 
   opacity: 0.9;
 }
 
+/* Style untuk gambar */
+.img {
+  margin-top: 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 .section {
   margin: 60px 0;
 }
@@ -153,7 +163,7 @@ Kecepatannya <b>maksimal</b>, bukan tetap.
 <li>Paling terasa saat jam malam</li>
 </ul>
 
-![Diagram Internet Up To](/assets/imgs/blog/diagram-up-to.jpg)
+<img src="/assets/imgs/blog/diagram-up-to.jpg" alt="Diagram Internet Up To">
 
 <b>Cocok untuk:</b> rumah, streaming, browsing, penggunaan santai
 </div>
@@ -173,7 +183,7 @@ Jenis ini masih sharing, tetapi trafik pelanggan <b>diprioritaskan</b>.
 Lebih stabil dibanding Up To biasa, terutama di jam sibuk.
 </p>
 
-![Diagram Internet Prioritas](/assets/imgs/blog/diagram-prioritas.jpg)
+<img src="/assets/imgs/blog/diagram-prioritas.jpg" alt="Diagram Internet Prioritas">
 
 <b>Cocok untuk:</b> kerja online, UMKM, meeting, kantor kecil
 </div>
@@ -193,7 +203,7 @@ Bandwidth tidak dibagi dengan siapa pun.
 Kecepatan dan kualitas koneksi <b>konsisten sepanjang waktu</b>.
 </p>
 
-![Diagram Internet Dedicated](/assets/imgs/blog/diagram-dedicated.jpg)
+<img src="/assets/imgs/blog/diagram-dedicated.jpg" alt="Diagram Internet Dedicated">
 
 <b>Cocok untuk:</b> perusahaan, server, VPN, sistem bisnis
 </div>

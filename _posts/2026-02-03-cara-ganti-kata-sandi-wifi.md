@@ -152,15 +152,6 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
   <li><strong>Ketik alamat berikut di kolom URL:</strong> <code>http://192.168.1.1</code></li>
 </ol>
 </div>
-
-<div class="step-content">
-<b>Catatan:</b><br>
-Beberapa router menggunakan alamat lain seperti:
-<ul>
-  <li><code>192.168.0.1</code></li>
-  <li><code>10.0.0.1</code></li>
-</ul>
-</div>
 </div>
 
 ---
@@ -174,7 +165,7 @@ Masukkan username dan password router.
 </div>
 
 <div class="step-content">
-<strong>Contoh default:</strong>
+<strong>Informasi User dan Pass</strong>
 <ul>
   <li>Username: <code>user</code></li>
   <li>Password: <code>user</code></li>
@@ -236,7 +227,7 @@ Klik tab <strong>Security</strong> untuk mengatur kata sandi WiFi.
 
 <div class="step-content">
 <ol>
-  <li>Pilih SSID (nama WiFi Anda)</li>
+  <li>Pilih SSID (SSID2)</li>
   <li>Masukkan password baru di kolom <strong>WPA Passphrase</strong></li>
 </ol>
 </div>

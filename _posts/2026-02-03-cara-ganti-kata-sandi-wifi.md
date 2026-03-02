@@ -245,9 +245,16 @@ Klik tab <strong>Security</strong> untuk mengatur kata sandi WiFi.
 
 <div class="step-content">
 <ol>
-  <li>Pilih SSID (SSID2)</li>
-  <li>Masukkan password baru di kolom <strong>WPA Passphrase</strong></li>
+  <li>Pilihan <strong>Choose SSID Pilih (SSID2)</strong></li>
+  <li>Masukkan Kata Sandi baru di kolom <strong>WPA Passphrase</strong></li>
 </ol>
+</div>
+
+<div class="step-content">
+Klik <strong>Submit / Save</strong>
+</div>
+
+<img src="/assets/imgs/blog/Capture5.jpg" alt="Form Ganti Password">
 </div>
 
 <div class="step-content">
@@ -259,13 +266,6 @@ Klik tab <strong>Security</strong> untuk mengatur kata sandi WiFi.
 </ul>
 </div>
 
-<div class="step-content">
-Klik <strong>Submit / Save</strong>
-</div>
-
-<img src="/assets/imgs/blog/Capture5.jpg" alt="Form Ganti Password">
-</div>
-
 ---
 
 ## Setelah Password Diganti
@@ -274,8 +274,8 @@ Klik <strong>Submit / Save</strong>
 <strong>Hal yang akan terjadi:</strong>
 <ul class="checklist">
 <li>Semua perangkat akan terputus otomatis</li>
-<li>Hubungkan ulang dengan password baru</li>
-<li>Perbarui password di HP, laptop, TV, dll</li>
+<li>Hubungkan ulang dengan Kata Sandi baru</li>
+<li>Perbarui Kata Sandi di HP, laptop, TV, dll</li>
 </ul>
 </div>
 
@@ -286,8 +286,8 @@ Klik <strong>Submit / Save</strong>
 <div class="warning">
 <strong>Solusi cepat:</strong>
 <ul class="checklist">
-<li>Tidak bisa login → pastikan terhubung ke WiFi</li>
-<li>Password salah → hubungi admin</li>
+<li>Tidak bisa Login ke Halaman Pengaturan Modem → pastikan terhubung ke WiFi</li>
+<li>Kata Sandi salah → hubungi admin</li>
 <li>WiFi tidak muncul → restart router</li>
 </ul>
 </div>

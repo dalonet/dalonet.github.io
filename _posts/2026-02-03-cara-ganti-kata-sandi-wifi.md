@@ -113,6 +113,21 @@ excerpt: "Panduan sederhana dan aman untuk mengganti kata sandi WiFi agar jaring
   border-radius: 8px;
   border-left: 4px solid #3b82f6;
 }
+
+.router-button {
+  display: inline-block;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.router-button:hover {
+  background: #1e40af;
+}
 </style>
 
 <div class="hero">
@@ -151,6 +166,9 @@ mengganti kata sandi WiFi adalah langkah paling sederhana dan efektif.
   <li><strong>Buka browser (Chrome, Firefox, Safari)</strong></li>
   <li><strong>Ketik alamat berikut di kolom URL:</strong> <code>http://192.168.1.1</code></li>
 </ol>
+<a href="http://192.168.1.1" target="_blank" class="router-button">
+  Klik Di Sini
+</a>
 </div>
 </div>
 
@@ -165,7 +183,7 @@ Masukkan username dan password router.
 </div>
 
 <div class="step-content">
-<strong>Informasi User dan Pass</strong>
+<strong>Informasi Username dan Password</strong>
 <ul>
   <li>Username: <code>user</code></li>
   <li>Password: <code>user</code></li>

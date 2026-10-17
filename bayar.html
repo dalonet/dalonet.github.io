@@ -65,7 +65,7 @@ function tlv(id, value) {
 function makeDynamicQris(staticPayload, amount) {
   if (!Number.isSafeInteger(amount) || amount <= 0) throw new Error("Nominal tagihan tidak valid.");
   // Remove the final CRC TLV, then change point-of-initiation method 11 (static) to 12 (dynamic).
-  let body = staticPayload.slice(0, -8);
+  let body = staticPayload.slice(0, -4);
   if (!body.endsWith("6304")) throw new Error("Format QRIS sumber tidak dikenali.");
   body = body.slice(0, -4);
   body = body.replace("010211", "010212");

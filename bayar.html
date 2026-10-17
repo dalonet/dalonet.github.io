@@ -15,7 +15,7 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
     <h1>DALONET</h1>
     <p class="muted">Pembayaran tagihan WiFi melalui QRIS</p>
     <label for="customerId">ID pelanggan</label>
-    <input id="customerId" inputmode="numeric" autocomplete="off" placeholder="Contoh: 100001" maxlength="20">
+    <input id="customerId" inputmode="numeric" autocomplete="off" placeholder="Berupa Angka" maxlength="20">
     <button id="checkBtn">Tampilkan Tagihan</button>
     <p id="message" class="error" role="status"></p>
   </div>
@@ -28,7 +28,7 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
       <strong>Scan QRIS dan periksa nominal sebelum membayar</strong>
       <p class="muted">Pastikan nama merchant yang muncul adalah DALONET dan nominal sesuai tagihan.</p>
     </div>
-    <div class="notice">Status pembayaran belum terverifikasi otomatis. Setelah membayar, kirim bukti pembayaran kepada DALONET sesuai prosedur yang berlaku.</div>
+    <div class="notice">Anda tidak perlu melakukan konfirmasi pembayaran</div>
   </section>
   <p class="muted center">DALONET • Simpan bukti pembayaran Anda.</p>
 </main>
@@ -41,9 +41,20 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
  * Jangan memasukkan nomor telepon, alamat, atau data pribadi yang tidak diperlukan.
  */
 const CUSTOMERS = {
-  "100001": { name: "Pelanggan 100001", amount: 100001 },
-  "100002": { name: "Pelanggan 100002", amount: 150002 },
-  "100003": { name: "Pelanggan 100003", amount: 200003 }
+  "100001-Zakaria": { name: "Zakaria", amount: 100001 },
+  "100002": { name: "Erna", amount: 100002 },
+  "100003": { name: "Sumarno", amount: 100003 }
+  "100004": { name: "Raja", amount: 100004 }
+  "100005": { name: "Suwarno", amount: 100005 }
+  "100006": { name: "Taufik", amount: 100006 }
+  "100007": { name: "Hazlina Dewi", amount: 100007 }
+  "100008": { name: "Budi Karyanto", amount: 100008 }
+  "100009": { name: "Danisa", amount: 100009 }
+  "100010": { name: "Nur Halimah", amount: 100010 }
+  "100011": { name: "Prapto", amount: 100011 }
+  "100012": { name: "Wenny", amount: 100012 }
+  "100013": { name: "Kosim", amount: 100013 }
+  "100014": { name: "Rahmi", amount: 100014 }
 };
 
 /* Payload QRIS statis yang dibaca dari QRIS DALONET yang diberikan pemilik. */

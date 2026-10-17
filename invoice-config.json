@@ -1,0 +1,32 @@
+{
+  "issuer": {
+    "companyName": "PT. DALAHAS LOCAL NETWORK",
+    "tagline": "IT TECH SOLUTION CENTER",
+    "address": "Jl. WR. Supratman, RT.13, Kel. Parit Culum 1, Kec. Muara Sabak Barat, Kab. Tanjung Jabung Timur, Jambi 36722",
+    "email": "admin@dalonet.com",
+    "phone": "0851 2236 2273",
+    "npwp": "43.912.289.6-334.000",
+    "logoUrl": "logo.png",
+    "qrisCardUrl": "qris-card.png"
+  },
+  "invoice": {
+    "issueDay": 10,
+    "dueDay": 16,
+    "periodStartDay": 16
+  },
+  "customers": {
+    "11177": {
+      "code": "11177",
+      "name": "Coastal Radio Station/SROP Muara Sabak",
+      "address": "Jl. Panglima Polim, Simpang 4 Nibung Putih, Kec. Muara Sabak Barat, Kab. Tanjung Jabung Timur, Jambi 36721",
+      "items": [
+        {
+          "description": "Internet Up To 10 Mbps Prioritas",
+          "qty": 1,
+          "satuan": 720000,
+          "jumlah": 720000
+        }
+      ]
+    }
+  }
+}

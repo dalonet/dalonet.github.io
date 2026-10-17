@@ -351,7 +351,7 @@ const $ = id => document.getElementById(id);
 $("checkBtn").addEventListener("click", () => {
   $("message").textContent = "";
   $("result").classList.add("hidden");
-  $("qr").replaceChildren();
+  $("qr").innerHTML();
   const id = $("customerId").value.trim();
   const customer = CUSTOMERS[id];
   if (!id) { $("message").textContent = "Masukkan ID pelanggan."; return; }

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Invoice — DALONET</title>
+<style>
+:root{--brand:#c9152b;--text:#111;--muted:#555;--border:#c8c8c8;--bg:#f4f6f8;--card:#fff;
+font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:var(--bg)}
+*{box-sizing:border-box}body{margin:0;padding:20px;line-height:1.45;font-size:14px}
+.invoice{max-width:800px;margin:0 auto;background:var(--card);padding:40px 44px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+/* header */
+.inv-header{display:flex;gap:20px;align-items:flex-start}
+.logo-wrap{flex:0 0 auto;width:96px;text-align:center}
+.logo-wrap img{width:96px;height:auto;display:block}
+.logo-fallback{width:96px;height:96px;background:linear-gradient(135deg,#c9152b,#7a0d1c);color:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:22px}
+.brand-block{flex:1;min-width:0}
+.brand-name{font-size:26px;font-weight:900;letter-spacing:.5px;margin:4px 0 2px;line-height:1.1}
+.brand-tagline{color:var(--brand);font-size:12px;font-weight:800;letter-spacing:1px;margin:0 0 8px}
+.brand-address{font-size:13px;line-height:1.4;text-align:center;margin-top:6px;padding-top:6px;border-top:0}
+.wavy{height:6px;margin:10px 0 22px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='6' viewBox='0 0 40 6'><path d='M0 3 Q5 0 10 3 T20 3 T30 3 T40 3' fill='none' stroke='%23c9152b' stroke-width='2'/></svg>") repeat-x}
+/* meta row */
+.meta-row{display:flex;justify-content:space-between;gap:24px;margin-bottom:26px}
+.contact-info{font-size:13px;line-height:1.9}
+.contact-info .k{display:inline-block;width:72px;color:var(--muted)}
+.inv-title{text-align:right;min-width:220px}
+.inv-title h2{font-size:34px;font-weight:900;margin:0 0 6px;letter-spacing:1px}
+.inv-title .meta{font-size:13px;line-height:1.8}
+.inv-title .meta .k{display:inline-block;width:80px;color:var(--muted);text-align:right;margin-right:8px}
+/* customer */
+.to-block{margin-bottom:18px;font-size:13px;line-height:1.55}
+.to-block .label{margin-bottom:4px}
+.to-block .name{font-weight:800;margin:2px 0}
+/* table */
+table.items{width:100%;border-collapse:collapse;margin:18px 0 0}
+.items th,.items td{border:1px solid var(--text);padding:9px 10px;font-size:13px;vertical-align:top}
+.items th{background:#f0f0f0;text-align:center;font-weight:800}
+.items td.c{text-align:center}
+.items td.r{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.items .total-row td{border:1px solid var(--text);font-weight:800}
+.items .total-row .lbl{text-align:center;letter-spacing:2px}
+/* payment */
+.pay-title{margin:24px 0 14px;font-size:14px;font-weight:700}
+.qr-row{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.qr-card{flex:0 0 auto;max-width:280px}
+.qr-card img{width:100%;height:auto;display:block}
+.qr-code{flex:0 0 auto}
+.qr-code #qr{display:flex}
+.qr-code #qr img,.qr-code #qr canvas{max-width:220px;height:auto;display:block}
+.qr-fallback{width:220px;height:220px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;text-align:center;padding:10px}
+/* status badge */
+.badge{display:inline-block;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:800;letter-spacing:1px;margin-top:6px}
+.badge.unpaid{background:#fff7e5;color:#8a6d00;border:1px solid #e0c060}
+.badge.paid{background:#eaf7ec;color:#1c6b2f;border:1px solid #7fc08a}
+/* actions & states */
+.actions{max-width:800px;margin:16px auto;text-align:center;display:none}
+.actions button{padding:12px 24px;border:0;border-radius:10px;background:var(--brand);color:#fff;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit}
+.actions button:hover{background:#a2101f}
+.error{max-width:800px;margin:40px auto;padding:20px;background:#fdecee;border:1px solid #f5b8c1;border-radius:10px;color:#b00020;text-align:center}
+.loading{text-align:center;padding:40px;color:var(--muted)}
+@media(max-width:640px){
+  body{padding:10px}
+  .invoice{padding:22px 18px}
+  .inv-header{flex-direction:column;align-items:center;text-align:center}
+  .brand-address{text-align:center}
+  .meta-row{flex-direction:column;gap:16px}
+  .inv-title{text-align:left;min-width:0}
+  .inv-title .meta .k{text-align:left}
+  .items th,.items td{font-size:12px;padding:7px 6px}
+  .qr-row{flex-direction:column;align-items:center}
+}
+@media print{
+  body{background:#fff;padding:0;font-size:12px}
+  .invoice{box-shadow:none;max-width:none;padding:20px 24px}
+  .actions{display:none!important}
+  .badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .items th{background:#f0f0f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wavy{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .brand-tagline{color:#c9152b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  tr{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="actions" id="actions">
+  <button onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
+</div>
+
+<main id="invoiceContainer"><div class="loading">Memuat invoice…</div></main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const STATIC_QRIS = "00020101021126570011ID.DANA.WWW011893600915347475729702094747572970303UMI51440014ID.CO.QRIS.WWW0215ID10210679698860303UMI5204737253033605802ID5907DALONET6015Kab. Tanjung Ja6105367616304A4A7";
+
+function crc16ccitt(text){let c=0xFFFF;for(let i=0;i<text.length;i++){c^=text.charCodeAt(i)<<8;for(let j=0;j<8;j++)c=(c&0x8000)?((c<<1)^0x1021)&0xFFFF:(c<<1)&0xFFFF}return c.toString(16).toUpperCase().padStart(4,"0")}
+function tlv(id,v){return id+String(v.length).padStart(2,"0")+v}
+function makeDynamicQris(p,a){
+  let b=p.slice(0,-4);
+  if(!b.endsWith("6304"))throw Error("QRIS invalid");
+  b=b.slice(0,-4).replace("010211","010212");
+  const m="5303360",i=b.indexOf(m);
+  b=b.slice(0,i+m.length)+tlv("54",String(a))+b.slice(i+m.length);
+  const w=b+"6304";return w+crc16ccitt(w);
+}
+const rupiah=n=>"Rp "+new Intl.NumberFormat("id-ID").format(n);
+const rupiahNoRp=n=>new Intl.NumberFormat("id-ID").format(n)+",-";
+const bulanID=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+const romans=["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+(async function(){
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+  const now = new Date();
+  const defaultPeriod = now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  const period = params.get("period") || defaultPeriod;
+  const container = document.getElementById("invoiceContainer");
+
+  if(!id){ container.innerHTML='<div class="error">Parameter <strong>id</strong> tidak ditemukan.<br>Contoh: <code>invoice.html?id=11177</code></div>'; return; }
+  if(!/^\d{4}-\d{2}$/.test(period)){ container.innerHTML='<div class="error">Format periode tidak valid. Gunakan <code>YYYY-MM</code>.</div>'; return; }
+
+  let config, status = {};
+  try {
+    const [c, s] = await Promise.all([
+      fetch("invoice-config.json").then(r=>{ if(!r.ok) throw Error("invoice-config.json tidak ditemukan"); return r.json(); }),
+      fetch("invoice-status.json").then(r=> r.ok ? r.json() : {}).catch(()=>({}))
+    ]);
+    config = c; status = s || {};
+  } catch(e){
+    container.innerHTML = '<div class="error">Gagal memuat data: '+esc(e.message)+'</div>'; return;
+  }
+
+  const customer = config.customers && config.customers[id];
+  if(!customer){ container.innerHTML = '<div class="error">Pelanggan <strong>'+esc(id)+'</strong> tidak terdaftar untuk invoice.</div>'; return; }
+
+  // ---- tanggal & periode ----
+  const [year, month] = period.split("-").map(Number);
+  const issueDay = (config.invoice && config.invoice.issueDay) || 10;
+  const dueDay   = (config.invoice && config.invoice.dueDay)   || 16;
+  const periodStartDay = (config.invoice && config.invoice.periodStartDay) || 16;
+
+  let prevMonth = month - 1, prevYear = year;
+  if(prevMonth < 1){ prevMonth = 12; prevYear--; }
+
+  const issueDate = issueDay + " " + bulanID[month-1] + " " + year;
+  const periodText = periodStartDay + " " + bulanID[prevMonth-1] + " " + prevYear
+                   + " – " + dueDay + " " + bulanID[month-1] + " " + year;
+  const invoiceNumber = "INV/" + romans[month-1] + "/" + (customer.code || id);
+
+  const statusKey = year + "-" + String(month).padStart(2,"0") + "-" + id;
+  const isPaid = status[statusKey] === "paid";
+
+  // ---- items & total ----
+  const items = customer.items || [];
+  let total = 0;
+  const rows = items.map((it, idx) => {
+    const qty = Number(it.qty) || 1;
+    const satuan = Number(it.satuan) || 0;
+    const jumlah = Number(it.jumlah) || (qty * satuan);
+    total += jumlah;
+    const desc = esc(it.description) + "<br><em>Periode " + esc(periodText) + "</em>";
+    return '<tr>'
+      + '<td class="c">' + (idx+1) + '</td>'
+      + '<td>' + desc + '</td>'
+      + '<td class="c">' + qty + '</td>'
+      + '<td class="r">' + rupiahNoRp(satuan) + '</td>'
+      + '<td class="r">' + rupiahNoRp(jumlah) + '</td>'
+      + '</tr>';
+  }).join("");
+
+  const logoSrc = (config.issuer && config.issuer.logoUrl) || "";
+  const qrisCardSrc = (config.issuer && config.issuer.qrisCardUrl) || "";
+
+  container.innerHTML = `
+  <div class="invoice">
+    <div class="inv-header">
+      <div class="logo-wrap">
+        ${logoSrc ? `<img src="${esc(logoSrc)}" alt="DALONET">` : '<div class="logo-fallback">D</div>'}
+      </div>
+      <div class="brand-block">
+        <div class="brand-name">${esc(config.issuer.companyName || config.issuer.name)}</div>
+        <div class="brand-tagline">${esc(config.issuer.tagline||"")}</div>
+        <div class="brand-address">${esc(config.issuer.address||"")}</div>
+      </div>
+    </div>
+
+    <div class="wavy"></div>
+
+    <div class="meta-row">
+      <div class="contact-info">
+        <div><span class="k">Email</span>: ${esc(config.issuer.email||"")}</div>
+        <div><span class="k">Telepon</span>: ${esc(config.issuer.phone||"")}</div>
+        <div><span class="k">NPWP</span>: ${esc(config.issuer.npwp||"")}</div>
+      </div>
+      <div class="inv-title">
+        <h2>INVOICE</h2>
+        <div class="meta">
+          <div><span class="k">No</span>: ${esc(invoiceNumber)}</div>
+          <div><span class="k">Tanggal</span>: ${issueDate}</div>
+        </div>
+        <span class="badge ${isPaid?'paid':'unpaid'}">${isPaid?'LUNAS':'BELUM LUNAS'}</span>
+      </div>
+    </div>
+
+    <div class="to-block">
+      <div class="label">Kepada Yth :</div>
+      <div class="name">${esc(customer.name)}</div>
+      ${customer.address ? `<div>${esc(customer.address)}</div>` : ""}
+    </div>
+
+    <table class="items">
+      <thead>
+        <tr>
+          <th style="width:44px">No</th>
+          <th>Nama Barang &amp; Jasa</th>
+          <th style="width:60px">Qty</th>
+          <th style="width:130px">Satuan</th>
+          <th style="width:130px">Jumlah</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows}
+        <tr class="total-row">
+          <td colspan="4" class="lbl">Total</td>
+          <td class="r">${rupiah(total).replace("Rp ","Rp&nbsp;&nbsp;")}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pay-title">Pembayaran dapat melalui QRIS (Pembayaran yang di Rekomendasikan)</div>
+
+    <div class="qr-row">
+      <div class="qr-card">
+        ${qrisCardSrc ? `<img src="${esc(qrisCardSrc)}" alt="QRIS DALONET">` : ""}
+      </div>
+      <div class="qr-code">
+        <div id="qr"></div>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById("actions").style.display = "block";
+
+  if(typeof QRCode !== "undefined"){
+    try {
+      new QRCode(document.getElementById("qr"), {
+        text: makeDynamicQris(STATIC_QRIS, total),
+        width: 220, height: 220,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch(e){
+      document.getElementById("qr").innerHTML = '<div class="qr-fallback">QR gagal dibuat</div>';
+    }
+  } else {
+    document.getElementById("qr").innerHTML = '<div class="qr-fallback">QR library gagal dimuat.<br>Periksa koneksi internet.</div>';
+  }
+})();
+</script>
+</body>
+</html>

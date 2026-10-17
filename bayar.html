@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>Pembayaran WiFi DALONET</title>
 <style>
 :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#17202a;background:#f4f6f8}
@@ -15,7 +16,7 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
     <h1>DALONET</h1>
     <p class="muted">Pembayaran tagihan WiFi melalui QRIS</p>
     <label for="customerId">ID pelanggan</label>
-    <input id="customerId" inputmode="numeric" autocomplete="off" placeholder="Berupa Angka" maxlength="20">
+    <input id="customerId" inputmode="numeric" autocomplete="off" placeholder="Berupa Angka" maxlength="6">
     <button id="checkBtn">Tampilkan Tagihan</button>
     <p id="message" class="error" role="status"></p>
   </div>
@@ -28,7 +29,7 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
       <strong>Scan QRIS dan periksa nominal sebelum membayar</strong>
       <p class="muted">Pastikan nama merchant yang muncul adalah DALONET dan nominal sesuai tagihan.</p>
     </div>
-    <div class="notice">Anda tidak perlu melakukan konfirmasi pembayaran</div>
+    <div class="notice">Pembayaran akan diverifikasi manual oleh admin DALONET. Simpan bukti transfer</div>
   </section>
   <p class="muted center">DALONET • Simpan bukti pembayaran Anda.</p>
 </main>
@@ -41,20 +42,31 @@ h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-siz
  * Jangan memasukkan nomor telepon, alamat, atau data pribadi yang tidak diperlukan.
  */
 const CUSTOMERS = {
-  "100001-Zakaria": { name: "Zakaria", amount: 100001 },
+  "100001": { name: "Zakaria", amount: 100001 },
   "100002": { name: "Erna", amount: 100002 },
-  "100003": { name: "Sumarno", amount: 100003 }
-  "100004": { name: "Raja", amount: 100004 }
-  "100005": { name: "Suwarno", amount: 100005 }
-  "100006": { name: "Taufik", amount: 100006 }
-  "100007": { name: "Hazlina Dewi", amount: 100007 }
-  "100008": { name: "Budi Karyanto", amount: 100008 }
-  "100009": { name: "Danisa", amount: 100009 }
-  "100010": { name: "Nur Halimah", amount: 100010 }
-  "100011": { name: "Prapto", amount: 100011 }
-  "100012": { name: "Wenny", amount: 100012 }
-  "100013": { name: "Kosim", amount: 100013 }
-  "100014": { name: "Rahmi", amount: 100014 }
+  "100003": { name: "Sumarno", amount: 100003 },
+  "100004": { name: "Raja", amount: 100004 },
+  "100005": { name: "Suwarno", amount: 100005 },
+  "100006": { name: "Taufik", amount: 100006 },
+  "100007": { name: "Hazlina Dewi", amount: 100007 },
+  "100008": { name: "Budi Karyanto", amount: 100008 },
+  "100009": { name: "Danisa", amount: 100009 },
+  "100010": { name: "Nur Halimah", amount: 100010 },
+  "100011": { name: "Prapto", amount: 100011 },
+  "100012": { name: "Wenny", amount: 100012 },
+  "100013": { name: "Kosim", amount: 100013 },
+  "100014": { name: "Rahmi", amount: 100014 },
+  "100015": { name: "Kisma", amount: 100015 },
+  "100016": { name: "Hendri R", amount: 100016 },
+  "100017": { name: "Tidak Ada", amount: 100017 },
+  "100018": { name: "Firman", amount: 100018 },
+  "100019": { name: "Olivia Situmorang", amount: 100019 },
+  "100020": { name: "Safruddin", amount: 100020 },
+  "100021": { name: "Hermanto", amount: 100021 },
+  "100022": { name: "Krismanto", amount: 100022 },
+  "100023": { name: "Anwar", amount: 100023 },
+  "100024": { name: "Fajar", amount: 100024 },
+  "100025": { name: "Aan Qomarno", amount: 100025 },
 };
 
 /* Payload QRIS statis yang dibaca dari QRIS DALONET yang diberikan pemilik. */
@@ -103,7 +115,8 @@ $("checkBtn").addEventListener("click", () => {
   try {
     const payload = makeDynamicQris(STATIC_QRIS, customer.amount);
     $("showId").textContent = id;
-    $("showName").textContent = customer.name;
+    const mask = s => s.length <= 3 ? s.slice(0,1) + "**" : s.slice(0,3) + "***";
+    $("showName").textContent = mask(customer.name);
     $("showAmount").textContent = rupiah(customer.amount);
     if (typeof QRCode === "undefined") throw new Error("Library QR tidak berhasil dimuat. Periksa koneksi internet lalu muat ulang halaman.");
     new QRCode($("qr"), {text: payload, width: 260, height: 260, correctLevel: QRCode.CorrectLevel.M});

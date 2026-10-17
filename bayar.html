@@ -2,45 +2,254 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#c9152b">
 <title>Pembayaran WiFi DALONET</title>
 <style>
-:root{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#17202a;background:#f4f6f8}
-*{box-sizing:border-box}body{margin:0;padding:20px}.wrap{max-width:520px;margin:0 auto}.card{background:white;border:1px solid #e1e5e9;border-radius:16px;padding:22px;margin:12px 0;box-shadow:0 3px 14px #00000008}
-h1{font-size:25px;margin:0 0 6px}p{line-height:1.5}.muted{color:#65717d;font-size:14px}label{display:block;font-weight:650;margin:16px 0 7px}input{width:100%;font-size:18px;padding:13px;border:1px solid #c8d0d8;border-radius:9px}button{width:100%;margin-top:12px;padding:13px;border:0;border-radius:9px;background:#c9152b;color:white;font-size:16px;font-weight:700;cursor:pointer}.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #eef0f2}.amount{font-size:27px;font-weight:800}.center{text-align:center}#qr{display:flex;justify-content:center;margin:18px auto}#qr img,#qr canvas{max-width:100%;height:auto!important}.hidden{display:none}.error{color:#b00020}.notice{background:#fff7e5;border:1px solid #f2d28a;padding:12px;border-radius:9px;font-size:13px}
+:root{
+  --brand:#c9152b;
+  --brand-dark:#a2101f;
+  --brand-soft:#fdecee;
+  --bg:#f4f6f8;
+  --card:#ffffff;
+  --text:#17202a;
+  --muted:#65717d;
+  --border:#e1e5e9;
+  --border-strong:#c8d0d8;
+  --warning-bg:#fff7e5;
+  --warning-border:#f2d28a;
+  --radius:16px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);
+  --shadow-md:0 6px 24px rgba(0,0,0,.06);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-text-size-adjust:100%;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{min-height:100vh;padding:clamp(14px,4vw,28px) clamp(14px,4vw,20px);line-height:1.5}
+.wrap{max-width:520px;margin:0 auto}
+
+/* Brand header */
+.brand{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+.brand-mark{
+  width:38px;height:38px;flex:0 0 38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:16px;
+  box-shadow:var(--shadow-sm);
+}
+h1{font-size:clamp(20px,5vw,23px);margin:0;letter-spacing:.2px}
+.tagline{margin:2px 0 0;color:var(--muted);font-size:14px}
+
+/* Cards */
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:clamp(18px,4.5vw,24px);
+  margin:12px 0;box-shadow:var(--shadow-sm);
+}
+
+/* Form */
+label{display:block;font-weight:650;font-size:14px;margin:0 0 7px;color:#2a3540}
+input{
+  width:100%;font-size:clamp(16px,4.5vw,18px);
+  padding:14px 16px;border:1.5px solid var(--border-strong);
+  border-radius:11px;background:#fff;color:var(--text);
+  transition:border-color .15s,box-shadow .15s;
+  font-variant-numeric:tabular-nums;letter-spacing:.5px;
+}
+input::placeholder{color:#9aa5b1;letter-spacing:0}
+input:focus{
+  outline:none;border-color:var(--brand);
+  box-shadow:0 0 0 3px var(--brand-soft);
+}
+.field-hint{color:var(--muted);font-size:13px;margin:8px 0 0}
+
+/* Buttons */
+button{
+  width:100%;font-family:inherit;font-size:16px;font-weight:700;
+  padding:14px 16px;border-radius:11px;border:0;cursor:pointer;
+  transition:transform .06s ease, background .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-primary{
+  margin-top:16px;background:var(--brand);color:#fff;
+  box-shadow:0 4px 14px rgba(201,21,43,.22);
+}
+.btn-primary:hover{background:var(--brand-dark)}
+.btn-primary:active{transform:translateY(1px)}
+.btn-primary:focus-visible{
+  outline:none;
+  box-shadow:0 0 0 3px var(--brand-soft),0 4px 14px rgba(201,21,43,.22);
+}
+.btn-secondary{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;margin-top:10px;padding:12px 16px;
+  background:#fff;color:var(--brand);border:1.5px solid var(--brand);
+  border-radius:11px;text-decoration:none;font-weight:700;font-size:15px;
+  transition:background .15s, transform .06s;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-secondary:hover{background:var(--brand-soft)}
+.btn-secondary:active{transform:translateY(1px)}
+.btn-secondary:focus-visible{outline:none;box-shadow:0 0 0 3px var(--brand-soft)}
+.btn-secondary svg{flex:0 0 auto}
+
+/* Message */
+.message{margin:12px 0 0;font-size:14px;min-height:1.2em}
+.message.error{color:#b00020}
+.message:empty{margin:0;min-height:0}
+
+/* Result */
+.result-head{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding-bottom:14px;border-bottom:1px solid var(--border);
+  margin-bottom:6px;
+}
+.result-title{
+  font-weight:700;font-size:13px;color:var(--muted);
+  letter-spacing:.6px;text-transform:uppercase;margin:0;
+}
+.badge-verified{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12px;font-weight:700;color:var(--brand);
+  background:var(--brand-soft);padding:4px 10px;border-radius:999px;
+}
+.row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;font-size:15px}
+.row + .row{border-top:1px dashed var(--border)}
+.row > span:first-child{color:var(--muted)}
+.row strong{font-weight:650;text-align:right;word-break:break-word}
+.amount-row{align-items:center;padding:16px 0 4px;border-top:1px solid var(--border)!important}
+.amount-label{font-size:14px;color:var(--muted);font-weight:600}
+.amount{
+  font-size:clamp(24px,7vw,30px);font-weight:800;
+  letter-spacing:-.3px;color:var(--brand);font-variant-numeric:tabular-nums;
+}
+
+/* QR */
+.qr-block{margin-top:20px;text-align:center}
+.qr-frame{
+  display:inline-flex;padding:14px;background:#fff;
+  border:1.5px solid var(--border);border-radius:14px;
+  box-shadow:var(--shadow-md);position:relative;
+}
+.qr-frame::before,.qr-frame::after{
+  content:"";position:absolute;width:16px;height:16px;border:3px solid var(--brand);
+}
+.qr-frame::before{top:-3px;left:-3px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.qr-frame::after{bottom:-3px;right:-3px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+#qr{display:flex;justify-content:center}
+#qr img,#qr canvas{max-width:100%;height:auto!important;display:block}
+.qr-note{margin:14px auto 0;font-size:14px;font-weight:650;color:var(--text)}
+.qr-subnote{margin:4px 0 0;font-size:13px;color:var(--muted)}
+
+/* Notice */
+.notice{
+  margin-top:18px;background:var(--warning-bg);
+  border:1px solid var(--warning-border);border-radius:11px;
+  padding:12px 14px;font-size:13px;line-height:1.55;color:#5b4708;
+  display:flex;gap:10px;
+}
+.notice-icon{flex:0 0 auto;font-size:16px;line-height:1.2}
+
+/* Help & footer */
+.help{margin-top:14px;text-align:center;font-size:13px;color:var(--muted)}
+.help a{color:var(--brand);font-weight:650;text-decoration:none}
+.help a:hover{text-decoration:underline}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+footer .dot{opacity:.5;margin:0 6px}
+
+/* Small screens */
+@media (max-width:380px){
+  .row{font-size:14px}
+  .brand-mark{width:34px;height:34px;flex-basis:34px;font-size:15px}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+
+.hidden{display:none!important}
 </style>
 </head>
-<body><main class="wrap">
-  <div class="card">
-    <h1>DALONET</h1>
-    <p class="muted">Pembayaran tagihan WiFi melalui QRIS</p>
-    <label for="customerId">ID pelanggan</label>
-    <input id="customerId" inputmode="numeric" autocomplete="off" placeholder="Berupa Angka" maxlength="6">
-    <button id="checkBtn">Tampilkan Tagihan</button>
-    <p id="message" class="error" role="status"></p>
-  </div>
-  <section id="result" class="card hidden">
-    <div class="row"><span>ID pelanggan</span><strong id="showId"></strong></div>
-    <div class="row"><span>Nama pelanggan</span><strong id="showName"></strong></div>
-    <div class="row"><span>Total tagihan</span><span class="amount" id="showAmount"></span></div>
-    <div class="center">
-      <div id="qr" aria-label="QRIS pembayaran"></div>
-      <strong>Scan QRIS dan periksa nominal sebelum membayar</strong>
-      <p class="muted">Pastikan nama merchant yang muncul adalah DALONET dan nominal sesuai tagihan.</p>
+<body>
+<main class="wrap">
+
+  <header class="brand" aria-label="DALONET">
+    <div class="brand-mark" aria-hidden="true">D</div>
+    <div>
+      <h1>DALONET</h1>
+      <p class="tagline">Pembayaran tagihan WiFi via QRIS</p>
     </div>
-    <div class="notice">Pembayaran akan diverifikasi manual oleh admin DALONET. Simpan bukti transfer</div>
+  </header>
+
+  <section class="card" aria-labelledby="formTitle">
+    <h2 id="formTitle" hidden>Cek tagihan</h2>
+    <label for="customerId">ID Pelanggan</label>
+    <input id="customerId" inputmode="numeric" autocomplete="off"
+           placeholder="Contoh: 100001" maxlength="6" enterkeyhint="go"
+           aria-describedby="fieldHint">
+    <p id="fieldHint" class="field-hint">Masukkan 6 angka ID pelanggan Anda.</p>
+
+    <button id="checkBtn" class="btn-primary" type="button">Tampilkan Tagihan</button>
+
+    <a href="cara-pembayaran.html" class="btn-secondary"
+       aria-label="Buka halaman cara pembayaran">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      Cara Pembayaran
+    </a>
+
+    <p id="message" class="message error" role="status" aria-live="polite"></p>
   </section>
-  <p class="muted center">DALONET • Simpan bukti pembayaran Anda.</p>
+
+  <section id="result" class="card hidden" aria-labelledby="resultTitle">
+    <div class="result-head">
+      <h2 id="resultTitle" class="result-title">Detail Tagihan</h2>
+      <span class="badge-verified">✓ Data ditemukan</span>
+    </div>
+
+    <div class="row"><span>ID Pelanggan</span><strong id="showId"></strong></div>
+    <div class="row"><span>Nama Pelanggan</span><strong id="showName"></strong></div>
+
+    <div class="row amount-row">
+      <span class="amount-label">Total Tagihan</span>
+      <span class="amount" id="showAmount"></span>
+    </div>
+
+    <div class="qr-block">
+      <div class="qr-frame">
+        <div id="qr" aria-label="Kode QRIS pembayaran"></div>
+      </div>
+      <p class="qr-note">Scan QRIS dan periksa nominal sebelum membayar</p>
+      <p class="qr-subnote">Pastikan nama merchant <strong>DALONET</strong> dan nominal sesuai tagihan.</p>
+    </div>
+
+    <div class="notice">
+      <span class="notice-icon" aria-hidden="true">ℹ️</span>
+      <div>Pembayaran akan diverifikasi manual oleh admin DALONET. <strong>Simpan bukti transfer.</strong></div>
+    </div>
+  </section>
+
+  <p class="help">
+    Belum tahu caranya?
+    <a href="cara-pembayaran.html">Lihat panduan pembayaran →</a>
+  </p>
+
+  <footer>DALONET <span class="dot">•</span> Simpan bukti pembayaran Anda</footer>
 </main>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
-/*
- * DAFTAR TAGIHAN MANUAL:
- * Ubah contoh di bawah sesuai tagihan pelanggan setiap bulan.
- * Data ini berada di file publik; siapa pun dapat melihatnya lewat browser.
- * Jangan memasukkan nomor telepon, alamat, atau data pribadi yang tidak diperlukan.
- */
+/* ===== DATA & LOGIKA TIDAK DIUBAH ===== */
 const CUSTOMERS = {
   "100001": { name: "Zakaria", amount: 100001 },
   "100002": { name: "Erna", amount: 100002 },
@@ -69,7 +278,6 @@ const CUSTOMERS = {
   "100025": { name: "Aan Qomarno", amount: 100025 },
 };
 
-/* Payload QRIS statis yang dibaca dari QRIS DALONET yang diberikan pemilik. */
 const STATIC_QRIS = "00020101021126570011ID.DANA.WWW011893600915347475729702094747572970303UMI51440014ID.CO.QRIS.WWW0215ID10210679698860303UMI5204737253033605802ID5907DALONET6015Kab. Tanjung Ja6105367616304A4A7";
 
 function crc16ccitt(text) {
@@ -87,14 +295,12 @@ function tlv(id, value) {
 }
 function makeDynamicQris(staticPayload, amount) {
   if (!Number.isSafeInteger(amount) || amount <= 0) throw new Error("Nominal tagihan tidak valid.");
-  // Remove the final CRC TLV, then change point-of-initiation method 11 (static) to 12 (dynamic).
   let body = staticPayload.slice(0, -4);
   if (!body.endsWith("6304")) throw new Error("Format QRIS sumber tidak dikenali.");
   body = body.slice(0, -4);
   body = body.replace("010211", "010212");
   if (!body.includes("5303360")) throw new Error("Kode mata uang IDR tidak ditemukan.");
   if (body.includes("54")) throw new Error("Payload sumber sudah memiliki field nominal; perlu pemeriksaan manual.");
-  // QRIS amount field (54) goes after currency field (53) and before country code (58).
   const marker = "5303360";
   const pos = body.indexOf(marker);
   const insertAt = pos + marker.length;
@@ -104,6 +310,7 @@ function makeDynamicQris(staticPayload, amount) {
 }
 const rupiah = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
 const $ = id => document.getElementById(id);
+
 $("checkBtn").addEventListener("click", () => {
   $("message").textContent = "";
   $("result").classList.add("hidden");

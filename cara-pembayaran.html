@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#c9152b">
+<title>Cara Pembayaran — DALONET</title>
+<style>
+:root{
+  --brand:#c9152b;
+  --brand-dark:#a2101f;
+  --brand-soft:#fdecee;
+  --bg:#f4f6f8;
+  --card:#fff;
+  --text:#17202a;
+  --muted:#65717d;
+  --border:#e1e5e9;
+  --border-strong:#c8d0d8;
+  --warning-bg:#fff7e5;
+  --warning-border:#f2d28a;
+  --radius:16px;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);
+  --shadow-md:0 6px 24px rgba(0,0,0,.06);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-text-size-adjust:100%;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{min-height:100vh;padding:clamp(14px,4vw,28px) clamp(14px,4vw,20px);line-height:1.55}
+.wrap{max-width:600px;margin:0 auto}
+
+/* Header */
+.brand{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+.brand-mark{
+  width:38px;height:38px;flex:0 0 38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:800;font-size:16px;
+  box-shadow:var(--shadow-sm);
+}
+h1{font-size:clamp(20px,5vw,23px);margin:0;letter-spacing:.2px}
+.tagline{margin:2px 0 0;color:var(--muted);font-size:14px}
+
+/* Back */
+.back{
+  display:inline-flex;align-items:center;gap:6px;
+  margin:0 0 12px;color:var(--brand);font-weight:700;
+  text-decoration:none;font-size:14px;
+}
+.back:hover{text-decoration:underline}
+.back:focus-visible{outline:none;border-radius:6px;box-shadow:0 0 0 3px var(--brand-soft)}
+
+/* Cards */
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:clamp(18px,4.5vw,24px);
+  margin:12px 0;box-shadow:var(--shadow-sm);
+}
+h2{font-size:17px;margin:0 0 10px;letter-spacing:.2px}
+
+/* Section label */
+.section-label{
+  display:flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  color:var(--muted);margin:22px 0 10px;
+}
+.section-label::after{content:"";flex:1;height:1px;background:var(--border)}
+.app-group:first-of-type .section-label{margin-top:0}
+
+/* Overview */
+.overview{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.overview-step{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:12px 14px;border-radius:12px;
+  background:#f8fafb;border:1px solid var(--border);
+}
+.overview-num{
+  flex:0 0 auto;width:24px;height:24px;border-radius:50%;
+  background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:13px;
+}
+.overview-step p{margin:0;font-size:14px;line-height:1.5}
+
+/* Search */
+.search{position:relative;margin-bottom:6px}
+.search input{
+  width:100%;font-size:15px;padding:13px 14px 13px 42px;
+  border:1.5px solid var(--border-strong);border-radius:11px;
+  background:#fff;font-family:inherit;color:var(--text);
+  transition:border-color .15s,box-shadow .15s;
+}
+.search input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.search-icon{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--muted);pointer-events:none;
+}
+.search-hint{color:var(--muted);font-size:13px;margin:6px 0 0}
+.empty-msg{
+  text-align:center;color:var(--muted);font-size:14px;
+  padding:22px 10px 6px;margin:0;
+}
+
+/* Details / accordion */
+details{
+  border:1px solid var(--border);border-radius:12px;
+  margin-top:8px;background:#fff;overflow:hidden;
+  transition:border-color .15s;
+}
+details[open]{border-color:#cdd5dc;box-shadow:var(--shadow-sm)}
+summary{
+  padding:14px 16px;cursor:pointer;font-weight:700;font-size:15px;
+  list-style:none;display:flex;align-items:center;gap:12px;
+  -webkit-tap-highlight-color:transparent;
+}
+summary::-webkit-details-marker{display:none}
+summary:focus-visible{outline:none;background:var(--brand-soft)}
+summary::after{
+  content:"+";margin-left:auto;font-size:22px;color:var(--muted);
+  font-weight:400;line-height:1;flex:0 0 auto;
+}
+details[open] summary::after{content:"−"}
+.summary-icon{
+  flex:0 0 auto;width:34px;height:34px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:12px;color:#fff;letter-spacing:.3px;
+  font-family:inherit;
+}
+.summary-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.summary-text strong{font-size:15px;font-weight:700;line-height:1.3}
+.summary-text small{font-size:12px;color:var(--muted);font-weight:500}
+.details-body{padding:0 16px 16px}
+.details-body ol{margin:8px 0 0;padding-left:22px;line-height:1.65}
+.details-body li{margin-bottom:8px}
+.details-body li:last-child{margin-bottom:0}
+.details-body p{margin:8px 0 0;font-size:14px}
+
+/* Brand icon colors */
+.bg-dana{background:#118EEA}
+.bg-ovo{background:#4C3494}
+.bg-gopay{background:#00AED6}
+.bg-shopee{background:#EE4D2D}
+.bg-linkaja{background:#E82529}
+.bg-seabank{background:#F1661A}
+.bg-jenius{background:#00224F}
+.bg-bca{background:#0060AE}
+.bg-bri{background:#00529C}
+.bg-mandiri{background:#FDB913;color:#17202a}
+.bg-bni{background:#F36F21}
+.bg-bsi{background:#00A19C}
+.bg-cimb{background:#B00020}
+.bg-permata{background:#00A3A5}
+.bg-btn{background:#00539F}
+.bg-danamon{background:#005AA9}
+.bg-bjb{background:#2C3690}
+.bg-mega{background:#ED1C24}
+.bg-pan{background:#003D7C}
+.bg-ocbc{background:#0053A0}
+.bg-generic{background:#5a6672}
+
+/* Notice */
+.notice{
+  margin-top:16px;background:var(--warning-bg);
+  border:1px solid var(--warning-border);border-radius:11px;
+  padding:12px 14px;font-size:13px;line-height:1.55;color:#5b4708;
+  display:flex;gap:10px;
+}
+.notice-icon{flex:0 0 auto;font-size:16px;line-height:1.2}
+
+/* Tips */
+.tips{margin:0;padding:0;list-style:none}
+.tips li{
+  display:flex;gap:10px;align-items:flex-start;
+  padding:10px 0;font-size:14px;border-top:1px dashed var(--border);
+}
+.tips li:first-child{border-top:0;padding-top:0}
+.tips li::before{content:"✓";flex:0 0 auto;color:var(--brand);font-weight:800}
+
+/* FAQ */
+.faq details:first-of-type{margin-top:0}
+
+/* Footer */
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:22px}
+footer .dot{opacity:.5;margin:0 6px}
+
+.hidden{display:none!important}
+
+@media (max-width:380px){
+  .summary-icon{width:30px;height:30px;flex-basis:30px;font-size:11px}
+  .summary-text strong{font-size:14px}
+  summary{padding:12px 14px}
+  .details-body{padding:0 14px 14px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<a href="bayar.html" class="back">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+       stroke-linejoin="round" aria-hidden="true">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+  Kembali ke Pembayaran
+</a>
+
+<header class="brand" aria-label="DALONET">
+  <div class="brand-mark" aria-hidden="true">D</div>
+  <div>
+    <h1>Cara Pembayaran</h1>
+    <p class="tagline">Panduan scan QRIS DALONET</p>
+  </div>
+</header>
+
+<!-- Overview -->
+<section class="card">
+  <h2>Intinya cuma 3 langkah</h2>
+  <ol class="overview">
+    <li class="overview-step">
+      <span class="overview-num">1</span>
+      <p>Di halaman utama, masukkan <strong>ID pelanggan</strong> lalu tekan <strong>Tampilkan Tagihan</strong>.</p>
+    </li>
+    <li class="overview-step">
+      <span class="overview-num">2</span>
+      <p>Buka aplikasi <strong>e-wallet</strong> atau <strong>m-banking</strong> Anda, pilih menu <strong>Scan QRIS</strong>, lalu scan QR yang muncul.</p>
+    </li>
+    <li class="overview-step">
+      <span class="overview-num">3</span>
+      <p>Periksa nama merchant <strong>DALONET</strong> dan nominal <strong>sama persis</strong>, lalu selesaikan pembayaran dan <strong>simpan bukti</strong>.</p>
+    </li>
+  </ol>
+  <div class="notice">
+    <span class="notice-icon" aria-hidden="true">ℹ️</span>
+    <div>Nominal tiap pelanggan <strong>sengaja dibedakan</strong> agar pembayaran mudah dicocokkan. Membayar dengan nominal berbeda dapat memperlambat verifikasi.</div>
+  </div>
+</section>
+
+<!-- Daftar aplikasi -->
+<section class="card">
+  <label for="appSearch" style="display:block;font-weight:650;font-size:14px;margin-bottom:8px">Cari aplikasi / bank Anda</label>
+  <div class="search">
+    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+         stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="M21 21l-4.35-4.35"/>
+    </svg>
+    <input id="appSearch" type="search" inputmode="search" autocomplete="off"
+           placeholder="Contoh: DANA, BCA, OVO…" aria-describedby="searchHint">
+  </div>
+  <p id="searchHint" class="search-hint">Ketik nama aplikasi untuk memfilter daftar di bawah.</p>
+
+  <!-- ============ E-WALLET ============ -->
+  <div class="app-group">
+    <div class="section-label">E-Wallet</div>
+
+    <details data-search="dana e-wallet dompet digital">
+      <summary>
+        <span class="summary-icon bg-dana" aria-hidden="true">DN</span>
+        <span class="summary-text"><strong>DANA</strong><small>Dompet digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>DANA</strong> dan login.</li>
+          <li>Ketuk ikon <strong>Scan QRIS</strong> di bagian atas halaman utama.</li>
+          <li>Arahkan kamera ke QRIS DALONET.</li>
+          <li>Periksa nama merchant <strong>DALONET</strong> dan nominal tagihan.</li>
+          <li>Masukkan PIN DANA untuk menyelesaikan pembayaran.</li>
+          <li><strong>Screenshot</strong> struk sebagai bukti.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="ovo e-wallet dompet digital">
+      <summary>
+        <span class="summary-icon bg-ovo" aria-hidden="true">OV</span>
+        <span class="summary-text"><strong>OVO</strong><small>Dompet digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>OVO</strong>.</li>
+          <li>Ketuk ikon <strong>Scan</strong> di halaman utama.</li>
+          <li>Pilih <strong>Scan QRIS</strong>, arahkan kamera ke QR.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Masukkan PIN OVO.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="gopay gojek e-wallet dompet digital">
+      <summary>
+        <span class="summary-icon bg-gopay" aria-hidden="true">GP</span>
+        <span class="summary-text"><strong>GoPay (Gojek)</strong><small>Dompet digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>Gojek</strong>.</li>
+          <li>Pilih menu <strong>Bayar</strong> → <strong>Scan QR</strong>.</li>
+          <li>Arahkan kamera ke QRIS.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Masukkan PIN GoPay.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="shopeepay shopee e-wallet dompet digital">
+      <summary>
+        <span class="summary-icon bg-shopee" aria-hidden="true">SP</span>
+        <span class="summary-text"><strong>ShopeePay</strong><small>Dompet digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>Shopee</strong> → tab <strong>Saya</strong> → <strong>ShopeePay</strong>.</li>
+          <li>Ketuk ikon <strong>Scan</strong>.</li>
+          <li>Arahkan kamera ke QRIS.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Masukkan PIN ShopeePay.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="linkaja link aja e-wallet dompet digital">
+      <summary>
+        <span class="summary-icon bg-linkaja" aria-hidden="true">LA</span>
+        <span class="summary-text"><strong>LinkAja</strong><small>Dompet digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>LinkAja</strong>.</li>
+          <li>Ketuk ikon <strong>Scan QRIS</strong>.</li>
+          <li>Arahkan kamera ke QRIS.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Masukkan PIN LinkAja.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="seabank sea bank bank digital e-wallet">
+      <summary>
+        <span class="summary-icon bg-seabank" aria-hidden="true">SB</span>
+        <span class="summary-text"><strong>SeaBank</strong><small>Aplikasi bank digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>SeaBank</strong>.</li>
+          <li>Pilih menu <strong>Scan</strong> / <strong>QRIS</strong>.</li>
+          <li>Arahkan kamera ke QRIS DALONET.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Masukkan PIN SeaBank.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="jenius btpns bank digital">
+      <summary>
+        <span class="summary-icon bg-jenius" aria-hidden="true">JN</span>
+        <span class="summary-text"><strong>Jenius</strong><small>Aplikasi bank digital</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>Jenius</strong>.</li>
+          <li>Pilih <strong>Scan &amp; Pay</strong> / <strong>QRIS</strong>.</li>
+          <li>Arahkan kamera ke QRIS.</li>
+          <li>Periksa nama merchant dan nominal.</li>
+          <li>Konfirmasi dengan PIN / biometrik.</li>
+          <li>Simpan bukti pembayaran.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <!-- ============ M-BANKING ============ -->
+  <div class="app-group">
+    <div class="section-label">M-Banking</div>
+
+    <details data-search="bca mobile m-bca bank central asia">
+      <summary>
+        <span class="summary-icon bg-bca" aria-hidden="true">BCA</span>
+        <span class="summary-text"><strong>BCA Mobile</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BCA Mobile</strong> dan login.</li>
+          <li>Pilih menu <strong>m-Transfer</strong> → <strong>QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN m-BCA.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="brimo bri mobile bank rakyat indonesia">
+      <summary>
+        <span class="summary-icon bg-bri" aria-hidden="true">BRI</span>
+        <span class="summary-text"><strong>BRImo (BRI)</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BRImo</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong> pada menu utama.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN BRImo.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="livin mandiri bank">
+      <summary>
+        <span class="summary-icon bg-mandiri" aria-hidden="true">MDR</span>
+        <span class="summary-text"><strong>Livin' by Mandiri</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>Livin' by Mandiri</strong> dan login.</li>
+          <li>Pilih <strong>Bayar</strong> → <strong>Scan QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN Livin'.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="bni mobile banking bank negara indonesia">
+      <summary>
+        <span class="summary-icon bg-bni" aria-hidden="true">BNI</span>
+        <span class="summary-text"><strong>BNI Mobile Banking</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BNI Mobile Banking</strong> dan login.</li>
+          <li>Pilih menu <strong>QRIS</strong> / <strong>Scan QR</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="bsi bank syariah indonesia byond">
+      <summary>
+        <span class="summary-icon bg-bsi" aria-hidden="true">BSI</span>
+        <span class="summary-text"><strong>BSI Mobile (Byond)</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BSI Mobile</strong> (Byond) dan login.</li>
+          <li>Pilih menu <strong>QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="cimb niaga octo mobile">
+      <summary>
+        <span class="summary-icon bg-cimb" aria-hidden="true">CMB</span>
+        <span class="summary-text"><strong>CIMB Niaga (OCTO Mobile)</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>OCTO Mobile</strong> dan login.</li>
+          <li>Pilih menu <strong>QRIS</strong> / <strong>Scan QR</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="permata permataMobileX permata mobile x">
+      <summary>
+        <span class="summary-icon bg-permata" aria-hidden="true">PMT</span>
+        <span class="summary-text"><strong>PermataMobile X</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>PermataMobile X</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong> / <strong>Scan</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="btn bank tabungan negara mobile">
+      <summary>
+        <span class="summary-icon bg-btn" aria-hidden="true">BTN</span>
+        <span class="summary-text"><strong>BTN Mobile</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BTN Mobile</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="danamon bank mobile">
+      <summary>
+        <span class="summary-icon bg-danamon" aria-hidden="true">DNM</span>
+        <span class="summary-text"><strong>Danamon Mobile</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>Danamon Mobile</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong> / <strong>Scan</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="bjb bank jabar banten digi">
+      <summary>
+        <span class="summary-icon bg-bjb" aria-hidden="true">BJB</span>
+        <span class="summary-text"><strong>BJB Digi</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>BJB Digi</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="mega bank mobile">
+      <summary>
+        <span class="summary-icon bg-mega" aria-hidden="true">MGA</span>
+        <span class="summary-text"><strong>Mega Mobile</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>Mega Mobile</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong> / <strong>Scan QR</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="panin bank mobile">
+      <summary>
+        <span class="summary-icon bg-pan" aria-hidden="true">PNN</span>
+        <span class="summary-text"><strong>Panin Mobile</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka <strong>Panin Mobile</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="ocbc nyala bank mobile">
+      <summary>
+        <span class="summary-icon bg-ocbc" aria-hidden="true">OCB</span>
+        <span class="summary-text"><strong>OCBC (NYALA)</strong><small>M-Banking</small></span>
+      </summary>
+      <div class="details-body">
+        <ol>
+          <li>Buka aplikasi <strong>OCBC</strong> dan login.</li>
+          <li>Pilih <strong>QRIS</strong> / <strong>Scan QR</strong>.</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details data-search="bank lain lain-lain generic semua bank atm internet banking">
+      <summary>
+        <span class="summary-icon bg-generic" aria-hidden="true">+</span>
+        <span class="summary-text"><strong>Bank lain</strong><small>Hampir semua m-banking mendukung QRIS</small></span>
+      </summary>
+      <div class="details-body">
+        <p>Caranya serupa untuk bank mana pun yang mendukung QRIS (mis. Maybank, UOB, Sinarmas, Bank Jateng, Bank Sumsel Babel, dll.):</p>
+        <ol>
+          <li>Buka aplikasi m-banking Anda dan login.</li>
+          <li>Cari menu <strong>QRIS</strong> atau <strong>Scan QR</strong> (biasanya di menu <em>Transfer</em> atau <em>Bayar</em>).</li>
+          <li>Scan QRIS DALONET.</li>
+          <li>Periksa nama merchant dan nominal, lalu konfirmasi.</li>
+          <li>Masukkan PIN.</li>
+          <li>Simpan bukti transaksi.</li>
+        </ol>
+      </div>
+    </details>
+  </div>
+
+  <p id="emptyMsg" class="empty-msg hidden" aria-live="polite">
+    Tidak ada aplikasi yang cocok. Coba kata kunci lain atau hubungi admin DALONET.
+  </p>
+</section>
+
+<!-- Tips -->
+<section class="card">
+  <h2>Tips agar pembayaran lancar</h2>
+  <ul class="tips">
+    <li>Naikkan kecerahan layar dan pastikan QR tidak terpotong.</li>
+    <li>Kalau gagal scan, <strong>screenshot</strong> QR lalu pilih opsi scan dari galeri.</li>
+    <li>Gunakan koneksi internet yang stabil.</li>
+    <li>Periksa nama merchant <strong>DALONET</strong> sebelum konfirmasi.</li>
+    <li>Nominal harus <strong>sama persis</strong> dengan yang tampil di halaman pembayaran.</li>
+    <li>Selalu <strong>simpan bukti pembayaran</strong> sampai admin mengonfirmasi.</li>
+  </ul>
+</section>
+
+<!-- FAQ -->
+<section class="card faq">
+  <h2>Pertanyaan umum</h2>
+
+  <details>
+    <summary><span class="summary-text"><strong>Apa itu QRIS?</strong></span></summary>
+    <div class="details-body">
+      <p>QRIS (Quick Response Code Indonesian Standard) adalah standar kode QR pembayaran nasional. Satu QRIS bisa dibayar dari <strong>semua</strong> e-wallet dan m-banking yang mendukung QRIS.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="summary-text"><strong>Kenapa nominal saya berbeda dengan pelanggan lain?</strong></span></summary>
+    <div class="details-body">
+      <p>Nominal sengaja dibuat berbeda per pelanggan supaya admin mudah mencocokkan pembayaran yang masuk. Mohon bayar <strong>sesuai nominal yang muncul</strong>, jangan dibulatkan.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="summary-text"><strong>Berapa lama verifikasi pembayaran?</strong></span></summary>
+    <div class="details-body">
+      <p>Pembayaran diverifikasi <strong>secara manual</strong> oleh admin DALONET. Simpan bukti transfer dan hubungi admin bila dalam waktu lama status belum diperbarui.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="summary-text"><strong>Sudah bayar tapi tagihan masih muncul?</strong></span></summary>
+    <div class="details-body">
+      <p>Halaman ini menampilkan tagihan <strong>bulan berjalan</strong>. Kalau pembayaran sudah diverifikasi admin tapi halaman masih menampilkan tagihan lama, hubungi admin dengan menyertakan bukti transfer.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="summary-text"><strong>Bisa bayar lewat ATM atau internet banking?</strong></span></summary>
+    <div class="details-body">
+      <p>Bisa, asalkan ATM/IB Anda mendukung <strong>transfer ke QRIS</strong>. Pilih menu QRIS, scan kode dari halaman pembayaran, lalu konfirmasi. Kalau ATM Anda tidak memiliki menu QRIS, gunakan m-banking atau e-wallet.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary><span class="summary-text"><strong>Nominal terlanjur salah, bagaimana?</strong></span></summary>
+    <div class="details-body">
+      <p>Hubungi admin DALONET dengan menyertakan bukti transfer. Pembayaran tetap akan dicocokkan secara manual, namun proses verifikasi bisa lebih lama.</p>
+    </div>
+  </details>
+</section>
+
+<footer>DALONET <span class="dot">•</span> Simpan bukti pembayaran Anda</footer>
+</main>
+
+<script>
+(function(){
+  var input = document.getElementById('appSearch');
+  var groups = document.querySelectorAll('.app-group');
+  var empty = document.getElementById('emptyMsg');
+  if (!input || !groups.length) return;
+
+  function norm(s){ return (s || '').toLowerCase().replace(/\s+/g, ' ').trim(); }
+
+  input.addEventListener('input', function(){
+    var q = norm(input.value);
+    var totalVisible = 0;
+    groups.forEach(function(g){
+      var items = g.querySelectorAll('details[data-search]');
+      var visible = 0;
+      items.forEach(function(d){
+        var hay = norm(d.getAttribute('data-search') || '');
+        var show = !q || hay.indexOf(q) !== -1;
+        d.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      g.classList.toggle('hidden', visible === 0);
+      totalVisible += visible;
+    });
+    if (empty) empty.classList.toggle('hidden', totalVisible > 0);
+  });
+})();
+</script>
+</body>
+</html>

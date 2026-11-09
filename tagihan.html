@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Membuka Pembayaran DALONET</title>
+</head>
+<body>
+  <h3>Membuka Pembayaran DALONET...</h3>
+  <p id="status">Mengarahkan ke browser yang sesuai.</p>
+
+  <script>
+    const url = "https://dalonet.github.io/bayar";
+
+    const ua = navigator.userAgent;
+
+    if (/iPhone|iPad|iPod/i.test(ua)) {
+      document.getElementById("status").innerText =
+        "Silakan buka halaman melalui Safari.";
+
+      window.location.href = url;
+
+    } else if (/Android/i.test(ua)) {
+      document.getElementById("status").innerText =
+        "Mencoba membuka Google Chrome...";
+
+      window.location.href =
+        "intent://dalonet.github.io/bayar#Intent;scheme=https;package=com.android.chrome;end";
+
+      setTimeout(() => {
+        document.getElementById("status").innerHTML =
+          '<a href="' + url + '">Buka halaman pembayaran</a>';
+      }, 2000);
+
+    } else {
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>

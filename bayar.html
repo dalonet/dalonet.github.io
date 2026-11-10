@@ -683,8 +683,7 @@ $("checkBtn").addEventListener("click", () => {
   try {
     const payload = makeDynamicQris(STATIC_QRIS, customer.amount);
     $("showId").textContent = id;
-    const mask = s => s.length <= 3 ? s.slice(0,1) + "**" : s.slice(0,3) + "***";
-    $("showName").textContent = mask(customer.name);
+    $("showName").textContent = customer.name;
     $("showPackage").textContent = customer.package || "-";
     $("showType").textContent = customer.type || "-";
     $("showAmount").textContent = rupiah(customer.amount);

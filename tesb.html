@@ -121,6 +121,26 @@ button{
 .row + .row{border-top:1px dashed var(--border)}
 .row > span:first-child{color:var(--muted)}
 .row strong{font-weight:650;text-align:right;word-break:break-word}
+/* Status Pembayaran */
+.status-badge{
+  display:inline-block;
+  padding:5px 12px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.status-lunas{
+  color:#166534;
+  background:#dcfce7;
+  border:1px solid #86efac;
+}
+
+.status-belum-lunas{
+  color:#b91c1c;
+  background:#fee2e2;
+  border:1px solid #fca5a5;
+}
 .amount-row{align-items:center;padding:16px 0 4px;border-top:1px solid var(--border)!important}
 .amount-label{font-size:14px;color:var(--muted);font-weight:600}
 .amount{
@@ -384,8 +404,20 @@ $("checkBtn").addEventListener("click", async () => {
     $("showPackage").textContent = customer.package || "-";
     $("showType").textContent = customer.type || "-";
     $("showAmount").textContent = rupiah(customer.amount);
-    $("showStatus").textContent = customer.status;
 
+const statusElement = $("showStatus");
+const statusText = String(customer.status || "").trim();
+
+statusElement.textContent = statusText || "Belum ada status";
+statusElement.className = "status-badge";
+
+const normalizedStatus = statusText.toLowerCase();
+
+if (normalizedStatus === "lunas") {
+  statusElement.classList.add("status-lunas");
+} else if (normalizedStatus === "belum lunas") {
+  statusElement.classList.add("status-belum-lunas");
+  }
     if (typeof QRCode === "undefined") {
       throw new Error("Library QR tidak berhasil dimuat.");
     }

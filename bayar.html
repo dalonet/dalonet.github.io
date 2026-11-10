@@ -274,51 +274,43 @@ footer .dot{opacity:.5;margin:0 6px}
 <script>
 /* ===== DATA & LOGIKA TIDAK DIUBAH ===== */
 
-const CSV_URL = "https://docs.google.com/spreadsheets/d/1hHl7Oj_xSwD041LVzcurddQ_CpB8l6JJeLEt7zxP8Xw/export?format=csv";
-
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzM3cMo3QqD8CNVOcYCZ-AiRfbp8G2QsU2EVC1hAIxSshu2cfAjTCPA2WfI_M-2qJGB4Q/exec";
+  
 // Membaca data pelanggan dari Google Spreadsheet
+
 async function getCustomer(customerId) {
-  const response = await fetch(CSV_URL, {
-    cache: "no-store"
-  });
-
-  if (!response.ok) {
-    throw new Error("Tidak dapat mengambil data spreadsheet.");
-  }
-
-  const csvText = await response.text();
-
-  const parsed = Papa.parse(csvText, {
-    header: true,
-    skipEmptyLines: true
-  });
-
-  if (parsed.errors.length > 0) {
-    throw new Error("Format data spreadsheet tidak valid.");
-  }
-
-  // Menyamakan format nama kolom
-  const rows = parsed.data.map(row => {
-    const normalized = {};
-
-    Object.keys(row).forEach(key => {
-      normalized[key.replace(/^\uFEFF/, "").trim().toLowerCase()] =
-        String(row[key] ?? "").trim();
-    });
-
-    return normalized;
-  });
-
-  // Cari pelanggan berdasarkan ID
-  const customer = rows.find(row =>
-    row["id pelanggan"] === customerId
+  const response = await fetch(
+    APPS_SCRIPT_URL + "?id=" + encodeURIComponent(customerId),
+    {
+      cache: "no-store"
+    }
   );
 
-  if (!customer) return null;
+  if (!response.ok) {
+    throw new Error("Tidak dapat mengambil data pelanggan.");
+  }
+
+  const result = await response.json();
+
+  if (!result.success) {
+    if (result.message === "ID pelanggan tidak ditemukan.") {
+      return null;
+    }
+
+    throw new Error(
+      result.message || "Gagal mengambil data pelanggan."
+    );
+  }
+
+  if (!result.customer) {
+    throw new Error("Data pelanggan tidak valid.");
+  }
+
+  const customer = result.customer;
 
   // Mengambil nominal tagihan
   const amount = Number(
-    String(customer["total tagihan"]).replace(/[^\d]/g, "")
+    String(customer.amount).replace(/[^\d]/g, "")
   );
 
   if (!Number.isSafeInteger(amount) || amount <= 0) {
@@ -326,14 +318,13 @@ async function getCustomer(customerId) {
   }
 
   return {
-    name: customer["nama pelanggan"],
-    package: customer["paket langganan"],
-    type: customer["jenis langganan"],
+    name: customer.name,
+    package: customer.package,
+    type: customer.type,
     amount: amount,
-    status: customer["status"] || "Belum ada status"
+    status: customer.status || "Belum ada status"
   };
 }
-  
 
 const STATIC_QRIS = "00020101021126570011ID.DANA.WWW011893600915347475729702094747572970303UMI51440014ID.CO.QRIS.WWW0215ID10210679698860303UMI5204737253033605802ID5907DALONET6015Kab. Tanjung Ja6105367616304A4A7";
 

@@ -394,40 +394,69 @@ $("checkBtn").addEventListener("click", async () => {
       return;
     }
 
-    const payload = makeDynamicQris(
-      STATIC_QRIS,
-      customer.amount
-    );
-
+    // Menampilkan data pelanggan
     $("showId").textContent = id;
-    $("showName").textContent = customer.name;
+    $("showName").textContent = customer.name || "-";
     $("showPackage").textContent = customer.package || "-";
     $("showType").textContent = customer.type || "-";
     $("showAmount").textContent = rupiah(customer.amount);
 
-const statusElement = $("showStatus");
-const statusText = String(customer.status || "").trim();
+    // Mengatur status pembayaran
+    const statusElement = $("showStatus");
+    const statusText = String(customer.status || "").trim();
+    const normalizedStatus = statusText.toLowerCase();
 
-statusElement.textContent = statusText || "Belum ada status";
-statusElement.className = "status-badge";
+    statusElement.textContent = statusText || "Status tidak tersedia";
+    statusElement.className = "status-badge";
 
-const normalizedStatus = statusText.toLowerCase();
+    // Mengambil pembungkus QRIS dan pemberitahuan
+    const qrBlock = $("qr").closest(".qr-block");
+    const paymentNotice = $("result").querySelector(".notice");
 
-if (normalizedStatus === "lunas") {
-  statusElement.classList.add("status-lunas");
-} else if (normalizedStatus === "belum lunas") {
-  statusElement.classList.add("status-belum-lunas");
-  }
-    if (typeof QRCode === "undefined") {
-      throw new Error("Library QR tidak berhasil dimuat.");
+    // Membersihkan QRIS sebelumnya
+    $("qr").replaceChildren();
+
+    if (normalizedStatus === "lunas") {
+
+      // Pelanggan sudah lunas
+      statusElement.classList.add("status-lunas");
+
+      qrBlock.classList.add("hidden");
+      paymentNotice.classList.add("hidden");
+
+    } else if (normalizedStatus === "belum lunas") {
+
+      // Pelanggan belum lunas
+      statusElement.classList.add("status-belum-lunas");
+
+      qrBlock.classList.remove("hidden");
+      paymentNotice.classList.remove("hidden");
+
+      // Membuat QRIS hanya untuk pelanggan belum lunas
+      if (typeof QRCode === "undefined") {
+        throw new Error("Library QR tidak berhasil dimuat.");
+      }
+
+      const payload = makeDynamicQris(
+        STATIC_QRIS,
+        customer.amount
+      );
+
+      new QRCode($("qr"), {
+        text: payload,
+        width: 260,
+        height: 260,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+    } else {
+
+      // Status kosong atau tidak dikenal
+      statusElement.textContent = "Status perlu dikonfirmasi admin";
+
+      qrBlock.classList.add("hidden");
+      paymentNotice.classList.add("hidden");
     }
-
-    new QRCode($("qr"), {
-      text: payload,
-      width: 260,
-      height: 260,
-      correctLevel: QRCode.CorrectLevel.M
-    });
 
     $("result").classList.remove("hidden");
 

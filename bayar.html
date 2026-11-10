@@ -415,12 +415,11 @@ $("checkBtn").addEventListener("click", async () => {
 
     // Membersihkan QRIS sebelumnya
     $("qr").replaceChildren();
-
+    
     if (normalizedStatus === "lunas") {
-
       // Pelanggan sudah lunas
       statusElement.classList.add("status-lunas");
-
+      $("showAmount").textContent = "-";
       qrBlock.classList.add("hidden");
       paymentNotice.classList.add("hidden");
 
@@ -450,7 +449,6 @@ $("checkBtn").addEventListener("click", async () => {
       });
 
     } else {
-
       // Status kosong atau tidak dikenal
       statusElement.textContent = "Status perlu dikonfirmasi admin";
 
@@ -459,21 +457,18 @@ $("checkBtn").addEventListener("click", async () => {
     }
 
     $("result").classList.remove("hidden");
-
   } catch (e) {
     $("message").textContent =
       "Tagihan belum dapat dimuat: " + e.message;
-
   } finally {
     button.disabled = false;
     button.textContent = "Tampilkan Tagihan";
   }
 });
-
-$("customerId").addEventListener("keydown", e => {
+  $("customerId").addEventListener("keydown", e => {
   if (e.key === "Enter") $("checkBtn").click();
 });
-  
-  
+
 </script>
-</body></html>
+</body>
+</html>

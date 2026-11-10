@@ -121,6 +121,26 @@ button{
 .row + .row{border-top:1px dashed var(--border)}
 .row > span:first-child{color:var(--muted)}
 .row strong{font-weight:650;text-align:right;word-break:break-word}
+/* Status Pembayaran */
+.status-badge{
+  display:inline-block;
+  padding:5px 12px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:700;
+}
+
+.status-lunas{
+  color:#166534;
+  background:#dcfce7;
+  border:1px solid #86efac;
+}
+
+.status-belum-lunas{
+  color:#b91c1c;
+  background:#fee2e2;
+  border:1px solid #fca5a5;
+}
 .amount-row{align-items:center;padding:16px 0 4px;border-top:1px solid var(--border)!important}
 .amount-label{font-size:14px;color:var(--muted);font-weight:600}
 .amount{
@@ -221,6 +241,7 @@ footer .dot{opacity:.5;margin:0 6px}
     <div class="row"><span>Nama Pelanggan</span><strong id="showName"></strong></div>
     <div class="row"><span>Paket Langganan</span><strong id="showPackage"></strong></div>
     <div class="row"><span>Jenis Langganan</span><strong id="showType"></strong></div>
+    <div class="row"><span>Status Pembayaran</span><strong id="showStatus"></strong></div>
 
     <div class="row amount-row">
       <span class="amount-label">Total Tagihan</span>
@@ -248,396 +269,71 @@ footer .dot{opacity:.5;margin:0 6px}
 
   <footer>DALONET <span class="dot">•</span> Simpan bukti pembayaran Anda</footer>
 </main>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script>
 /* ===== DATA & LOGIKA TIDAK DIUBAH ===== */
-const CUSTOMERS = {
-"11177": {
-  name: "Coastal Radio",
-  package: "10 Mbps",
-  type: "Bisnis Up To",
-  amount: 720000
-},
-"100000": {
-  name: "Ledex",
-  package: "100 Mbps",
-  type: "Dedicated",
-  amount: 8000000
-},
-"100001": {
-  name: "Zakaria",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100001
-},
-"100002": {
-  name: "Erna",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100002
-},
-"100003": {
-  name: "Sumarno",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100003
-},
-"100004": {
-  name: "Raja",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100004
-},
-"100005": {
-  name: "Suwarno",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100005
-},
-"100006": {
-  name: "Taufik",
-  package: "Up To 20 Mbps",
-  type: "Bisnis",
-  amount: 100006
-},
-"100007": {
-  name: "Hazlina Dewi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100007
-},
-"100008": {
-  name: "Budi Karyanto",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100008
-},
-"100009": {
-  name: "Danisa",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100009
-},
-"100010": {
-  name: "Nur Halimah",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150010
-},
-"100011": {
-  name: "Prapto",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100011
-},
-"100012": {
-  name: "Wenny",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100012
-},
-"100013": {
-  name: "Kosim",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100013
-},
-"100014": {
-  name: "Rahmi",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150014
-},
-"100015": {
-  name: "Kisma",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100015
-},
-"100016": {
-  name: "Hendri R",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100016
-},
-"100017": {
-  name: "Fina",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100017
-},
-"100018": {
-  name: "Firman",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100018
-},
-"100019": {
-  name: "Olivia Situmorang",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100019
-},
-"100020": {
-  name: "Saffrudin",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200020
-},
-"100021": {
-  name: "Hermanto",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100021
-},
-"100022": {
-  name: "Krismanto",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100022
-},
-"100023": {
-  name: "Anwar",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100023
-},
-"100024": {
-  name: "Fajar",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100024
-},
-"100025": {
-  name: "Aan Qomarno",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200025
-},
-"100026": {
-  name: "Wahyudi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100026
-},
-"100027": {
-  name: "Oki",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150027
-},
-"100028": {
-  name: "Femi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100028
-},
-"100029": {
-  name: "M Kamil",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150029
-},
-"100030": {
-  name: "Affandi Daulay",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100030
-},
-"100031": {
-  name: "Dedi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100031
-},
-"100032": {
-  name: "Salimah",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150032
-},
-"100101": {
-  name: "Albakia",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200033
-},
-"100102": {
-  name: "Nurul Siti Aisyah",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200034
-},
-"100103": {
-  name: "Diva",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200035
-},
-"100104": {
-  name: "Muhammad Leon",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150036
-},
-"100105": {
-  name: "Dede",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200037
-},
-"100106": {
-  name: "Alya",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200038
-},
-"100107": {
-  name: "Arsya",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100039
-},
-"100108": {
-  name: "Jihan",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 65040
-},
-"100109": {
-  name: "Aris",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200041
-},
-"101001": {
-  name: "Berlian",
-  package: "50 Mbps",
-  type: "Dedicated",
-  amount: 5000042
-},
-"101002": {
-  name: "Haryadi",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200043
-},
-"101003": {
-  name: "Rani Rini",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200044
-},
-"101004": {
-  name: "Lebak",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 200045
-},
-"101005": {
-  name: "Devi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100046
-},
-"105010": {
-  name: "Wahyu",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100047
-},
-"105030": {
-  name: "Puput",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100048
-},
-"105040": {
-  name: "Jarno",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100049
-},
-"105041": {
-  name: "Syilla",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 150050
-},
-"105050": {
-  name: "Qumai",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100051
-},
-"105051": {
-  name: "Rofi",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100052
-},
-"105070": {
-  name: "Safarudin",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100053
-},
-"105080": {
-  name: "Aji",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 50054
-},
-"105090": {
-  name: "RAM Cendil",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100055
-},
-"105091": {
-  name: "Ilham",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 100056
-},
-"100033": {
-  name: "M Gusro",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 73057
-},
-"100034": {
-  name: "Jumiah",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 70058
-},
-"100110": {
-  name: "Anton Surya Dinata",
-  package: "Up To 33 Mbps",
-  type: "Rumahan",
-  amount: 100059
-},
-"100035": {
-  name: "Suratno",
-  package: "Up To 25 Mbps",
-  type: "Rumahan",
-  amount: 50060
-},
-"100036": {
-  name: "Salma Khairani",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 30061
-},
-"100037": {
-  name: "Sukisno",
-  package: "Up To 20 Mbps",
-  type: "Rumahan",
-  amount: 30062
-},
-};
+
+const CSV_URL = "https://docs.google.com/spreadsheets/d/1hHl7Oj_xSwD041LVzcurddQ_CpB8l6JJeLEt7zxP8Xw/export?format=csv";
+
+// Membaca data pelanggan dari Google Spreadsheet
+async function getCustomer(customerId) {
+  const response = await fetch(CSV_URL, {
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    throw new Error("Tidak dapat mengambil data spreadsheet.");
+  }
+
+  const csvText = await response.text();
+
+  const parsed = Papa.parse(csvText, {
+    header: true,
+    skipEmptyLines: true
+  });
+
+  if (parsed.errors.length > 0) {
+    throw new Error("Format data spreadsheet tidak valid.");
+  }
+
+  // Menyamakan format nama kolom
+  const rows = parsed.data.map(row => {
+    const normalized = {};
+
+    Object.keys(row).forEach(key => {
+      normalized[key.replace(/^\uFEFF/, "").trim().toLowerCase()] =
+        String(row[key] ?? "").trim();
+    });
+
+    return normalized;
+  });
+
+  // Cari pelanggan berdasarkan ID
+  const customer = rows.find(row =>
+    row["id pelanggan"] === customerId
+  );
+
+  if (!customer) return null;
+
+  // Mengambil nominal tagihan
+  const amount = Number(
+    String(customer["total tagihan"]).replace(/[^\d]/g, "")
+  );
+
+  if (!Number.isSafeInteger(amount) || amount <= 0) {
+    throw new Error("Total tagihan pelanggan tidak valid.");
+  }
+
+  return {
+    name: customer["nama pelanggan"],
+    package: customer["paket langganan"],
+    type: customer["jenis langganan"],
+    amount: amount,
+    status: customer["status"] || "Belum ada status"
+  };
+}
+  
 
 const STATIC_QRIS = "00020101021126570011ID.DANA.WWW011893600915347475729702094747572970303UMI51440014ID.CO.QRIS.WWW0215ID10210679698860303UMI5204737253033605802ID5907DALONET6015Kab. Tanjung Ja6105367616304A4A7";
 
@@ -672,28 +368,112 @@ function makeDynamicQris(staticPayload, amount) {
 const rupiah = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n);
 const $ = id => document.getElementById(id);
 
-$("checkBtn").addEventListener("click", () => {
+
+$("checkBtn").addEventListener("click", async () => {
   $("message").textContent = "";
   $("result").classList.add("hidden");
   $("qr").replaceChildren();
+
   const id = $("customerId").value.trim();
-  const customer = CUSTOMERS[id];
-  if (!id) { $("message").textContent = "Masukkan ID pelanggan."; return; }
-  if (!customer) { $("message").textContent = "ID pelanggan tidak ditemukan. Periksa kembali atau hubungi DALONET."; return; }
+
+  if (!id) {
+    $("message").textContent = "Masukkan ID pelanggan.";
+    return;
+  }
+
+  const button = $("checkBtn");
+  button.disabled = true;
+  button.textContent = "Memuat Tagihan...";
+
   try {
-    const payload = makeDynamicQris(STATIC_QRIS, customer.amount);
+    const customer = await getCustomer(id);
+
+    if (!customer) {
+      $("message").textContent =
+        "ID pelanggan tidak ditemukan. Periksa kembali atau hubungi DALONET.";
+      return;
+    }
+
+    // Menampilkan data pelanggan
     $("showId").textContent = id;
-    $("showName").textContent = customer.name;
+    $("showName").textContent = customer.name || "-";
     $("showPackage").textContent = customer.package || "-";
     $("showType").textContent = customer.type || "-";
     $("showAmount").textContent = rupiah(customer.amount);
-    if (typeof QRCode === "undefined") throw new Error("Library QR tidak berhasil dimuat. Periksa koneksi internet lalu muat ulang halaman.");
-    new QRCode($("qr"), {text: payload, width: 260, height: 260, correctLevel: QRCode.CorrectLevel.M});
+
+    // Mengatur status pembayaran
+    const statusElement = $("showStatus");
+    const statusText = String(customer.status || "").trim();
+    const normalizedStatus = statusText.toLowerCase();
+
+    statusElement.textContent = statusText || "Status tidak tersedia";
+    statusElement.className = "status-badge";
+
+    // Mengambil pembungkus QRIS dan pemberitahuan
+    const qrBlock = $("qr").closest(".qr-block");
+    const paymentNotice = $("result").querySelector(".notice");
+
+    // Membersihkan QRIS sebelumnya
+    $("qr").replaceChildren();
+
+    if (normalizedStatus === "lunas") {
+
+      // Pelanggan sudah lunas
+      statusElement.classList.add("status-lunas");
+
+      qrBlock.classList.add("hidden");
+      paymentNotice.classList.add("hidden");
+
+    } else if (normalizedStatus === "belum lunas") {
+
+      // Pelanggan belum lunas
+      statusElement.classList.add("status-belum-lunas");
+
+      qrBlock.classList.remove("hidden");
+      paymentNotice.classList.remove("hidden");
+
+      // Membuat QRIS hanya untuk pelanggan belum lunas
+      if (typeof QRCode === "undefined") {
+        throw new Error("Library QR tidak berhasil dimuat.");
+      }
+
+      const payload = makeDynamicQris(
+        STATIC_QRIS,
+        customer.amount
+      );
+
+      new QRCode($("qr"), {
+        text: payload,
+        width: 260,
+        height: 260,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+
+    } else {
+
+      // Status kosong atau tidak dikenal
+      statusElement.textContent = "Status perlu dikonfirmasi admin";
+
+      qrBlock.classList.add("hidden");
+      paymentNotice.classList.add("hidden");
+    }
+
     $("result").classList.remove("hidden");
+
   } catch (e) {
-    $("message").textContent = "QRIS belum dapat dibuat: " + e.message;
+    $("message").textContent =
+      "Tagihan belum dapat dimuat: " + e.message;
+
+  } finally {
+    button.disabled = false;
+    button.textContent = "Tampilkan Tagihan";
   }
 });
-$("customerId").addEventListener("keydown", e => { if (e.key === "Enter") $("checkBtn").click(); });
+
+$("customerId").addEventListener("keydown", e => {
+  if (e.key === "Enter") $("checkBtn").click();
+});
+  
+  
 </script>
 </body></html>

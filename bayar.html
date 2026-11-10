@@ -219,6 +219,8 @@ footer .dot{opacity:.5;margin:0 6px}
 
     <div class="row"><span>ID Pelanggan</span><strong id="showId"></strong></div>
     <div class="row"><span>Nama Pelanggan</span><strong id="showName"></strong></div>
+    <div class="row"><span>Paket Langganan</span><strong id="showPackage"></strong></div>
+    <div class="row"><span>Jenis Langganan</span><strong id="showType"></strong></div>
 
     <div class="row amount-row">
       <span class="amount-label">Total Tagihan</span>
@@ -251,74 +253,390 @@ footer .dot{opacity:.5;margin:0 6px}
 <script>
 /* ===== DATA & LOGIKA TIDAK DIUBAH ===== */
 const CUSTOMERS = {
-  "100000": { name: "Ledex", amount: 10000000 },
-  "100001": { name: "Zakaria", amount: 100001 },
-  "100002": { name: "Erna", amount: 100002 },
-  "100003": { name: "Sumarno", amount: 100003 },
-  "100004": { name: "Raja", amount: 10000004 },
-  "100005": { name: "Suwarno", amount: 100005 },
-  "100006": { name: "Taufik", amount: 100006 },
-  "100007": { name: "Hazlina Dewi", amount: 100007 },
-  "100008": { name: "Budi Karyanto", amount: 100008 },
-  "100009": { name: "Danisa", amount: 100009 },
-  "100010": { name: "Nur Halimah", amount: 150010 },
-  "100011": { name: "Prapto", amount: 100011 },
-  "100012": { name: "Wenny", amount: 100012 },
-  "100013": { name: "Kosim", amount: 100013 },
-  "100014": { name: "Rahmi", amount: 150014 },
-  "100015": { name: "Kisma", amount: 100015 },
-  "100016": { name: "Hendri R", amount: 100016 },
-  "100017": { name: "Fina", amount: 100017 },
-  "100018": { name: "Firman", amount: 100018 },
-  "100019": { name: "Olivia Situmorang", amount: 100019 },
-  "100020": { name: "Safruddin", amount: 200020 },
-  "100021": { name: "Hermanto", amount: 100021 },
-  "100022": { name: "Krismanto", amount: 100022 },
-  "100023": { name: "Anwar", amount: 100023 },
-  "100024": { name: "Fajar", amount: 100024 },
-  "100025": { name: "Aan Qomarno", amount: 200025 },
-  "100026": { name: "Wahyudi", amount: 100026 },
-  "100027": { name: "Oki", amount: 150027 },
-  "100028": { name: "Femi", amount: 100028 },
-  "100029": { name: "M Kamil", amount: 150029 },
-  "100030": { name: "Afandi Daulay", amount: 100030 },
-  "100031": { name: "Dedi", amount: 100031 },
-  "100032": { name: "Salimah", amount: 150032 },
-  
-  "100101": { name: "Albakia", amount: 200033 },
-  "100102": { name: "Nurul Siti Aisyah", amount: 200034 },
-  "100103": { name: "Diva", amount: 200035 },
-  "100104": { name: "Muhammad Leon", amount: 150036 },
-  "100105": { name: "Dede", amount: 200037 },
-  "100106": { name: "Alya", amount: 200038 },
-  "100107": { name: "Arsya", amount: 100039 },
-  "100108": { name: "Jihan", amount: 65040 },
-  "100109": { name: "Aris", amount: 200041 },
-  
-  "11177": { name: "Coastal Radio", amount: 720000 },
-  
-  "101001": { name: "Berlian", amount: 10000042 },
-  "101002": { name: "Haryadi", amount: 200043 },
-  "101003": { name: "Rani Rini", amount: 200044 },
-  "101004": { name: "Lebak", amount: 200045 },
-  "101005": { name: "Devi", amount: 100046 },
-  "105010": { name: "Wahyu", amount: 100047 },
-  "105030": { name: "Puput", amount: 100048 },
-  "105040": { name: "Jarno", amount: 100049 },
-  "105041": { name: "Syilla", amount: 150050 },
-  "105050": { name: "Qumai", amount: 100051 },
-  "105051": { name: "Rofi", amount: 100052 },
-  "105070": { name: "Saparudin", amount: 100053 },
-  "105080": { name: "Aji", amount: 50054 },
-  "105090": { name: "RAM Cendil", amount: 100055 },
-  "105091": { name: "Ilham", amount: 100056 },
-
-  "100033": { name: "M Gusro", amount: 73057 },
-  "100034": { name: "Jumiah", amount: 70058 },
-  "100110": { name: "Anton", amount: 100059 },
-  "100035": { name: "Suratno", amount: 50060 },
-  "100036": { name: "Salma Khairani", amount: 30061 },
-  "100037": { name: "Sukisno", amount: 30062 },
+"11177": {
+  name: "Coastal Radio",
+  package: "Up To 10 Mbps",
+  type: "Bisnis",
+  amount: 720000
+},
+"100000": {
+  name: "Ledex",
+  package: "100 Mbps",
+  type: "Dedicated",
+  amount: 10000000
+},
+"100001": {
+  name: "Zakaria",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100001
+},
+"100002": {
+  name: "Erna",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100002
+},
+"100003": {
+  name: "Sumarno",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100003
+},
+"100004": {
+  name: "Raja",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100004
+},
+"100005": {
+  name: "Suwarno",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100005
+},
+"100006": {
+  name: "Taufik",
+  package: "Up To 20 Mbps",
+  type: "Bisnis",
+  amount: 100006
+},
+"100007": {
+  name: "Hazlina Dewi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100007
+},
+"100008": {
+  name: "Budi Karyanto",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100008
+},
+"100009": {
+  name: "Danisa",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100009
+},
+"100010": {
+  name: "Nur Halimah",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100010
+},
+"100011": {
+  name: "Prapto",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 100011
+},
+"100012": {
+  name: "Wenny",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100012
+},
+"100013": {
+  name: "Kosim",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100013
+},
+"100014": {
+  name: "Rahmi",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150014
+},
+"100015": {
+  name: "Kisma",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100015
+},
+"100016": {
+  name: "Hendri R",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100016
+},
+"100017": {
+  name: "Fina",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100017
+},
+"100018": {
+  name: "Firman",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100018
+},
+"100019": {
+  name: "Olivia Situmorang",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100019
+},
+"100020": {
+  name: "Saffrudin",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200020
+},
+"100021": {
+  name: "Hermanto",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100021
+},
+"100022": {
+  name: "Krismanto",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100022
+},
+"100023": {
+  name: "Anuar",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100023
+},
+"100024": {
+  name: "Fajar",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100024
+},
+"100025": {
+  name: "Aan Qomarno",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200025
+},
+"100026": {
+  name: "Wahyudi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100026
+},
+"100027": {
+  name: "Oki",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150027
+},
+"100028": {
+  name: "Femi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100028
+},
+"100029": {
+  name: "M Kamil",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150029
+},
+"100030": {
+  name: "Affandi Daulay",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100030
+},
+"100031": {
+  name: "Dedi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100031
+},
+"100032": {
+  name: "Salimah",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150032
+},
+"100101": {
+  name: "Albakia",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200033
+},
+"100102": {
+  name: "Nurul Siti Aisyah",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200034
+},
+"100103": {
+  name: "Diva",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200035
+},
+"100104": {
+  name: "Muhammad Leon",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150036
+},
+"100105": {
+  name: "Dede",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200037
+},
+"100106": {
+  name: "Alya",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200038
+},
+"100107": {
+  name: "Arsya",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100039
+},
+"100108": {
+  name: "Jihan",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 65040
+},
+"100109": {
+  name: "Aris",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200041
+},
+"101001": {
+  name: "Berlian",
+  package: "50 Mbps",
+  type: "Dedicated",
+  amount: 5000042
+},
+"101002": {
+  name: "Haryadi",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200043
+},
+"101003": {
+  name: "Rani Rini",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200044
+},
+"101004": {
+  name: "Lebak",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 200045
+},
+"101005": {
+  name: "Devi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100046
+},
+"105010": {
+  name: "Wahyu",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100047
+},
+"105030": {
+  name: "Puput",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100048
+},
+"105040": {
+  name: "Jarno",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100049
+},
+"105041": {
+  name: "Syilla",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 150050
+},
+"105050": {
+  name: "Qumai",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100051
+},
+"105051": {
+  name: "Rofi",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100052
+},
+"105070": {
+  name: "Safarudin",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100053
+},
+"105080": {
+  name: "Aji",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 50054
+},
+"105090": {
+  name: "RAM Cendil",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100055
+},
+"105091": {
+  name: "Ilham",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 100056
+},
+"100033": {
+  name: "M Gusro",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 73057
+},
+"100034": {
+  name: "Jumiah",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 70058
+},
+"100110": {
+  name: "Anton Surya Dinata",
+  package: "Up To 33 Mbps",
+  type: "Rumahan",
+  amount: 100059
+},
+"100035": {
+  name: "Suratno",
+  package: "Up To 25 Mbps",
+  type: "Rumahan",
+  amount: 50060
+},
+"100036": {
+  name: "Salma Khairani",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 30061
+},
+"100037": {
+  name: "Sukisno",
+  package: "Up To 20 Mbps",
+  type: "Rumahan",
+  amount: 30062
+},
 };
 
 const STATIC_QRIS = "00020101021126570011ID.DANA.WWW011893600915347475729702094747572970303UMI51440014ID.CO.QRIS.WWW0215ID10210679698860303UMI5204737253033605802ID5907DALONET6015Kab. Tanjung Ja6105367616304A4A7";
@@ -367,6 +685,8 @@ $("checkBtn").addEventListener("click", () => {
     $("showId").textContent = id;
     const mask = s => s.length <= 3 ? s.slice(0,1) + "**" : s.slice(0,3) + "***";
     $("showName").textContent = mask(customer.name);
+    $("showPackage").textContent = customer.package || "-";
+    $("showType").textContent = customer.type || "-";
     $("showAmount").textContent = rupiah(customer.amount);
     if (typeof QRCode === "undefined") throw new Error("Library QR tidak berhasil dimuat. Periksa koneksi internet lalu muat ulang halaman.");
     new QRCode($("qr"), {text: payload, width: 260, height: 260, correctLevel: QRCode.CorrectLevel.M});

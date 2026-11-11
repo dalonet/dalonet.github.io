@@ -217,6 +217,25 @@ button{
   font-size:13px;
   color:#555555 !important;
 }
+
+
+/* PAKSA QRIS TETAP PUTIH PADA DARK MODE */
+.qr-frame,
+.qr-frame #qr,
+.qr-frame #qr img,
+.qr-frame #qr canvas {
+  background-color: #ffffff !important;
+  color-scheme: only light !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
+/* Pastikan gambar QR tidak dibalik warnanya */
+.qr-frame #qr img,
+.qr-frame #qr canvas {
+  filter: none !important;
+  opacity: 1 !important;
+}
   
 /* Notice */
 .notice{

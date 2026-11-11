@@ -114,8 +114,8 @@ button{
 }
 .badge-verified{
   display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:var(--brand);
-  background:var(--brand-soft);padding:4px 10px;border-radius:999px;
+  font-size:12px;font-weight:700;color:#2563eb;
+  background:#dbeafe;padding:4px 10px;border-radius:999px;
 }
 .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;font-size:15px}
 .row + .row{border-top:1px dashed var(--border)}
@@ -149,94 +149,22 @@ button{
 }
 
 /* QR */
-.qr-block{
-  margin-top:20px;
-  text-align:center;
-  color-scheme:light;
-  background:#ffffff !important;
-}
-
+.qr-block{margin-top:20px;text-align:center}
 .qr-frame{
-  display:inline-flex;
-  padding:14px;
-  background:#ffffff !important;
-  color-scheme:light;
-  border:1.5px solid var(--border);
-  border-radius:14px;
-  box-shadow:var(--shadow-md);
-  position:relative;
+  display:inline-flex;padding:14px;background:#fff;
+  border:1.5px solid var(--border);border-radius:14px;
+  box-shadow:var(--shadow-md);position:relative;
 }
-
 .qr-frame::before,.qr-frame::after{
-  content:"";
-  position:absolute;
-  width:16px;
-  height:16px;
-  border:3px solid var(--brand);
+  content:"";position:absolute;width:16px;height:16px;border:3px solid var(--brand);
 }
+.qr-frame::before{top:-3px;left:-3px;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.qr-frame::after{bottom:-3px;right:-3px;border-left:0;border-top:0;border-bottom-right-radius:10px}
+#qr{display:flex;justify-content:center}
+#qr img,#qr canvas{max-width:100%;height:auto!important;display:block}
+.qr-note{margin:14px auto 0;font-size:14px;font-weight:650;color:var(--text)}
+.qr-subnote{margin:4px 0 0;font-size:13px;color:var(--muted)}
 
-.qr-frame::before{
-  top:-3px;
-  left:-3px;
-  border-right:0;
-  border-bottom:0;
-  border-top-left-radius:10px;
-}
-
-.qr-frame::after{
-  bottom:-3px;
-  right:-3px;
-  border-left:0;
-  border-top:0;
-  border-bottom-right-radius:10px;
-}
-
-#qr{
-  display:flex;
-  justify-content:center;
-  background:#ffffff !important;
-  color-scheme:light;
-}
-
-#qr img,#qr canvas{
-  max-width:100%;
-  height:auto!important;
-  display:block;
-  background:#ffffff !important;
-}
-
-.qr-note{
-  margin:14px auto 0;
-  font-size:14px;
-  font-weight:650;
-  color:#222222 !important;
-}
-
-.qr-subnote{
-  margin:4px 0 0;
-  font-size:13px;
-  color:#555555 !important;
-}
-
-
-/* PAKSA QRIS TETAP PUTIH PADA DARK MODE */
-.qr-frame,
-.qr-frame #qr,
-.qr-frame #qr img,
-.qr-frame #qr canvas {
-  background-color: #ffffff !important;
-  color-scheme: only light !important;
-  filter: none !important;
-  mix-blend-mode: normal !important;
-}
-
-/* Pastikan gambar QR tidak dibalik warnanya */
-.qr-frame #qr img,
-.qr-frame #qr canvas {
-  filter: none !important;
-  opacity: 1 !important;
-}
-  
 /* Notice */
 .notice{
   margin-top:18px;background:var(--warning-bg);

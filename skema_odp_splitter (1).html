@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skema ODP & Splitter Rasio Estafet</title>
+    <style>
+        :root {
+            --bg-main: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-primary: #2c3e50;
+            --primary-color: #3498db;
+            --primary-hover: #2980b9;
+            --success-color: #2ecc71;
+            --warning-color: #f1c40f;
+            --danger-color: #e74c3c;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        header h1 { margin: 0; font-size: 24px; }
+        header p { margin: 5px 0 0 0; opacity: 0.9; font-size: 14px; }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: var(--card-bg);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .tab-btn {
+            padding: 10px 16px;
+            border: none;
+            background-color: #edf2f7;
+            color: #4a5568;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        .tab-btn:hover { background-color: #cbd5e0; }
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 24px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .card.active { display: block; }
+        .card h2 {
+            margin-top: 0;
+            font-size: 18px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            color: #1a365d;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: #f7fafc;
+            color: #4a5568;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+        tr:hover { background-color: #f8fafc; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .badge-input { background-color: #ebf8ff; color: #2b6cb0; }
+        .badge-ratio { background-color: #feebc8; color: #c05621; }
+        .badge-drop { background-color: #e6fffa; color: #234e52; }
+        .badge-main { background-color: #faf5ff; color: #553c9a; }
+        
+        .odp-col { font-weight: 600; text-align: center; }
+        .odp-4 { color: #2b6cb0; background-color: #f0f8ff; }
+        .odp-8 { color: #2f855a; background-color: #f0fff4; }
+        .odp-16 { color: #c53030; background-color: #fff5f5; }
+
+        .footer-note {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #718096;
+            background: #f7fafc;
+            padding: 10px 15px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 0 6px 6px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Skema Kalkulasi Jaringan ODP Bertingkat</h1>
+        <p>Acuan Nilai Output Splitter Tap Rasio & Output Port ODP (1:4, 1:8, 1:16) Berbasis Input Utama OLT +10 dBm</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab('utama')">🛣️ Jalur Utama (15 Titik)</button>
+        <button class="tab-btn" onclick="openTab('lorong5')">🚪 Lorong 5 Titik (30%)</button>
+        <button class="tab-btn" onclick="openTab('lorong2')">🚪 Lorong 2 Titik (15%)</button>
+        <button class="tab-btn" onclick="openTab('lorong3')">🚪 Lorong 3 Titik (18%)</button>
+        <button class="tab-btn" onclick="openTab('lorong4')">🚪 Lorong 4 Titik (20%)</button>
+        <button class="tab-btn" onclick="openTab('lorong6')">🚪 Lorong 6 Titik (35%)</button>
+    </div>
+
+    <!-- JALUR UTAMA -->
+    <div id="utama" class="card active">
+        <h2>🛣️ Jalur Utama Jalan Raya (15 Titik Estafet)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Utama Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Titik 1</td><td><span class="badge badge-input">+9.80</span></td><td><span class="badge badge-ratio">5 : 95</span></td><td><span class="badge badge-drop">-3.21</span></td><td class="odp-col odp-4">-10.51</td><td class="odp-col odp-8">-13.71</td><td class="odp-col odp-16">-16.91</td><td><span class="badge badge-main">+9.58</span></td></tr>
+                    <tr><td>Titik 2</td><td><span class="badge badge-input">+9.38</span></td><td><span class="badge badge-ratio">5 : 95</span></td><td><span class="badge badge-drop">-3.63</span></td><td class="odp-col odp-4">-10.93</td><td class="odp-col odp-8">-14.13</td><td class="odp-col odp-16">-17.33</td><td><span class="badge badge-main">+9.16</span></td></tr>
+                    <tr><td>Titik 3</td><td><span class="badge badge-input">+8.96</span></td><td><span class="badge badge-ratio">6 : 94</span></td><td><span class="badge badge-drop">-3.26</span></td><td class="odp-col odp-4">-10.56</td><td class="odp-col odp-8">-13.76</td><td class="odp-col odp-16">-16.96</td><td><span class="badge badge-main">+8.69</span></td></tr>
+                    <tr><td>Titik 4</td><td><span class="badge badge-input">+8.49</span></td><td><span class="badge badge-ratio">6 : 94</span></td><td><span class="badge badge-drop">-3.73</span></td><td class="odp-col odp-4">-11.03</td><td class="odp-col odp-8">-14.23</td><td class="odp-col odp-16">-17.43</td><td><span class="badge badge-main">+8.22</span></td></tr>
+                    <tr><td>Titik 5</td><td><span class="badge badge-input">+8.02</span></td><td><span class="badge badge-ratio">7 : 93</span></td><td><span class="badge badge-drop">-3.53</span></td><td class="odp-col odp-4">-10.83</td><td class="odp-col odp-8">-14.03</td><td class="odp-col odp-16">-17.23</td><td><span class="badge badge-main">+7.71</span></td></tr>
+                    <tr><td>Titik 6</td><td><span class="badge badge-input">+7.51</span></td><td><span class="badge badge-ratio">8 : 92</span></td><td><span class="badge badge-drop">-3.46</span></td><td class="odp-col odp-4">-10.76</td><td class="odp-col odp-8">-13.96</td><td class="odp-col odp-16">-17.16</td><td><span class="badge badge-main">+7.15</span></td></tr>
+                    <tr><td>Titik 7</td><td><span class="badge badge-input">+6.95</span></td><td><span class="badge badge-ratio">9 : 91</span></td><td><span class="badge badge-drop">-3.51</span></td><td class="odp-col odp-4">-10.81</td><td class="odp-col odp-8">-14.01</td><td class="odp-col odp-16">-17.21</td><td><span class="badge badge-main">+6.54</span></td></tr>
+                    <tr><td>Titik 8</td><td><span class="badge badge-input">+6.34</span></td><td><span class="badge badge-ratio">10 : 90</span></td><td><span class="badge badge-drop">-3.66</span></td><td class="odp-col odp-4">-10.96</td><td class="odp-col odp-8">-14.16</td><td class="odp-col odp-16">-17.36</td><td><span class="badge badge-main">+5.88</span></td></tr>
+                    <tr><td>Titik 9</td><td><span class="badge badge-input">+5.68</span></td><td><span class="badge badge-ratio">12 : 88</span></td><td><span class="badge badge-drop">-3.53</span></td><td class="odp-col odp-4">-10.83</td><td class="odp-col odp-8">-14.03</td><td class="odp-col odp-16">-17.23</td><td><span class="badge badge-main">+5.12</span></td></tr>
+                    <tr><td>Titik 10</td><td><span class="badge badge-input">+4.92</span></td><td><span class="badge badge-ratio">15 : 85</span></td><td><span class="badge badge-drop">-3.32</span></td><td class="odp-col odp-4">-10.62</td><td class="odp-col odp-8">-13.82</td><td class="odp-col odp-16">-17.02</td><td><span class="badge badge-main">+4.22</span></td></tr>
+                    <tr><td>Titik 11</td><td><span class="badge badge-input">+4.02</span></td><td><span class="badge badge-ratio">18 : 82</span></td><td><span class="badge badge-drop">-3.43</span></td><td class="odp-col odp-4">-10.73</td><td class="odp-col odp-8">-13.93</td><td class="odp-col odp-16">-17.13</td><td><span class="badge badge-main">+3.16</span></td></tr>
+                    <tr><td>Titik 12</td><td><span class="badge badge-input">+2.96</span></td><td><span class="badge badge-ratio">25 : 75</span></td><td><span class="badge badge-drop">-3.06</span></td><td class="odp-col odp-4">-10.36</td><td class="odp-col odp-8">-13.56</td><td class="odp-col odp-16">-16.76</td><td><span class="badge badge-main">+1.71</span></td></tr>
+                    <tr><td>Titik 13</td><td><span class="badge badge-input">+1.51</span></td><td><span class="badge badge-ratio">35 : 65</span></td><td><span class="badge badge-drop">-3.05</span></td><td class="odp-col odp-4">-10.35</td><td class="odp-col odp-8">-13.55</td><td class="odp-col odp-16">-16.75</td><td><span class="badge badge-main">-0.36</span></td></tr>
+                    <tr><td>Titik 14</td><td><span class="badge badge-input">-0.56</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-3.57</span></td><td class="odp-col odp-4">-10.87</td><td class="odp-col odp-8">-14.07</td><td class="odp-col odp-16">-17.27</td><td><span class="badge badge-main">-3.57</span></td></tr>
+                    <tr><td>Titik 15</td><td><span class="badge badge-input">-3.77</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-3.77</span></td><td class="odp-col odp-4">-11.07</td><td class="odp-col odp-8">-14.27</td><td class="odp-col odp-16">-17.47</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="footer-note">ℹ️ <b>Keterangan Teknis JALUR UTAMA:</b> Sinyal di setiap ujung port drop sangat konsisten berkisar <b>-3.06 dBm s/d -3.77 dBm</b>, sehingga sangat aman dipasangkan ODP PLC apa saja. Perhitungan menyertakan estimasi loss kabel + sambungan konektor fisik lapangan sebesar 0.2 dB per segmen 150 meter.</div>
+    </div>
+
+    <!-- LORONG 5 TITIK -->
+    <div id="lorong5" class="card">
+        <h2>🚪 Jalur Percabangan Lorong - Kapasitas 5 Titik (Rasio Cabang Gerbang 30%/70%)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Lorong Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lorong 1</td><td><span class="badge badge-input">+2.50</span></td><td><span class="badge badge-ratio">15 : 85</span></td><td><span class="badge badge-drop">-3.46</span></td><td class="odp-col odp-4">-10.76</td><td class="odp-col odp-8">-13.96</td><td class="odp-col odp-16">-17.16</td><td><span class="badge badge-main">+1.80</span></td></tr>
+                    <tr><td>Lorong 2</td><td><span class="badge badge-input">+1.60</span></td><td><span class="badge badge-ratio">18 : 82</span></td><td><span class="badge badge-drop">-3.58</span></td><td class="odp-col odp-4">-10.88</td><td class="odp-col odp-8">-14.08</td><td class="odp-col odp-16">-17.28</td><td><span class="badge badge-main">+0.74</span></td></tr>
+                    <tr><td>Lorong 3</td><td><span class="badge badge-input">+0.74</span></td><td><span class="badge badge-ratio">25 : 75</span></td><td><span class="badge badge-drop">-3.44</span></td><td class="odp-col odp-4">-10.74</td><td class="odp-col odp-8">-13.94</td><td class="odp-col odp-16">-17.14</td><td><span class="badge badge-main">-0.71</span></td></tr>
+                    <tr><td>Lorong 4</td><td><span class="badge badge-input">-0.91</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-3.92</span></td><td class="odp-col odp-4">-11.22</td><td class="odp-col odp-8">-14.42</td><td class="odp-col odp-16">-17.62</td><td><span class="badge badge-main">-3.92</span></td></tr>
+                    <tr><td>Lorong 5</td><td><span class="badge badge-input">-4.12</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-4.12</span></td><td class="odp-col odp-4">-11.42</td><td class="odp-col odp-8">-14.62</td><td class="odp-col odp-16">-17.82</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LORONG 2 TITIK -->
+    <div id="lorong2" class="card">
+        <h2>🚪 Jalur Percabangan Lorong - Kapasitas 2 Titik (Rasio Cabang Gerbang 15%/85%)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Lorong Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lorong 1</td><td><span class="badge badge-input">-0.52</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-3.53</span></td><td class="odp-col odp-4">-10.83</td><td class="odp-col odp-8">-14.03</td><td class="odp-col odp-16">-17.23</td><td><span class="badge badge-main">-3.53</span></td></tr>
+                    <tr><td>Lorong 2</td><td><span class="badge badge-input">-3.73</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-3.73</span></td><td class="odp-col odp-4">-11.03</td><td class="odp-col odp-8">-14.23</td><td class="odp-col odp-16">-17.43</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LORONG 3 TITIK -->
+    <div id="lorong3" class="card">
+        <h2>🚪 Jalur Percabangan Lorong - Kapasitas 3 Titik (Rasio Cabang Gerbang 18%/82%)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Lorong Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lorong 1</td><td><span class="badge badge-input">-0.16</span></td><td><span class="badge badge-ratio">45 : 55</span></td><td><span class="badge badge-drop">-3.03</span></td><td class="odp-col odp-4">-10.33</td><td class="odp-col odp-8">-13.53</td><td class="odp-col odp-16">-16.73</td><td><span class="badge badge-main">-2.16</span></td></tr>
+                    <tr><td>Lorong 2</td><td><span class="badge badge-input">-2.36</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-5.37</span></td><td class="odp-col odp-4">-12.67</td><td class="odp-col odp-8">-15.87</td><td class="odp-col odp-16">-19.07</td><td><span class="badge badge-main">-5.37</span></td></tr>
+                    <tr><td>Lorong 3</td><td><span class="badge badge-input">-5.57</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-5.57</span></td><td class="odp-col odp-4">-12.87</td><td class="odp-col odp-8">-16.07</td><td class="odp-col odp-16">-19.27</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LORONG 4 TITIK -->
+    <div id="lorong4" class="card">
+        <h2>🚪 Jalur Percabangan Lorong - Kapasitas 4 Titik (Rasio Cabang Gerbang 20%/80%)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Lorong Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lorong 1</td><td><span class="badge badge-input">+0.46</span></td><td><span class="badge badge-ratio">25 : 75</span></td><td><span class="badge badge-drop">-3.56</span></td><td class="odp-col odp-4">-10.86</td><td class="odp-col odp-8">-14.06</td><td class="odp-col odp-16">-17.26</td><td><span class="badge badge-main">-0.21</span></td></tr>
+                    <tr><td>Lorong 2</td><td><span class="badge badge-input">-0.41</span></td><td><span class="badge badge-ratio">35 : 65</span></td><td><span class="badge badge-drop">-3.38</span></td><td class="odp-col odp-4">-10.68</td><td class="odp-col odp-8">-13.88</td><td class="odp-col odp-16">-17.08</td><td><span class="badge badge-main">-1.68</span></td></tr>
+                    <tr><td>Lorong 3</td><td><span class="badge badge-input">-1.88</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-4.89</span></td><td class="odp-col odp-4">-12.19</td><td class="odp-col odp-8">-15.39</td><td class="odp-col odp-16">-18.59</td><td><span class="badge badge-main">-4.89</span></td></tr>
+                    <tr><td>Lorong 4</td><td><span class="badge badge-input">-5.09</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-5.09</span></td><td class="odp-col odp-4">-12.39</td><td class="odp-col odp-8">-15.59</td><td class="odp-col odp-16">-18.79</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- LORONG 6 TITIK -->
+    <div id="lorong6" class="card">
+        <h2>🚪 Jalur Percabangan Lorong - Kapasitas 6 Titik (Rasio Cabang Gerbang 35%/65%)</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titik Ke-</th>
+                        <th>Input (dBm)</th>
+                        <th>Rasio Splitter</th>
+                        <th>Output Drop (dBm)</th>
+                        <th>Output ODP 1:4 (dBm)</th>
+                        <th>Output ODP 1:8 (dBm)</th>
+                        <th>Output ODP 1:16 (dBm)</th>
+                        <th>Jalur Lorong Lanjutan (dBm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Lorong 1</td><td><span class="badge badge-input">+3.22</span></td><td><span class="badge badge-ratio">15 : 85</span></td><td><span class="badge badge-drop">-3.52</span></td><td class="odp-col odp-4">-10.82</td><td class="odp-col odp-8">-14.02</td><td class="odp-col odp-16">-17.22</td><td><span class="badge badge-main">+2.14</span></td></tr>
+                    <tr><td>Lorong 2</td><td><span class="badge badge-input">+1.94</span></td><td><span class="badge badge-ratio">18 : 82</span></td><td><span class="badge badge-drop">-3.91</span></td><td class="odp-col odp-4">-11.21</td><td class="odp-col odp-8">-14.41</td><td class="odp-col odp-16">-17.61</td><td><span class="badge badge-main">+0.66</span></td></tr>
+                    <tr><td>Lorong 3</td><td><span class="badge badge-input">+0.46</span></td><td><span class="badge badge-ratio">25 : 75</span></td><td><span class="badge badge-drop">-3.56</span></td><td class="odp-col odp-4">-10.86</td><td class="odp-col odp-8">-14.06</td><td class="odp-col odp-16">-17.26</td><td><span class="badge badge-main">-1.21</span></td></tr>
+                    <tr><td>Lorong 4</td><td><span class="badge badge-input">-1.41</span></td><td><span class="badge badge-ratio">35 : 65</span></td><td><span class="badge badge-drop">-3.38</span></td><td class="odp-col odp-4">-10.68</td><td class="odp-col odp-8">-13.88</td><td class="odp-col odp-16">-17.08</td><td><span class="badge badge-main">-3.68</span></td></tr>
+                    <tr><td>Lorong 5</td><td><span class="badge badge-input">-3.88</span></td><td><span class="badge badge-ratio">50 : 50</span></td><td><span class="badge badge-drop">-3.89</span></td><td class="odp-col odp-4">-10.69</td><td class="odp-col odp-8">-14.09</td><td class="odp-col odp-16">-17.29</td><td><span class="badge badge-main">-3.89</span></td></tr>
+                    <tr><td>Lorong 6</td><td><span class="badge badge-input">-4.09</span></td><td><span class="badge badge-ratio">Murni Ujung</span></td><td><span class="badge badge-drop">-4.09</span></td><td class="odp-col odp-4">-11.39</td><td class="odp-col odp-8">-14.59</td><td class="odp-col odp-16">-17.79</td><td><span class="badge badge-main" style="background-color:#fed7d7; color:#9b2c2c;">Habis Total</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openTab(tabId) {
+        var i;
+        var cards = document.getElementsByClassName("card");
+        var buttons = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < cards.length; i++) {
+            cards[i].style.display = "none";
+        }
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].className = buttons[i].className.replace(" active", "");
+        }
+        document.getElementById(tabId).style.display = "block";
+        event.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>

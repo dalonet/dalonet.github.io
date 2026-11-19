@@ -242,6 +242,7 @@ footer .dot{opacity:.5;margin:0 6px}
     <div class="row"><span>Paket Langganan</span><strong id="showPackage"></strong></div>
     <div class="row"><span>Jenis Langganan</span><strong id="showType"></strong></div>
     <div class="row"><span>Status Pembayaran</span><strong id="showStatus"></strong></div>
+    <div class="row"><span>ID Tagihan</span><strong id="showBillId"></strong></div>
 
     <div class="row amount-row">
       <span class="amount-label">Total Tagihan</span>
@@ -322,7 +323,8 @@ async function getCustomer(customerId) {
     package: customer.package,
     type: customer.type,
     amount: amount,
-    status: customer.status || "Belum ada status"
+    status: customer.status || "Belum ada status",
+    billId: customer.billId
   };
 }
 

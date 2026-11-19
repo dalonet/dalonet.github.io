@@ -391,6 +391,7 @@ $("checkBtn").addEventListener("click", async () => {
     $("showName").textContent = customer.name || "-";
     $("showPackage").textContent = customer.package || "-";
     $("showType").textContent = customer.type || "-";
+    $("showBillId").textContent = customer.billId || "-";
     $("showAmount").textContent = rupiah(customer.amount);
 
     // Mengatur status pembayaran
